@@ -1,0 +1,104 @@
+{
+  "common": {
+    "readMore": "Lire Plus",
+    "viewAll": "Voir Tous",
+    "contact": "Contactez-nous",
+    "contactUs": "Entrer en Contact",
+    "learnMore": "En Savoir Plus",
+    "getStarted": "Commencer Maintenant",
+    "services": "Services",
+    "about": "À Propos",
+    "blog": "Blog",
+    "home": "Accueil"
+  },
+  "nav": {
+    "services": "Services",
+    "aboutPortugal": "À Propos du Portugal",
+    "aboutNeomarca": "À Propos de Neomarca",
+    "blog": "Blog & Insights",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "title": "Portugal.",
+    "subtitle": "Votre Prochaine Destination d'Investissement et de Carrière.",
+    "description": "Nous offrons des services personnalisés, du conseil stratégique (Neomarca) et une formation d'excellence (2 Siglas) pour garantir votre succès, que ce soit pour investir, entreprendre ou développer votre carrière au Portugal",
+    "ctaInvest": "Je Veux Investir au Portugal",
+    "ctaTraining": "Je Veux me Former"
+  },
+  "whyBizin": {
+    "tag": "Pourquoi Bizin Portugal?",
+    "title": "La Destination Stratégique pour Votre Entreprise et Votre Vie",
+    "badge": "Soutenir les Entrepreneurs Depuis 2018",
+    "investmentAdvisory": {
+      "title": "Conseil en Investissement",
+      "description": "Obtenez des conseils spécialisés pour lancer et financer votre projet au Portugal. Nous soutenons la prise de décision avec analyse de marché, benchmarking et support d'éligibilité pour les incitations et fonds européens, comme Portugal 2030.",
+      "item1": "Conseil pour le Démarrage d'Entreprise et la Stratégie d'Entreprise",
+      "item2": "Accès aux Fonds Nationaux et Européens (Portugal 2030, PRR).",
+      "item3": "Soutien aux Incitations Fiscales et Visas de Résidence (Golden Visa, Startup Visa)."
+    },
+    "humanCapital": {
+      "title": "Capital Humain",
+      "description": "Investissez dans les bonnes compétences pour le marché portugais. Notre offre de formation et de renforcement des capacités est conçue pour les professionnels et entrepreneurs qui recherchent une reconversion, une certification nationale ou une mise à jour des connaissances.",
+      "item1": "Formation Professionnelle Certifiée et Infoproduits",
+      "item2": "Cours et eBooks sur l'Environnement Fiscal et les Opportunités d'Affaires.",
+      "item3": "Soutien au renforcement des capacités pour le marché du travail portugais"
+    }
+  },
+  "success": {
+    "title": "Votre Succès est Notre Métrique.",
+    "capitalFinanced": "Capital Financé et Exploité",
+    "description": "Plus que des consultants, nous sommes des partenaires stratégiques. Les chiffres reflètent notre engagement, notre réseau de contacts et l'impact réel que nous générons sur le marché portugais pour les investisseurs et professionnels internationaux qui choisissent le Portugal.",
+    "clientsSupported": "Clients Étrangers Soutenus",
+    "satisfactionRate": "Taux de Satisfaction"
+  },
+  "cta": {
+    "title1": "Soutien Stratégique,",
+    "title2": "Commencez Maintenant.",
+    "description": "Que ce soit pour démarrer une entreprise, déménager au Portugal ou développer de nouvelles compétences, nous offrons le soutien complet dont vous avez besoin. De l'idée à l'exécution, nous sommes à vos côtés à chaque étape du voyage."
+  },
+  "articles": {
+    "title": "Articles Actualités et Opportunités",
+    "description": "Restez informé sur les incitations, la législation et les tendances du marché.",
+    "tabArticle": "Article",
+    "tabEvents": "Événements",
+    "tabTraining": "Formations",
+    "article1": {
+      "title": "Portugal 2030: Nouvelles Opportunités de Financement",
+      "description": "Découvrez les dernières lignes de soutien pour les PME, startups et projets d'innovation au Portugal. Apprenez comment postuler..."
+    },
+    "article2": {
+      "title": "Guide Complet: Golden Visa vs Startup Visa",
+      "description": "Comparez les options de résidence pour les investisseurs et entrepreneurs. Comprenez les exigences, avantages et processus de candidature..."
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "intro": "Vous avez des questions? Nous avons compilé les questions les plus fréquemment posées sur l'investissement, l'entrepreneuriat et le travail au Portugal. Si vous ne trouvez pas la réponse, nous sommes là pour vous aider.",
+    "q1": "Combien de temps faut-il pour ouvrir une entreprise au Portugal?",
+    "a1": "Le processus varie entre 2 et 4 semaines, selon le type de société et la documentation. Nous accompagnons tout le processus, du choix de la structure juridique à l'enregistrement auprès de l'Autorité Fiscale et de la Sécurité Sociale.",
+    "q2": "Dois-je être au Portugal pour postuler aux fonds européens?",
+    "a2": "Pas nécessairement. Vous pouvez commencer le processus à distance, mais la présence au Portugal est recommandée pour certaines étapes, comme l'ouverture d'un compte bancaire et la signature de documents. Nous vous guidons sur les moments où la présence est obligatoire.",
+    "q3": "Quels visas existent pour les entrepreneurs et investisseurs?",
+    "a3": "Le Portugal propose le Golden Visa (investissement minimum), le Startup Visa (pour les projets innovants), le D2 Visa (entrepreneurs) et le D7 (revenus passifs). Chacun a des exigences spécifiques que nous évaluons avec vous.",
+    "q4": "Comment savoir si je suis éligible aux fonds Portugal 2030?",
+    "a4": "L'éligibilité dépend du secteur, de la taille de l'entreprise, de la localisation et du type de projet. Nous effectuons une analyse gratuite de votre situation et identifions les meilleures opportunités de financement disponibles."
+  },
+  "contactPreview": {
+    "title": "Contactez-nous",
+    "description": "Nous sommes là pour transformer votre projet en réalité. Que ce soit pour investir, entreprendre ou développer des compétences au Portugal, notre équipe d'experts est prête à vous soutenir à chaque étape du processus."
+  },
+  "footer": {
+    "tagline": "Transformer les opportunités européennes en résultats concrets.",
+    "navigation": "Navigation",
+    "legal": "Légal",
+    "followUs": "Suivez-nous",
+    "newsletter": "Newsletter",
+    "newsletterText": "Recevez les dernières nouvelles sur les fonds et incitations",
+    "emailPlaceholder": "Votre email",
+    "subscribe": "S'abonner",
+    "privacyPolicy": "Politique de Confidentialité",
+    "cookiePolicy": "Politique des Cookies",
+    "copyright": "© 2024 Neomarca. Tous droits réservés."
+  }
+}
+

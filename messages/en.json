@@ -1,0 +1,104 @@
+{
+  "common": {
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "contact": "Contact Us",
+    "contactUs": "Get in Touch",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "services": "Services",
+    "about": "About",
+    "blog": "Blog",
+    "home": "Home"
+  },
+  "nav": {
+    "services": "Services",
+    "aboutPortugal": "About Portugal",
+    "aboutNeomarca": "About Neomarca",
+    "blog": "Blog & Insights",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "title": "Portugal.",
+    "subtitle": "Your Next Investment and Career Destination.",
+    "description": "We offer personalized services, strategic consulting (Neomarca) and excellent training (2 Siglas) to ensure your success, whether investing, entrepreneuring or developing your career in Portugal",
+    "ctaInvest": "I Want to Invest in Portugal",
+    "ctaTraining": "I Want Training"
+  },
+  "whyBizin": {
+    "tag": "Why Bizin Portugal?",
+    "title": "The Strategic Destination for Your Business and Life",
+    "badge": "Supporting Entrepreneurs Since 2018",
+    "investmentAdvisory": {
+      "title": "Investment Advisory",
+      "description": "Get specialized consulting to launch and finance your project in Portugal. We support decision-making with market analysis, benchmarking and eligibility support for incentives and European funds, such as Portugal 2030.",
+      "item1": "Business Start-Up Consulting and Corporate Strategy",
+      "item2": "Access to National and European Funds (Portugal 2030, RRP).",
+      "item3": "Support for Tax Incentives and Residence Visas (Golden Visa, Startup Visa)."
+    },
+    "humanCapital": {
+      "title": "Human Capital",
+      "description": "Invest in the right skills for the Portuguese market. Our training and capacity building offer is designed for professionals and entrepreneurs seeking retraining, national certification or knowledge updating.",
+      "item1": "Certified Professional Training and Info Products",
+      "item2": "Courses and eBooks on Tax Environment and Business Opportunities.",
+      "item3": "Support for capacity building for the Portuguese job market"
+    }
+  },
+  "success": {
+    "title": "Your Success is Our Metric.",
+    "capitalFinanced": "Capital Financed and Leveraged",
+    "description": "More than consultants, we are strategic partners. The numbers reflect our commitment, our network of contacts and the real impact we generate in the Portuguese market for international investors and professionals who choose Portugal.",
+    "clientsSupported": "Foreign Clients Supported",
+    "satisfactionRate": "Satisfaction Rate"
+  },
+  "cta": {
+    "title1": "Strategic Support,",
+    "title2": "Start Now.",
+    "description": "Whether to start a business, move to Portugal or develop new skills, we offer the complete support you need. From idea to execution, we are by your side at every step of the journey."
+  },
+  "articles": {
+    "title": "Articles News and Opportunities",
+    "description": "Stay updated on incentives, legislation and market trends.",
+    "tabArticle": "Article",
+    "tabEvents": "Events",
+    "tabTraining": "Training",
+    "article1": {
+      "title": "Portugal 2030: New Financing Opportunities",
+      "description": "Discover the latest support lines for SMEs, startups and innovation projects in Portugal. Learn how to apply..."
+    },
+    "article2": {
+      "title": "Complete Guide: Golden Visa vs Startup Visa",
+      "description": "Compare residence options for investors and entrepreneurs. Understand the requirements, advantages and application process..."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "intro": "Have questions? We've compiled the most frequently asked questions about investing, entrepreneuring and working in Portugal. If you can't find the answer, we're here to help.",
+    "q1": "How long does it take to open a company in Portugal?",
+    "a1": "The process varies between 2 to 4 weeks, depending on the type of company and documentation. We accompany the entire process, from choosing the legal structure to registering with the Tax Authority and Social Security.",
+    "q2": "Do I need to be in Portugal to apply for European funds?",
+    "a2": "Not necessarily. You can start the process remotely, but presence in Portugal is recommended for certain stages, such as opening a bank account and signing documents. We guide you on when presence is mandatory.",
+    "q3": "What visas exist for entrepreneurs and investors?",
+    "a3": "Portugal offers the Golden Visa (minimum investment), Startup Visa (for innovative projects), D2 Visa (entrepreneurs), and D7 (passive income). Each has specific requirements that we evaluate with you.",
+    "q4": "How do I know if I'm eligible for Portugal 2030 funds?",
+    "a4": "Eligibility depends on the sector, company size, location and project type. We provide a free analysis of your situation and identify the best financing opportunities available."
+  },
+  "contactPreview": {
+    "title": "Contact Us",
+    "description": "We're here to turn your project into reality. Whether to invest, entrepreneur or develop skills in Portugal, our team of experts is ready to support you at every stage of the process."
+  },
+  "footer": {
+    "tagline": "Transforming European opportunities into concrete results.",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "followUs": "Follow Us",
+    "newsletter": "Newsletter",
+    "newsletterText": "Receive the latest news about funds and incentives",
+    "emailPlaceholder": "Your email",
+    "subscribe": "Subscribe",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "© 2024 Neomarca. All rights reserved."
+  }
+}
+

@@ -1,0 +1,104 @@
+{
+  "common": {
+    "readMore": "Ler Mais",
+    "viewAll": "Ver Todos",
+    "contact": "Contacte-nos",
+    "contactUs": "Entre em Contacto",
+    "learnMore": "Saber Mais",
+    "getStarted": "Começar Agora",
+    "services": "Serviços",
+    "about": "Sobre",
+    "blog": "Blog",
+    "home": "Início"
+  },
+  "nav": {
+    "services": "Serviços",
+    "aboutPortugal": "Sobre Portugal",
+    "aboutNeomarca": "Sobre a Neomarca",
+    "blog": "Blog & Insights",
+    "contacts": "Contactos"
+  },
+  "hero": {
+    "title": "Portugal.",
+    "subtitle": "O Seu Próximo Destino de Investimento e Carreira.",
+    "description": "Oferecemos serviços personalizados, consultoria estratégica (Neomarca) e formação de excelência (2 Siglas) para garantir o seu sucesso, seja a investir, a empreender ou a desenvolver a sua carreira em Portugal",
+    "ctaInvest": "Quero Investir em Portugal",
+    "ctaTraining": "Quero Capacitar-me"
+  },
+  "whyBizin": {
+    "tag": "Porquê Bizin Portugal?",
+    "title": "O Destino Estratégico para o Seu Negócio e Vida",
+    "badge": "Desde 2018 a Apoiar Empreendedores",
+    "investmentAdvisory": {
+      "title": "Consultoria de Investimento",
+      "description": "Obtenha consultoria especializada para lançar e financiar o seu projeto em Portugal. Apoiamos a tomada de decisão com análise de mercado, benchmarking e apoio na elegibilidade para incentivos e fundos europeus, como o Portugal 2030.",
+      "item1": "Consultoria para Arranque de Negócio e Estratégia Corporativa",
+      "item2": "Acesso a Fundos Nacionais e Europeus (Portugal 2030, PRR).",
+      "item3": "Apoio a Incentivos Fiscais e Vistos de Residência (Golden Visa, Startup Visa)."
+    },
+    "humanCapital": {
+      "title": "Capital Humano",
+      "description": "Invista nas competências certas para o mercado português. A nossa oferta de formação e capacitação é desenhada para profissionais e empreendedores que procuram reconversão, certificação nacional ou atualização de conhecimento.",
+      "item1": "Formação Profissional Certificada e Infoprodutos",
+      "item2": "Cursos e eBooks sobre Ambiente Fiscal e Oportunidades de Negócio.",
+      "item3": "Apoio à capacitação para o mercado de trabalho português"
+    }
+  },
+  "success": {
+    "title": "O Seu Sucesso é a Nossa Métrica.",
+    "capitalFinanced": "Capital Financiado e Alavancado",
+    "description": "Mais do que consultores, somos parceiros estratégicos. Os números refletem o nosso compromisso, a nossa rede de contactos e o impacto real que geramos no mercado português para investidores e profissionais internacionais que escolhem Portugal.",
+    "clientsSupported": "Clientes Estrangeiros Apoiados",
+    "satisfactionRate": "Taxa de Satisfação"
+  },
+  "cta": {
+    "title1": "Apoio Estratégico,",
+    "title2": "Comece Já.",
+    "description": "Seja para iniciar um negócio, mudar-se para Portugal ou desenvolver novas competências, oferecemos o suporte completo que precisa. Da ideia à execução, estamos ao seu lado em cada etapa da jornada."
+  },
+  "articles": {
+    "title": "Artigos Notícias e Oportunidades",
+    "description": "Mantenha-se atualizado sobre incentivos, legislação e tendências de mercado.",
+    "tabArticle": "Artigo",
+    "tabEvents": "Eventos",
+    "tabTraining": "Formações",
+    "article1": {
+      "title": "Portugal 2030: Novas Oportunidades de Financiamento",
+      "description": "Descubra as mais recentes linhas de apoio para PMEs, startups e projetos de inovação em Portugal. Saiba como candidatar-se..."
+    },
+    "article2": {
+      "title": "Guia Completo: Golden Visa vs Startup Visa",
+      "description": "Compare as opções de residência para investidores e empreendedores. Entenda os requisitos, vantagens e processo de candidatura..."
+    }
+  },
+  "faq": {
+    "title": "Perguntas e Questões Frequentes",
+    "intro": "Tem dúvidas? Compilámos as questões mais frequentes sobre investir, empreender e trabalhar em Portugal. Se não encontrar a resposta, estamos aqui para ajudar.",
+    "q1": "Quanto tempo demora para abrir uma empresa em Portugal?",
+    "a1": "O processo varia entre 2 a 4 semanas, dependendo do tipo de sociedade e documentação. Acompanhamos todo o processo, desde a escolha da estrutura legal até ao registo na Autoridade Tributária e Segurança Social.",
+    "q2": "Preciso estar em Portugal para candidatar-me a fundos europeus?",
+    "a2": "Não necessariamente. Pode iniciar o processo à distância, mas a presença em Portugal é recomendada para certas etapas, como abertura de conta bancária e assinatura de documentos. Orientamos sobre os momentos em que a presença é obrigatória.",
+    "q3": "Que vistos existem para empreendedores e investidores?",
+    "a3": "Portugal oferece o Golden Visa (investimento mínimo), Startup Visa (para projetos inovadores), D2 Visa (empreendedores), e D7 (rendimentos passivos). Cada um tem requisitos específicos que avaliamos consigo.",
+    "q4": "Como sei se sou elegível para fundos do Portugal 2030?",
+    "a4": "A elegibilidade depende do setor, dimensão da empresa, localização e tipo de projeto. Fazemos uma análise gratuita da sua situação e identificamos as melhores oportunidades de financiamento disponíveis."
+  },
+  "contactPreview": {
+    "title": "Contacte-nos",
+    "description": "Estamos aqui para transformar o seu projeto em realidade. Quer seja para investir, empreender ou desenvolver competências em Portugal, a nossa equipa de especialistas está pronta para o apoiar em cada etapa do processo."
+  },
+  "footer": {
+    "tagline": "Transformando oportunidades europeias em resultados concretos.",
+    "navigation": "Navegação",
+    "legal": "Legal",
+    "followUs": "Siga-nos",
+    "newsletter": "Newsletter",
+    "newsletterText": "Receba as últimas novidades sobre fundos e incentivos",
+    "emailPlaceholder": "O seu email",
+    "subscribe": "Subscrever",
+    "privacyPolicy": "Política de Privacidade",
+    "cookiePolicy": "Política de Cookies",
+    "copyright": "© 2024 Neomarca. Todos os direitos reservados."
+  }
+}
+
