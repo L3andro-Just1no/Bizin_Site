@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   description: "A Neomarca apoia empresas e empreendedores no acesso a fundos, incentivos e programas europeus.",
   keywords: "fundos europeus, incentivos, apoio empresarial, Portugal, Neomarca",
   authors: [{ name: "Neomarca" }],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Neomarca - Apoio a Fundos e Incentivos Europeus",
     description: "A Neomarca apoia empresas e empreendedores no acesso a fundos, incentivos e programas europeus.",

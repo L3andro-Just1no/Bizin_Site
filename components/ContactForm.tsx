@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { Input } from "./ui/Input";
 import { Textarea } from "./ui/Textarea";
 import { Select } from "./ui/Select";
@@ -9,6 +10,7 @@ import { INTEREST_OPTIONS } from "@/lib/constants";
 import { isValidEmail } from "@/lib/utils";
 
 export function ContactForm() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,6 +19,39 @@ export function ContactForm() {
     message: "",
     consent: false,
   });
+
+  // Pre-fill form from URL query parameters
+  useEffect(() => {
+    const interest = searchParams.get("interest");
+    const event = searchParams.get("event");
+    const curso = searchParams.get("curso");
+
+    if (interest) {
+      setFormData((prev) => ({
+        ...prev,
+        interest: interest,
+      }));
+
+      // Pre-fill message based on event or curso
+      let prefillMessage = "";
+      if (event === "workshop-portugal-2030") {
+        prefillMessage = "Gostaria de me inscrever no Workshop: Como Aceder aos Fundos do Portugal 2030 (15 de Março, 2024).";
+      } else if (event === "networking-investidores") {
+        prefillMessage = "Gostaria de me inscrever no evento de Networking: Investidores Internacionais em Portugal (28 de Março, 2024).";
+      } else if (curso === "gestao-candidaturas-fundos-europeus") {
+        prefillMessage = "Gostaria de obter mais informações sobre o Curso Intensivo: Gestão de Candidaturas a Fundos Europeus (40 horas).";
+      } else if (curso === "empreender-portugal") {
+        prefillMessage = "Gostaria de obter mais informações sobre a Masterclass: Empreender em Portugal - Do Conceito ao Sucesso (16 horas).";
+      }
+
+      if (prefillMessage) {
+        setFormData((prev) => ({
+          ...prev,
+          message: prefillMessage,
+        }));
+      }
+    }
+  }, [searchParams]);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -202,7 +237,7 @@ export function ContactForm() {
           className="w-full mt-6"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "A enviar..." : "Enviar Mensagem"}
+          {isSubmitting ? "A enviar..." : "Enviar mensagem"}
         </Button>
 
         {submitStatus === "success" && (

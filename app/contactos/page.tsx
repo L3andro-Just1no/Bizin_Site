@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Suspense } from "react";
 import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/ContactForm";
 import { CONTACT_INFO } from "@/lib/constants";
@@ -29,7 +30,7 @@ export default function ContactosPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Entre em Contacto
+              Entre em contacto
             </h1>
             <p className="text-xl opacity-90">
               Estamos prontos para ajudar o seu negócio a alcançar novos patamares.
@@ -45,7 +46,7 @@ export default function ContactosPage() {
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}
             <div>
-              <h2 className="text-4xl font-bold text-[#1c2544] mb-8">Informações de Contacto</h2>
+              <h2 className="text-4xl font-bold text-[#1c2544] mb-8">Informações de contacto</h2>
               <div className="space-y-6">
                 <div className="flex items-start group">
                   <div className="w-14 h-14 bg-[#f3f9f0] rounded-2xl flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-[#87c76c] transition-colors">
@@ -91,13 +92,25 @@ export default function ContactosPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2 text-[#1c2544]">Telefone</h3>
-                    <a
-                      href={`tel:${CONTACT_INFO.phone}`}
-                      className="text-gray-600 hover:text-[#87c76c] transition-colors text-lg"
-                    >
-                      {CONTACT_INFO.phone}
-                    </a>
+                    <h3 className="font-bold text-lg mb-2 text-[#1c2544]">
+                      Telefone
+                    </h3>
+                    <div className="flex flex-col text-lg">
+                      <a
+                        href={`tel:${CONTACT_INFO.phone}`}
+                        className="text-gray-600 hover:text-[#87c76c] transition-colors"
+                      >
+                        {CONTACT_INFO.phone}
+                      </a>
+                      {CONTACT_INFO.mobile && (
+                        <a
+                          href={`tel:${CONTACT_INFO.mobile}`}
+                          className="text-gray-600 hover:text-[#87c76c] transition-colors"
+                        >
+                          {CONTACT_INFO.mobile}
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -124,7 +137,9 @@ export default function ContactosPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2 text-[#1c2544]">Morada</h3>
+                    <h3 className="font-bold text-lg mb-2 text-[#1c2544]">
+                      Morada
+                    </h3>
                     <address className="text-gray-600 not-italic text-lg leading-relaxed">
                       {CONTACT_INFO.address.street}
                       <br />
@@ -187,7 +202,9 @@ export default function ContactosPage() {
 
             {/* Contact Form */}
             <div className="bg-white rounded-2xl shadow-xl p-8">
-              <ContactForm />
+              <Suspense fallback={<div className="text-center py-8">A carregar formulário...</div>}>
+                <ContactForm />
+              </Suspense>
             </div>
           </div>
         </div>

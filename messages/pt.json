@@ -1,11 +1,11 @@
 {
   "common": {
-    "readMore": "Ler Mais",
-    "viewAll": "Ver Todos",
+    "readMore": "Ler mais",
+    "viewAll": "Ver todos",
     "contact": "Contacte-nos",
-    "contactUs": "Entre em Contacto",
-    "learnMore": "Saber Mais",
-    "getStarted": "Começar Agora",
+    "contactUs": "Entre em contacto",
+    "learnMore": "Saber mais",
+    "getStarted": "Começar agora",
     "services": "Serviços",
     "about": "Sobre",
     "blog": "Blog",
@@ -20,44 +20,44 @@
   },
   "hero": {
     "title": "Portugal.",
-    "subtitle": "O Seu Próximo Destino de Investimento e Carreira.",
+    "subtitle": "O seu próximo destino de investimento e carreira.",
     "description": "Oferecemos serviços personalizados, consultoria estratégica (Neomarca) e formação de excelência (2 Siglas) para garantir o seu sucesso, seja a investir, a empreender ou a desenvolver a sua carreira em Portugal",
-    "ctaInvest": "Quero Investir em Portugal",
-    "ctaTraining": "Quero Capacitar-me"
+    "ctaInvest": "Quero investir em Portugal",
+    "ctaTraining": "Quero capacitar-me"
   },
   "whyBizin": {
     "tag": "Porquê Bizin Portugal?",
-    "title": "O Destino Estratégico para o Seu Negócio e Vida",
-    "badge": "Desde 2018 a Apoiar Empreendedores",
+    "title": "O destino estratégico para o seu negócio e vida",
+    "badge": "Desde 2018 a apoiar empreendedores",
     "investmentAdvisory": {
-      "title": "Consultoria de Investimento",
+      "title": "Consultoria de investimento",
       "description": "Obtenha consultoria especializada para lançar e financiar o seu projeto em Portugal. Apoiamos a tomada de decisão com análise de mercado, benchmarking e apoio na elegibilidade para incentivos e fundos europeus, como o Portugal 2030.",
       "item1": "Consultoria para Arranque de Negócio e Estratégia Corporativa",
       "item2": "Acesso a Fundos Nacionais e Europeus (Portugal 2030, PRR).",
       "item3": "Apoio a Incentivos Fiscais e Vistos de Residência (Golden Visa, Startup Visa)."
     },
     "humanCapital": {
-      "title": "Capital Humano",
+      "title": "Capital humano",
       "description": "Invista nas competências certas para o mercado português. A nossa oferta de formação e capacitação é desenhada para profissionais e empreendedores que procuram reconversão, certificação nacional ou atualização de conhecimento.",
-      "item1": "Formação Profissional Certificada e Infoprodutos",
-      "item2": "Cursos e eBooks sobre Ambiente Fiscal e Oportunidades de Negócio.",
+      "item1": "Formação profissional certificada e infoprodutos",
+      "item2": "Cursos e eBooks sobre ambiente fiscal e oportunidades de negócio.",
       "item3": "Apoio à capacitação para o mercado de trabalho português"
     }
   },
   "success": {
-    "title": "O Seu Sucesso é a Nossa Métrica.",
-    "capitalFinanced": "Capital Financiado e Alavancado",
+    "title": "O seu sucesso é a nossa métrica.",
+    "capitalFinanced": "Capital financiado e alavancado",
     "description": "Mais do que consultores, somos parceiros estratégicos. Os números refletem o nosso compromisso, a nossa rede de contactos e o impacto real que geramos no mercado português para investidores e profissionais internacionais que escolhem Portugal.",
-    "clientsSupported": "Clientes Estrangeiros Apoiados",
-    "satisfactionRate": "Taxa de Satisfação"
+    "clientsSupported": "Clientes estrangeiros apoiados",
+    "satisfactionRate": "Taxa de satisfação"
   },
   "cta": {
-    "title1": "Apoio Estratégico,",
-    "title2": "Comece Já.",
+    "title1": "Apoio estratégico,",
+    "title2": "Comece já.",
     "description": "Seja para iniciar um negócio, mudar-se para Portugal ou desenvolver novas competências, oferecemos o suporte completo que precisa. Da ideia à execução, estamos ao seu lado em cada etapa da jornada."
   },
   "articles": {
-    "title": "Artigos Notícias e Oportunidades",
+    "title": "Artigos notícias e oportunidades",
     "description": "Mantenha-se atualizado sobre incentivos, legislação e tendências de mercado.",
     "tabArticle": "Artigo",
     "tabEvents": "Eventos",
@@ -72,7 +72,7 @@
     }
   },
   "faq": {
-    "title": "Perguntas e Questões Frequentes",
+    "title": "Perguntas e questões frequentes",
     "intro": "Tem dúvidas? Compilámos as questões mais frequentes sobre investir, empreender e trabalhar em Portugal. Se não encontrar a resposta, estamos aqui para ajudar.",
     "q1": "Quanto tempo demora para abrir uma empresa em Portugal?",
     "a1": "O processo varia entre 2 a 4 semanas, dependendo do tipo de sociedade e documentação. Acompanhamos todo o processo, desde a escolha da estrutura legal até ao registo na Autoridade Tributária e Segurança Social.",
@@ -96,8 +96,8 @@
     "newsletterText": "Receba as últimas novidades sobre fundos e incentivos",
     "emailPlaceholder": "O seu email",
     "subscribe": "Subscrever",
-    "privacyPolicy": "Política de Privacidade",
-    "cookiePolicy": "Política de Cookies",
+    "privacyPolicy": "Política de privacidade",
+    "cookiePolicy": "Política de cookies",
     "copyright": "© 2024 Neomarca. Todos os direitos reservados."
   }
 }

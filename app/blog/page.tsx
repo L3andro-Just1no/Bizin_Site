@@ -6,10 +6,10 @@ import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Ca
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Blog e Insights - Neomarca",
+  title: "Blog e insights - Neomarca",
   description: "Artigos, notícias e insights sobre fundos europeus, incentivos e empreendedorismo em Portugal.",
   openGraph: {
-    title: "Blog e Insights - Neomarca",
+    title: "Blog e insights - Neomarca",
     description: "Artigos, notícias e insights sobre fundos europeus, incentivos e empreendedorismo em Portugal.",
   },
 };
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const blogPosts = [
   {
     id: 1,
-    title: "Portugal 2030: Oportunidades para PMEs",
+    title: "Portugal 2030: oportunidades para PMEs",
     excerpt: "Descubra as principais linhas de financiamento do Portugal 2030 destinadas a pequenas e médias empresas.",
     date: "2024-03-15",
     category: "Fundos Europeus",
@@ -27,7 +27,7 @@ const blogPosts = [
   },
   {
     id: 2,
-    title: "SIFIDE: Como Maximizar o Benefício Fiscal em I&D",
+    title: "SIFIDE: como maximizar o benefício fiscal em I&D",
     excerpt: "Guia completo sobre o Sistema de Incentivos Fiscais à Investigação e Desenvolvimento Empresarial.",
     date: "2024-03-10",
     category: "Incentivos",
@@ -36,7 +36,7 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: "PRR: Prazos e Oportunidades em 2024",
+    title: "PRR: prazos e oportunidades em 2024",
     excerpt: "Calendário atualizado das candidaturas ao Plano de Recuperação e Resiliência para este ano.",
     date: "2024-03-05",
     category: "Fundos Europeus",
@@ -45,7 +45,7 @@ const blogPosts = [
   },
   {
     id: 4,
-    title: "Internacionalização: Apoios Disponíveis",
+    title: "Internacionalização: apoios disponíveis",
     excerpt: "Conheça os programas de apoio à exportação e expansão internacional de empresas portuguesas.",
     date: "2024-02-28",
     category: "Consultoria",
@@ -54,7 +54,7 @@ const blogPosts = [
   },
   {
     id: 5,
-    title: "Erros Comuns em Candidaturas a Fundos",
+    title: "Erros comuns em candidaturas a fundos",
     excerpt: "Os 10 erros mais frequentes que podem levar à rejeição de uma candidatura e como evitá-los.",
     date: "2024-02-20",
     category: "Guias",
@@ -63,7 +63,7 @@ const blogPosts = [
   },
   {
     id: 6,
-    title: "Sustentabilidade: Fundos para Economia Verde",
+    title: "Sustentabilidade: fundos para economia verde",
     excerpt: "Programas europeus de financiamento para projetos de sustentabilidade e transição climática.",
     date: "2024-02-15",
     category: "Fundos Europeus",
@@ -74,7 +74,7 @@ const blogPosts = [
 
 const categories = [
   "Todos",
-  "Fundos Europeus",
+  "Fundos europeus",
   "Incentivos",
   "Consultoria",
   "Guias",
@@ -96,7 +96,7 @@ export default function BlogPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Blog e Insights
+              Blog e insights
             </h1>
             <p className="text-xl opacity-90">
               Mantenha-se atualizado sobre fundos europeus, incentivos e
@@ -174,7 +174,7 @@ export default function BlogPage() {
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="p-12 lg:p-16 flex flex-col justify-center text-white">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  Receba as Nossas Novidades
+                  Receba as nossas novidades
                 </h2>
                 <p className="text-xl mb-8 opacity-95">
                   Subscreva a nossa newsletter e fique a par das últimas oportunidades
@@ -186,10 +186,7 @@ export default function BlogPage() {
                     placeholder="O seu email"
                     className="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/30"
                   />
-                  <Button
-                    variant="outline"
-                    className="bg-white text-[#87c76c] hover:bg-gray-100 border-white whitespace-nowrap px-8 py-4 rounded-full"
-                  >
+                  <Button variant="secondary" className="whitespace-nowrap px-8 py-4">
                     Subscrever
                   </Button>
                 </div>
@@ -215,17 +212,14 @@ export default function BlogPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-6">
-              Precisa de Ajuda Personalizada?
+              Precisa de ajuda personalizada?
             </h2>
             <p className="text-xl text-gray-600 mb-8">
               Fale com os nossos especialistas e descubra as melhores oportunidades
               para o seu negócio.
             </p>
-            <Button 
-              className="bg-[#1c2544] hover:bg-[#2a3558] text-white px-8 py-6 text-lg rounded-full"
-              asChild
-            >
-              <Link href="/contactos">Falar com Especialista</Link>
+            <Button variant="primary" size="lg" className="px-8 py-6" asChild>
+              <Link href="/contactos">Falar com especialista</Link>
             </Button>
           </div>
         </div>

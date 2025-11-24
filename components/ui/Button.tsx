@@ -14,17 +14,21 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", asChild = false, children, ...props }, ref) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+      "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
     const variants = {
+      // Blue CTA button, canonical style (used for main actions like \"Quero investir em Portugal\" / \"Entre em contacto\")
       primary:
-        "bg-primary text-white hover:bg-primary-600 focus:ring-primary-500 shadow-sm",
+        "bg-[#1c2544] text-white hover:bg-[#2a3558] shadow-sm focus:ring-secondary-400",
+      // White button – secondary style on light or dark backgrounds
       secondary:
-        "bg-secondary text-white hover:bg-secondary-600 focus:ring-secondary-500 shadow-sm",
+        "bg-white text-[#1c2544] border border-[#1c2544] hover:bg-[#f3f9f0] focus:ring-secondary-400 shadow-sm",
+      // Outline – transparent background with blue border/text, same hover as secondary
       outline:
-        "border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary-500",
+        "bg-transparent text-[#1c2544] border border-[#1c2544] hover:bg-[#f3f9f0] focus:ring-secondary-400",
+      // Ghost – text-only style with subtle hover
       ghost:
-        "text-primary hover:bg-primary-50 focus:ring-primary-500",
+        "bg-transparent text-[#1c2544] hover:bg-[#f3f9f0] focus:ring-secondary-400 border border-transparent",
     };
 
     const sizes = {

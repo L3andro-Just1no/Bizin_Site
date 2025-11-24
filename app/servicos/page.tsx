@@ -31,7 +31,7 @@ export default function ServicosPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Os Nossos Serviços
+              Os nossos serviços
             </h1>
             <p className="text-xl opacity-90">
               Soluções completas e personalizadas para maximizar as oportunidades
@@ -55,7 +55,7 @@ export default function ServicosPage() {
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-6">
-                Fundos Europeus
+                Fundos europeus
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 Apoiamos empresas e empreendedores na identificação e candidatura aos
@@ -89,7 +89,7 @@ export default function ServicosPage() {
                 ))}
               </ul>
               <div className="bg-[#f3f9f0] rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-[#1c2544] mb-4">Programas Disponíveis</h3>
+                <h3 className="text-xl font-bold text-[#1c2544] mb-4">Programas disponíveis</h3>
                 <ul className="space-y-4">
                   <li className="border-l-4 border-[#87c76c] pl-4">
                     <strong className="text-[#1c2544]">Portugal 2030</strong>
@@ -121,7 +121,7 @@ export default function ServicosPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-6">
-              Incentivos ao Investimento
+              Incentivos ao investimento
             </h2>
             <p className="text-xl text-gray-600">
               Maximização de benefícios fiscais e apoios ao investimento empresarial.
@@ -169,7 +169,7 @@ export default function ServicosPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-6">
-                Consultoria Estratégica
+                Consultoria estratégica
               </h2>
               <p className="text-xl text-gray-600 mb-8">
                 Acompanhamento especializado em todas as fases do seu projeto.
@@ -230,18 +230,13 @@ export default function ServicosPage() {
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="p-12 lg:p-16 flex flex-col justify-center text-white">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  Serviços Documentais 2 Siglas
+                  Serviços documentais 2 Siglas
                 </h2>
                 <p className="text-xl mb-8 opacity-95">
                   Precisa de certificações, traduções ou outros serviços documentais?
                   Visite a nossa plataforma especializada.
                 </p>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="bg-white text-[#87c76c] hover:bg-gray-100 border-white w-fit"
-                  asChild
-                >
+                <Button variant="secondary" size="lg" className="px-8" asChild>
                   <a
                     href={EXTERNAL_URLS.twoSiglas.main}
                     target="_blank"
@@ -269,16 +264,13 @@ export default function ServicosPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-6">
-              Interessado nos Nossos Serviços?
+              Interessado nos nossos serviços?
             </h2>
             <p className="text-xl text-gray-600 mb-8">
               Entre em contacto connosco para uma consulta personalizada.
             </p>
-            <Button 
-              className="bg-[#1c2544] hover:bg-[#2a3558] text-white px-8 py-6 text-lg rounded-full"
-              asChild
-            >
-              <Link href="/contactos">Falar com Especialista</Link>
+            <Button variant="primary" size="lg" className="px-8 py-6" asChild>
+              <Link href="/contactos">Falar com especialista</Link>
             </Button>
           </div>
         </div>

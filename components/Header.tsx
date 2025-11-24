@@ -125,7 +125,7 @@ export function Header() {
         isScrolled ? "shadow-md" : ""
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-6">
+      <div className="container mx-auto px-4 md:px-4 lg:px-6 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">

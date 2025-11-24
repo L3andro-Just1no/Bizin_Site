@@ -59,7 +59,7 @@ export default function SobreNeomarcaPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h2 className="text-3xl font-bold text-white">Nossa Missão</h2>
+                  <h2 className="text-3xl font-bold text-white">Nossa missão</h2>
                 </div>
               </div>
               <CardHeader className="p-8">
@@ -88,7 +88,7 @@ export default function SobreNeomarcaPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
                   </div>
-                  <h2 className="text-3xl font-bold text-white">Nossa Visão</h2>
+                  <h2 className="text-3xl font-bold text-white">Nossa visão</h2>
                 </div>
               </div>
               <CardHeader className="p-8">
@@ -108,7 +108,7 @@ export default function SobreNeomarcaPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-6">
-              Os Nossos Valores
+              Os nossos valores
             </h2>
             <p className="text-xl text-gray-600">
               Princípios que guiam o nosso trabalho e relação com os clientes.
@@ -153,7 +153,7 @@ export default function SobreNeomarcaPage() {
         </div>
       </Section>
 
-      {/* Abordagem with Image */}
+      {/* Abordagem with image */}
       <Section className="py-20">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -167,7 +167,7 @@ export default function SobreNeomarcaPage() {
             </div>
             <div className="order-1 lg:order-2">
               <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-6">
-                A Nossa Abordagem
+                A nossa abordagem
               </h2>
               <p className="text-xl text-gray-600 mb-10">
                 Como trabalhamos com os nossos clientes.
@@ -176,22 +176,22 @@ export default function SobreNeomarcaPage() {
                 {[
                   {
                     step: "01",
-                    title: "Diagnóstico Personalizado",
+                    title: "Diagnóstico personalizado",
                     description: "Analisamos a situação específica de cada cliente, identificando oportunidades e necessidades únicas.",
                   },
                   {
                     step: "02",
-                    title: "Estratégia Customizada",
+                    title: "Estratégia customizada",
                     description: "Desenvolvemos um plano de ação adaptado aos objetivos e características do projeto ou empresa.",
                   },
                   {
                     step: "03",
-                    title: "Execução Especializada",
+                    title: "Execução especializada",
                     description: "Preparamos e submetemos candidaturas com máximo rigor, aumentando as hipóteses de aprovação.",
                   },
                   {
                     step: "04",
-                    title: "Acompanhamento Contínuo",
+                    title: "Acompanhamento contínuo",
                     description: "Mantemos apoio permanente durante a execução do projeto e prestação de contas.",
                   },
                 ].map((item) => (
@@ -213,7 +213,7 @@ export default function SobreNeomarcaPage() {
         </div>
       </Section>
 
-      {/* CTA Section with Background Image */}
+      {/* CTA section with background image */}
       <section className="relative py-20">
         <Image
           src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2340"
@@ -224,18 +224,13 @@ export default function SobreNeomarcaPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center text-white">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Vamos Trabalhar Juntos?
+              Vamos trabalhar juntos?
             </h2>
             <p className="text-xl mb-8 opacity-95">
               Entre em contacto connosco e descubra como podemos ajudar o seu
               projeto a ter sucesso.
             </p>
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-white text-[#1c2544] hover:bg-gray-100 border-white px-8"
-              asChild
-            >
+            <Button variant="secondary" size="lg" className="px-8" asChild>
               <Link href="/contactos">Fale Connosco →</Link>
             </Button>
           </div>

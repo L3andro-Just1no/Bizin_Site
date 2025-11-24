@@ -48,31 +48,28 @@ export function CookieBanner() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-gray-900 text-white shadow-2xl">
-      <div className="container mx-auto px-4 py-6 md:px-6 lg:px-8">
+      <div className="container mx-auto px-4 py-6 md:px-4 lg:px-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex-1">
             <h3 className="font-semibold text-lg mb-2">
-              Utilizamos Cookies
+              Utilizamos cookies
             </h3>
             <p className="text-sm text-gray-300">
               Este website utiliza cookies para melhorar a sua experiência de
               navegação e para análise de tráfego. Ao clicar em &quot;Aceitar&quot;, está
               a consentir a utilização de cookies conforme descrito na nossa{" "}
-              <Link
-                href="/politicas/cookies"
-                className="underline hover:text-white"
-              >
-                Política de Cookies
+              <Link href="/politicas/cookies" className="underline hover:text-white">
+                Política de cookies
               </Link>
               .
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
             <Button
-              variant="ghost"
+              variant="secondary"
               size="md"
               onClick={handleDecline}
-              className="text-white hover:bg-gray-800 border border-gray-700"
+              className="bg-transparent text-white border border-gray-500 px-4"
             >
               Recusar
             </Button>
@@ -82,7 +79,7 @@ export function CookieBanner() {
               onClick={handleAccept}
               className="whitespace-nowrap"
             >
-              Aceitar Cookies
+              Aceitar cookies
             </Button>
           </div>
         </div>

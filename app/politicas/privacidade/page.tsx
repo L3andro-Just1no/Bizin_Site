@@ -3,7 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { CONTACT_INFO } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade - Neomarca",
+  title: "Política de privacidade - Neomarca",
   description: "Política de privacidade e proteção de dados da Neomarca.",
   robots: {
     index: false,
@@ -15,7 +15,7 @@ export default function PrivacidadePage() {
   return (
     <Section className="pt-32 pb-20">
       <div className="max-w-4xl mx-auto prose prose-lg">
-        <h1>Política de Privacidade</h1>
+        <h1>Política de privacidade</h1>
         <p className="text-gray-600">
           <em>Última atualização: {new Date().toLocaleDateString("pt-PT")}</em>
         </p>
@@ -29,7 +29,7 @@ export default function PrivacidadePage() {
           (RGPD) e demais legislação aplicável.
         </p>
 
-        <h2>2. Responsável pelo Tratamento de Dados</h2>
+        <h2>2. Responsável pelo tratamento de dados</h2>
         <p>
           <strong>Neomarca</strong>
           <br />
@@ -39,9 +39,10 @@ export default function PrivacidadePage() {
           Email: {CONTACT_INFO.email}
           <br />
           Telefone: {CONTACT_INFO.phone}
+          {CONTACT_INFO.mobile ? ` / ${CONTACT_INFO.mobile}` : ""}
         </p>
 
-        <h2>3. Dados Recolhidos</h2>
+        <h2>3. Dados recolhidos</h2>
         <p>Podemos recolher os seguintes tipos de dados pessoais:</p>
         <ul>
           <li>
@@ -61,7 +62,7 @@ export default function PrivacidadePage() {
           </li>
         </ul>
 
-        <h2>4. Finalidade do Tratamento</h2>
+        <h2>4. Finalidade do tratamento</h2>
         <p>Os seus dados pessoais são tratados para as seguintes finalidades:</p>
         <ul>
           <li>Responder às suas solicitações e pedidos de informação</li>
@@ -71,7 +72,7 @@ export default function PrivacidadePage() {
           <li>Cumprir obrigações legais e regulamentares</li>
         </ul>
 
-        <h2>5. Base Legal do Tratamento</h2>
+        <h2>5. Base legal do tratamento</h2>
         <p>O tratamento dos seus dados pessoais é fundamentado em:</p>
         <ul>
           <li>Consentimento explícito do titular dos dados</li>
@@ -80,7 +81,7 @@ export default function PrivacidadePage() {
           <li>Interesses legítimos da Neomarca</li>
         </ul>
 
-        <h2>6. Partilha de Dados</h2>
+        <h2>6. Partilha de dados</h2>
         <p>
           Os seus dados pessoais não serão vendidos, alugados ou partilhados com
           terceiros, exceto nas seguintes situações:
@@ -95,7 +96,7 @@ export default function PrivacidadePage() {
           <li>Para proteção dos nossos direitos legais</li>
         </ul>
 
-        <h2>7. Segurança dos Dados</h2>
+        <h2>7. Segurança dos dados</h2>
         <p>
           Implementamos medidas técnicas e organizativas adequadas para proteger
           os seus dados pessoais contra acesso não autorizado, perda, destruição
@@ -108,7 +109,7 @@ export default function PrivacidadePage() {
           <li>Formação de colaboradores em proteção de dados</li>
         </ul>
 
-        <h2>8. Conservação de Dados</h2>
+        <h2>8. Conservação de dados</h2>
         <p>
           Os seus dados pessoais serão conservados apenas pelo período necessário
           para cumprir as finalidades para as quais foram recolhidos, ou conforme
@@ -126,7 +127,7 @@ export default function PrivacidadePage() {
           </li>
         </ul>
 
-        <h2>9. Os Seus Direitos</h2>
+        <h2>9. Os seus direitos</h2>
         <p>
           Nos termos do RGPD, tem os seguintes direitos relativamente aos seus
           dados pessoais:
@@ -172,14 +173,14 @@ export default function PrivacidadePage() {
           <a href="/politicas/cookies">Política de Cookies</a>.
         </p>
 
-        <h2>11. Alterações a Esta Política</h2>
+        <h2>11. Alterações a esta política</h2>
         <p>
           Reservamo-nos o direito de atualizar esta Política de Privacidade
           periodicamente. A data da última atualização será sempre indicada no
           topo desta página. Recomendamos que consulte regularmente esta página.
         </p>
 
-        <h2>12. Contacto e Reclamações</h2>
+        <h2>12. Contacto e reclamações</h2>
         <p>
           Para questões relacionadas com a proteção dos seus dados pessoais ou
           para exercer os seus direitos, contacte-nos:
@@ -188,6 +189,7 @@ export default function PrivacidadePage() {
           Email: {CONTACT_INFO.email}
           <br />
           Telefone: {CONTACT_INFO.phone}
+          {CONTACT_INFO.mobile ? ` / ${CONTACT_INFO.mobile}` : ""}
         </p>
         <p>
           Tem também o direito de apresentar reclamação junto da Comissão Nacional
