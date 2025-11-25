@@ -1,0 +1,8 @@
+# robots.txt for Neomarca
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://neomarca.pt/sitemap.xml
+
