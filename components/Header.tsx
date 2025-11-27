@@ -5,35 +5,34 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/components/I18nProvider";
 
 const NAV_ITEMS = [
-  { href: "/", label: "Home" },
-  { href: "/servicos", label: "Serviços" },
-  { href: "/sobre-neomarca", label: "Sobre nós" },
-  { href: "/sobre-portugal", label: "Sobre Portugal" },
-  { href: "/blog", label: "Notícias /Blog" },
-  { href: "/contactos", label: "Contactos" },
+  { href: "/", labelKey: "common.home" },
+  { href: "/servicos", labelKey: "nav.services" },
+  { href: "/sobre-neomarca", labelKey: "nav.aboutNeomarca" },
+  { href: "/sobre-portugal", labelKey: "nav.aboutPortugal" },
+  { href: "/blog", labelKey: "nav.blog" },
+  { href: "/contactos", labelKey: "nav.contacts" },
 ];
 
-// Language switcher matching Figma design with i18n ready
-// Note: Currently displays static "English" - will be connected to i18n when activated
 function LanguageSelector() {
+  const { locale, setLocale } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
-  
-  // For now, default to Portuguese (when i18n is activated, this will use useLocale())
-  const currentLang = "Português";
 
   const languages = [
     { code: "pt", name: "Português" },
     { code: "en", name: "English" },
     { code: "es", name: "Español" },
     { code: "fr", name: "Français" },
-  ];
+  ] as const;
 
-  const handleLanguageChange = (langCode: string) => {
-    // When i18n is activated, this will update the route
-    // For now, just close the dropdown
-    console.log(`Language change to: ${langCode}`);
+  type LangCode = (typeof languages)[number]["code"];
+
+  const currentLang = languages.find((l) => l.code === locale)?.name ?? "Português";
+
+  const handleLanguageChange = (langCode: LangCode) => {
+    setLocale(langCode);
     setIsOpen(false);
   };
 
@@ -66,18 +65,19 @@ function LanguageSelector() {
       {isOpen && (
         <>
           {/* Backdrop to close dropdown */}
-          <div 
-            className="fixed inset-0 z-40" 
+          <div
+            className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+          <div className="absolute left-0 top-full mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
             {languages.map((lang) => (
               <button
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
                 className={cn(
                   "w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors",
-                  currentLang === lang.name && "bg-gray-50 font-semibold text-[#1c2544]"
+                  locale === lang.code &&
+                    "bg-gray-50 font-semibold text-[#1c2544]"
                 )}
               >
                 {lang.name}
@@ -91,6 +91,7 @@ function LanguageSelector() {
 }
 
 export function Header() {
+  const { t } = useI18n();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -154,7 +155,7 @@ export function Header() {
                   )}
                   style={{ fontVariationSettings: "'wdth' 100" }}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               ))}
             </nav>
@@ -212,7 +213,7 @@ export function Header() {
                       : "text-[#1c2544]/70"
                   )}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               ))}
               <div className="pt-4 border-t border-gray-200">

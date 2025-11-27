@@ -4,19 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { CONTACT_INFO, EXTERNAL_URLS } from "@/lib/constants";
+import { useI18n } from "@/components/I18nProvider";
 
 const NAV_ITEMS = [
-  { href: "/", label: "Home" },
-  { href: "/servicos", label: "Serviços" },
-  { href: "/sobre-neomarca", label: "Sobre nós" },
-  { href: "/sobre-portugal", label: "Sobre Portugal" },
-  { href: "/blog", label: "Notícias /Blog" },
-  { href: "/contactos", label: "Contactos" },
+  { href: "/", labelKey: "common.home" },
+  { href: "/servicos", labelKey: "nav.services" },
+  { href: "/sobre-neomarca", labelKey: "nav.aboutNeomarca" },
+  { href: "/sobre-portugal", labelKey: "nav.aboutPortugal" },
+  { href: "/blog", labelKey: "nav.blog" },
+  { href: "/contactos", labelKey: "nav.contacts" },
 ];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
+  const { t } = useI18n();
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,7 +53,7 @@ export function Footer() {
                   className="text-[18px] font-normal transition-colors hover:opacity-80 tracking-[-0.18px]"
                   style={{ fontVariationSettings: "'wdth' 100" }}
                 >
-                  {item.label}
+                  {t(item.labelKey as string)}
                 </Link>
               ))}
             </nav>
@@ -66,7 +68,7 @@ export function Footer() {
                 className="text-[18px] font-medium tracking-[-0.18px]"
                 style={{ fontVariationSettings: "'wdth' 100" }}
               >
-                Entre em contacto
+                {t("common.contactUs")}
               </h3>
 
               {/* Address */}
@@ -145,25 +147,24 @@ export function Footer() {
           {/* Newsletter - Starts under "Home" */}
           <div className="max-w-md lg:col-start-2 lg:row-start-2">
             <h3 className="text-[28px] font-medium leading-normal mb-4" style={{ fontVariationSettings: "'wdth' 100" }}>
-              Não Perca <br />
-              Nenhuma Oportunidade.
+              {t("footer.newsletter")}
             </h3>
             <p className="text-[16px] font-light leading-[28px] mb-6 opacity-90">
-              Subscreve a nossa Newsletter
+              {t("footer.newsletterText")}
             </p>
             <form onSubmit={handleNewsletterSubmit} className="flex gap-2 max-w-[340px]">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter email address"
+                placeholder={t("footer.emailPlaceholder")}
                 className="flex-1 bg-white text-[#1c2544] text-[14px] px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white/50"
                 style={{ fontVariationSettings: "'wdth' 100" }}
               />
               <button
                 type="submit"
                 className="bg-white text-[#1c2544] p-3 rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
-                aria-label="Subscribe"
+                aria-label={t("footer.subscribe")}
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -179,7 +180,7 @@ export function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-[225px_1fr_auto] gap-6 lg:gap-12 items-center">
             {/* Copyright */}
             <p className="text-[16px] tracking-[-0.16px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-              Copyright © Bizin Portugal {currentYear}
+              {t("footer.copyright")}
             </p>
 
             {/* Privacy links, aligned with newsletter column */}
@@ -188,13 +189,13 @@ export function Footer() {
               style={{ fontVariationSettings: "'wdth' 100" }}
             >
               <Link href="/politicas/privacidade" className="hover:opacity-100 transition-opacity">
-                Privacy policy
+                {t("footer.privacyPolicy")}
               </Link>
               <Link href="/politicas/termos" className="hover:opacity-100 transition-opacity">
-                Terms of service
+                {t("footer.termsOfService")}
               </Link>
               <Link href="/politicas/cookies" className="hover:opacity-100 transition-opacity">
-                Cookies
+                {t("footer.cookiePolicy")}
               </Link>
             </div>
 

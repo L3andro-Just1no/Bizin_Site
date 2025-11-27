@@ -8,9 +8,11 @@ import { Select } from "./ui/Select";
 import { Button } from "./ui/Button";
 import { INTEREST_OPTIONS } from "@/lib/constants";
 import { isValidEmail } from "@/lib/utils";
+import { useI18n } from "@/components/I18nProvider";
 
 export function ContactForm() {
   const searchParams = useSearchParams();
+  const { t } = useI18n();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -78,27 +80,27 @@ export function ContactForm() {
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "O nome é obrigatório";
+      newErrors.name = t("contactForm.errors.nameRequired");
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "O email é obrigatório";
+      newErrors.email = t("contactForm.errors.emailRequired");
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = "Por favor, insira um email válido";
+      newErrors.email = t("contactForm.errors.emailInvalid");
     }
 
     if (!formData.interest) {
-      newErrors.interest = "Por favor, selecione um interesse";
+      newErrors.interest = t("contactForm.errors.interestRequired");
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "A mensagem é obrigatória";
+      newErrors.message = t("contactForm.errors.messageRequired");
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = "A mensagem deve ter pelo menos 10 caracteres";
+      newErrors.message = t("contactForm.errors.messageTooShort");
     }
 
     if (!formData.consent) {
-      newErrors.consent = "Deve aceitar a política de privacidade";
+      newErrors.consent = t("contactForm.errors.consentRequired");
     }
 
     setErrors(newErrors);
@@ -125,7 +127,7 @@ export function ContactForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Erro ao enviar formulário");
+        throw new Error("Form submission error");
       }
 
       setSubmitStatus("success");
@@ -148,42 +150,44 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="bg-white p-8 rounded-xl border border-gray-200">
-        <h2 className="text-2xl font-bold mb-6">Envie a Sua Mensagem</h2>
+        <h2 className="text-2xl font-bold mb-6">
+          {t("contactForm.title")}
+        </h2>
 
         <div className="space-y-4">
           <Input
-            label="Nome"
+            label={t("contactForm.nameLabel")}
             name="name"
             type="text"
             value={formData.name}
             onChange={handleChange}
             error={errors.name}
             required
-            placeholder="O seu nome completo"
+            placeholder={t("contactForm.namePlaceholder")}
           />
 
           <Input
-            label="Email"
+            label={t("contactForm.emailLabel")}
             name="email"
             type="email"
             value={formData.email}
             onChange={handleChange}
             error={errors.email}
             required
-            placeholder="exemplo@email.com"
+            placeholder={t("contactForm.emailPlaceholder")}
           />
 
           <Input
-            label="Empresa"
+            label={t("contactForm.companyLabel")}
             name="company"
             type="text"
             value={formData.company}
             onChange={handleChange}
-            placeholder="Nome da sua empresa (opcional)"
+            placeholder={t("contactForm.companyPlaceholder")}
           />
 
           <Select
-            label="Interesse"
+            label={t("contactForm.interestLabel")}
             name="interest"
             value={formData.interest}
             onChange={handleChange}
@@ -193,13 +197,13 @@ export function ContactForm() {
           />
 
           <Textarea
-            label="Mensagem"
+            label={t("contactForm.messageLabel")}
             name="message"
             value={formData.message}
             onChange={handleChange}
             error={errors.message}
             required
-            placeholder="Descreva como podemos ajudar..."
+            placeholder={t("contactForm.messagePlaceholder")}
             rows={5}
           />
 
@@ -213,15 +217,15 @@ export function ContactForm() {
               className="mt-1 mr-3 w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
             />
             <label htmlFor="consent" className="text-sm text-gray-600">
-              Li e aceito a{" "}
+              {t("contactForm.consent.textBeforeLink")}
               <a
                 href="/politicas/privacidade"
                 target="_blank"
                 className="text-primary hover:underline"
               >
-                política de privacidade
+                {t("contactForm.consent.linkText")}
               </a>{" "}
-              e autorizo o tratamento dos meus dados pessoais.
+              {t("contactForm.consent.textAfterLink")}
               <span className="text-red-500 ml-1">*</span>
             </label>
           </div>
@@ -237,23 +241,25 @@ export function ContactForm() {
           className="w-full mt-6"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "A enviar..." : "Enviar mensagem"}
+          {isSubmitting
+            ? t("contactForm.submit.sending")
+            : t("contactForm.submit.label")}
         </Button>
 
         {submitStatus === "success" && (
           <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
-            <strong>Mensagem enviada com sucesso!</strong>
+            <strong>{t("contactForm.status.success.title")}</strong>
             <p className="mt-1 text-sm">
-              Entraremos em contacto consigo brevemente.
+              {t("contactForm.status.success.description")}
             </p>
           </div>
         )}
 
         {submitStatus === "error" && (
           <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
-            <strong>Erro ao enviar mensagem.</strong>
+            <strong>{t("contactForm.status.error.title")}</strong>
             <p className="mt-1 text-sm">
-              Por favor, tente novamente ou contacte-nos diretamente por email.
+              {t("contactForm.status.error.description")}
             </p>
           </div>
         )}

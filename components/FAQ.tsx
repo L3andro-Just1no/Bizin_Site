@@ -1,33 +1,30 @@
 "use client";
 
 import { useState } from "react";
-
-interface FAQItem {
-  q: string;
-  a: string;
-}
-
-const faqData: FAQItem[] = [
-  {
-    q: "Quanto tempo demora para abrir uma empresa em Portugal?",
-    a: "O processo varia entre 2 a 4 semanas, dependendo do tipo de sociedade e documentação. Acompanhamos todo o processo, desde a escolha da estrutura legal até ao registo na Autoridade Tributária e Segurança Social.",
-  },
-  {
-    q: "Preciso estar em Portugal para candidatar-me a fundos europeus?",
-    a: "Não necessariamente. Pode iniciar o processo à distância, mas a presença em Portugal é recomendada para certas etapas, como abertura de conta bancária e assinatura de documentos. Orientamos sobre os momentos em que a presença é obrigatória.",
-  },
-  {
-    q: "Que vistos existem para empreendedores e investidores?",
-    a: "Portugal oferece o Golden Visa (investimento mínimo), Startup Visa (para projetos inovadores), D2 Visa (empreendedores), e D7 (rendimentos passivos). Cada um tem requisitos específicos que avaliamos consigo.",
-  },
-  {
-    q: "Como sei se sou elegível para fundos do Portugal 2030?",
-    a: "A elegibilidade depende do setor, dimensão da empresa, localização e tipo de projeto. Fazemos uma análise gratuita da sua situação e identificamos as melhores oportunidades de financiamento disponíveis.",
-  },
-];
+import { useI18n } from "@/components/I18nProvider";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { t } = useI18n();
+
+  const faqData = [
+    {
+      q: t("faq.q1"),
+      a: t("faq.a1"),
+    },
+    {
+      q: t("faq.q2"),
+      a: t("faq.a2"),
+    },
+    {
+      q: t("faq.q3"),
+      a: t("faq.a3"),
+    },
+    {
+      q: t("faq.q4"),
+      a: t("faq.a4"),
+    },
+  ];
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
