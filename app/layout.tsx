@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body
-        className={`${inter.variable} ${roboto.variable} ${manrope.variable} font-sans antialiased`}
+        className={`${inter.variable} ${roboto.variable} ${manrope.variable} font-sans antialiased overflow-x-hidden`}
       >
         <I18nProvider>
           <Header />
