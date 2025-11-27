@@ -161,7 +161,10 @@ export default function Home() {
               </h2>
               <div className="space-y-8">
                 <div>
-                  <div className="text-6xl md:text-7xl font-bold text-[#1c2544] mb-2">2,3M. +</div>
+                  <div className="inline-flex items-baseline text-6xl md:text-7xl font-bold text-[#1c2544] mb-2">
+                    <span>2,3M.</span>
+                    <span className="ml-2">+</span>
+                  </div>
                   <p className="text-gray-600 text-lg">
                     {t("success.capitalFinanced")}
                   </p>
@@ -175,13 +178,19 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <div className="text-5xl md:text-6xl font-bold text-[#1c2544] mb-2">120 +</div>
+                  <div className="inline-flex items-baseline text-5xl md:text-6xl font-bold text-[#1c2544] mb-2">
+                    <span>120</span>
+                    <span className="ml-2">+</span>
+                  </div>
                   <p className="text-gray-600">
                     {t("success.clientsSupported")}
                   </p>
                 </div>
                 <div>
-                  <div className="text-5xl md:text-6xl font-bold text-[#1c2544] mb-2">98% +</div>
+                  <div className="inline-flex items-baseline text-5xl md:text-6xl font-bold text-[#1c2544] mb-2">
+                    <span>98%</span>
+                    <span className="ml-2">+</span>
+                  </div>
                   <p className="text-gray-600">
                     {t("success.satisfactionRate")}
                   </p>
