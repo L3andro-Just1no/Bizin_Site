@@ -394,6 +394,12 @@
       "title": "Besoin d’un accompagnement personnalisé ?",
       "subtitle": "Échangez avec nos spécialistes et découvrez les meilleures opportunités pour votre entreprise.",
       "button": "Parler à un spécialiste"
+    },
+    "postDetail": {
+      "backToBlog": "Retour au Blog & insights",
+      "genericIntro": "Cet article fait partie de notre sélection de contenus sur les fonds européens, les incitations et les stratégies pour développer votre entreprise au Portugal.",
+      "genericBody": "Nous publierons bientôt la version complète de cet article. En attendant, si vous souhaitez explorer comment ces sujets s’appliquent à votre projet, contactez‑nous pour une analyse personnalisée des meilleures opportunités de financement.",
+      "ctaButton": "Parler à un spécialiste"
     }
   },
   "contactPage": {

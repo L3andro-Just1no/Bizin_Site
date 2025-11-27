@@ -394,6 +394,12 @@
       "title": "¿Necesita ayuda personalizada?",
       "subtitle": "Hable con nuestros especialistas y descubra las mejores oportunidades para su negocio.",
       "button": "Hablar con un especialista"
+    },
+    "postDetail": {
+      "backToBlog": "Volver al Blog e insights",
+      "genericIntro": "Este artículo forma parte de nuestra selección de contenidos sobre fondos europeos, incentivos y estrategias para hacer crecer su negocio en Portugal.",
+      "genericBody": "Pronto publicaremos la versión completa de este artículo. Mientras tanto, si desea explorar cómo estos temas se aplican a su proyecto, póngase en contacto con nosotros para un análisis personalizado de las mejores oportunidades de financiación.",
+      "ctaButton": "Hablar con un especialista"
     }
   },
   "contactPage": {

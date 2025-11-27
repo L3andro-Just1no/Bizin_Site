@@ -394,6 +394,12 @@
       "title": "Need personalised support?",
       "subtitle": "Speak with our specialists and discover the best opportunities for your business.",
       "button": "Speak with a specialist"
+    },
+    "postDetail": {
+      "backToBlog": "Back to Blog & insights",
+      "genericIntro": "This article forms part of our curated content on European funds, incentives and strategies to help your business grow in Portugal.",
+      "genericBody": "We will soon publish the full version of this article. In the meantime, if you would like to explore how these topics apply to your project, get in touch for a personalised analysis of the best funding opportunities.",
+      "ctaButton": "Speak with a specialist"
     }
   },
   "contactPage": {

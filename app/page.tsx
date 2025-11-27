@@ -195,18 +195,17 @@ export default function Home() {
       {/* Partner Logos */}
       <section className="py-12 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 transition-all">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
             {CLIENT_LOGOS.map((logo) => (
               <div
                 key={logo.name}
-                className="flex items-center justify-center max-w-[55%] sm:max-w-none"
+                className="relative w-40 h-16 sm:w-48 sm:h-20 flex items-center justify-center"
               >
                 <Image
                   src={logo.src}
                   alt={logo.name}
-                  width={160}
-                  height={48}
-                  className="h-10 sm:h-12 w-auto object-contain"
+                  fill
+                  className="object-contain"
                 />
               </div>
             ))}
