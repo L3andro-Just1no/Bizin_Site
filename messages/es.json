@@ -57,11 +57,15 @@
     "description": "Ya sea para iniciar un negocio, mudarse a Portugal o desarrollar nuevas habilidades, ofrecemos el apoyo completo que necesita. De la idea a la ejecución, estamos a su lado en cada etapa del viaje."
   },
   "articles": {
-    "title": "Artículos Noticias y Oportunidades",
-    "description": "Manténgase actualizado sobre incentivos, legislación y tendencias del mercado.",
-    "tabArticle": "Artículo",
-    "tabEvents": "Eventos",
-    "tabTraining": "Formaciones",
+  "title": "Artículos, noticias y oportunidades",
+  "description": "Manténgase al día sobre incentivos, legislación y tendencias del mercado.",
+  "eventsTitle": "Eventos y networking",
+  "eventsDescription": "Participe en eventos exclusivos sobre fondos europeos, inversión y emprendimiento en Portugal.",
+  "trainingTitle": "Formaciones y cursos",
+  "trainingDescription": "Desarrolle competencias esenciales con nuestros cursos especializados en fondos europeos y negocios en Portugal.",
+  "tabArticle": "Artículo",
+  "tabEvents": "Eventos",
+  "tabTraining": "Formaciones",
     "article1": {
       "title": "Portugal 2030: Nuevas Oportunidades de Financiación",
       "description": "Descubra las últimas líneas de apoyo para PYMES, startups y proyectos de innovación en Portugal. Aprenda cómo aplicar..."
@@ -69,6 +73,34 @@
     "article2": {
       "title": "Guía Completa: Golden Visa vs Startup Visa",
       "description": "Compare las opciones de residencia para inversores y emprendedores. Entienda los requisitos, ventajas y proceso de solicitud..."
+    },
+    "events": {
+      "item1": {
+        "title": "Workshop: cómo acceder a los fondos de Portugal 2030",
+        "date": "15 de marzo de 2024",
+        "location": "Lisboa | online",
+        "description": "Workshop práctico sobre el proceso de solicitud de fondos europeos. Incluye análisis de casos de éxito y sesión de preguntas y respuestas."
+      },
+      "item2": {
+        "title": "Networking: inversores internacionales en Portugal",
+        "date": "28 de marzo de 2024",
+        "location": "Oporto",
+        "description": "Evento de networking exclusivo para inversores y emprendedores internacionales. Conozca a otros profesionales y comparta experiencias."
+      }
+    },
+    "training": {
+      "item1": {
+        "title": "Curso intensivo: gestión de solicitudes a fondos europeos",
+        "duration": "40 horas",
+        "format": "Presencial | online",
+        "description": "Formación completa sobre el ciclo de solicitud, desde la identificación de oportunidades hasta la gestión de proyectos aprobados."
+      },
+      "item2": {
+        "title": "Masterclass: emprender en Portugal (del concepto al éxito)",
+        "duration": "16 horas",
+        "format": "Online",
+        "description": "Aprenda todo sobre el ecosistema empresarial portugués, requisitos legales, fiscalidad y estrategias de crecimiento."
+      }
     }
   },
   "faq": {
@@ -87,6 +119,355 @@
     "title": "Contáctenos",
     "description": "Estamos aquí para convertir su proyecto en realidad. Ya sea para invertir, emprender o desarrollar competencias en Portugal, nuestro equipo de expertos está listo para apoyarle en cada etapa del proceso."
   },
+  "servicesPage": {
+    "hero": {
+      "title": "Nuestros servicios",
+      "subtitle": "Soluciones completas y personalizadas para maximizar las oportunidades de financiación de su negocio."
+    },
+    "funds": {
+      "title": "Fondos europeos",
+      "description": "Apoyamos a empresas y emprendedores en la identificación y solicitud de los programas de financiación más adecuados, maximizando las probabilidades de aprobación.",
+      "bullets": {
+        "eligibility": "Análisis de elegibilidad",
+        "programs": "Identificación de programas adecuados",
+        "applications": "Preparación de solicitudes",
+        "approval": "Gestión de procesos de aprobación",
+        "followUp": "Acompañamiento posterior a la aprobación"
+      },
+      "programsTitle": "Programas disponibles",
+      "programs": {
+        "portugal2030": {
+          "title": "Portugal 2030",
+          "description": "Apoyo a la innovación y competitividad empresarial."
+        },
+        "horizonEurope": {
+          "title": "Horizonte Europa",
+          "description": "Financiación para investigación e innovación."
+        },
+        "prr": {
+          "title": "PRR – Plan de recuperación",
+          "description": "Apoyos en el ámbito de la recuperación económica."
+        }
+      }
+    },
+    "incentives": {
+      "title": "Incentivos a la inversión",
+      "subtitle": "Maximización de beneficios fiscales y apoyos a la inversión empresarial.",
+      "cards": {
+        "rfai": {
+          "title": "RFAI",
+          "description": "Régimen fiscal de apoyo a la inversión: beneficios fiscales para inversiones productivas."
+        },
+        "sifide": {
+          "title": "SIFIDE",
+          "description": "Sistema de incentivos fiscales a la I+D empresarial: deducción fiscal en proyectos de investigación."
+        },
+        "cfei": {
+          "title": "CFEI",
+          "description": "Crédito fiscal extraordinario a la inversión: apoyo a la inversión en activos fijos tangibles."
+        }
+      }
+    },
+    "consulting": {
+      "title": "Consultoría estratégica",
+      "subtitle": "Acompañamiento especializado en todas las fases de su proyecto.",
+      "steps": {
+        "step1": {
+          "title": "Diagnóstico inicial",
+          "description": "Análisis de la situación actual e identificación de oportunidades."
+        },
+        "step2": {
+          "title": "Planificación estratégica",
+          "description": "Definición de objetivos y estrategia de financiación."
+        },
+        "step3": {
+          "title": "Ejecución",
+          "description": "Implementación y seguimiento del proyecto."
+        },
+        "step4": {
+          "title": "Rendición de cuentas",
+          "description": "Gestión de informes y cumplimiento con las entidades financiadoras."
+        }
+      }
+    },
+    "twoSiglas": {
+      "title": "Servicios documentales 2 Siglas",
+      "description": "¿Necesita certificaciones, traducciones u otros servicios documentales? Visite nuestra plataforma especializada.",
+      "button": "Explorar 2 Siglas →"
+    },
+    "cta": {
+      "title": "¿Interesado en nuestros servicios?",
+      "description": "Póngase en contacto con nosotros para una consulta personalizada.",
+      "button": "Hablar con un especialista"
+    }
+  },
+  "aboutNeomarca": {
+    "hero": {
+      "title": "Sobre Neomarca",
+      "subtitle": "Estamos especializados en transformar las oportunidades europeas en resultados concretos para empresas y emprendedores."
+    },
+    "mission": {
+      "title": "Nuestra misión",
+      "description": "Facilitar el acceso de empresas y emprendedores a fondos, incentivos y programas europeos, maximizando sus probabilidades de éxito mediante un acompañamiento especializado y personalizado."
+    },
+    "vision": {
+      "title": "Nuestra visión",
+      "description": "Ser la referencia nacional en consultoría de fondos europeos, reconocida por la excelencia del servicio, la tasa de aprobación y el impacto positivo en el desarrollo empresarial en Portugal."
+    },
+    "values": {
+      "title": "Nuestros valores",
+      "subtitle": "Principios que guían nuestro trabajo y nuestra relación con los clientes.",
+      "items": {
+        "excellence": {
+          "title": "Excelencia",
+          "description": "Compromiso con la calidad y resultados superiores."
+        },
+        "transparency": {
+          "title": "Transparencia",
+          "description": "Comunicación clara y honesta en todas las etapas."
+        },
+        "expertise": {
+          "title": "Especialización",
+          "description": "Conocimiento profundo de fondos e incentivos."
+        },
+        "partnership": {
+          "title": "Colaboración",
+          "description": "Relaciones a largo plazo basadas en la confianza."
+        }
+      }
+    },
+    "approach": {
+      "title": "Nuestro enfoque",
+      "subtitle": "Cómo trabajamos con nuestros clientes.",
+      "steps": {
+        "step1": {
+          "title": "Diagnóstico personalizado",
+          "description": "Analizamos la situación específica de cada cliente, identificando oportunidades y necesidades únicas."
+        },
+        "step2": {
+          "title": "Estrategia a medida",
+          "description": "Desarrollamos un plan de acción adaptado a los objetivos y características del proyecto o empresa."
+        },
+        "step3": {
+          "title": "Ejecución especializada",
+          "description": "Preparamos y presentamos solicitudes con el máximo rigor, aumentando las probabilidades de aprobación."
+        },
+        "step4": {
+          "title": "Acompañamiento continuo",
+          "description": "Mantenemos un apoyo permanente durante la ejecución del proyecto y la rendición de cuentas."
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Trabajamos juntos?",
+      "description": "Póngase en contacto con nosotros y descubra cómo podemos ayudar a que su proyecto tenga éxito.",
+      "button": "Hable con nosotros →"
+    }
+  },
+  "aboutPortugal": {
+    "hero": {
+      "title": "Portugal: puerta de entrada a Europa",
+      "subtitle": "Un ecosistema empresarial dinámico con acceso privilegiado a fondos e incentivos europeos."
+    },
+    "advantages": {
+      "title": "¿Por qué Portugal?",
+      "subtitle": "Un entorno empresarial favorable y competitivo en el contexto europeo.",
+      "cards": {
+        "location": {
+          "title": "Ubicación estratégica",
+          "description": "Posición geográfica privilegiada entre Europa, África y las Américas, ideal para operaciones internacionales."
+        },
+        "tax": {
+          "title": "Régimen fiscal competitivo",
+          "description": "Incentivos fiscales atractivos, incluidos regímenes especiales para residentes no habituales e inversión en I+D."
+        },
+        "infrastructure": {
+          "title": "Infraestructuras modernas",
+          "description": "Ecosistema empresarial desarrollado con infraestructuras de calidad y conectividad digital de excelencia."
+        },
+        "talent": {
+          "title": "Talento cualificado",
+          "description": "Mano de obra altamente cualificada y multilingüe, con una buena relación calidad‑precio en comparación con otros países europeos."
+        },
+        "innovation": {
+          "title": "Innovación y tecnología",
+          "description": "Creciente ecosistema de startups y apoyo gubernamental a la innovación y la transformación digital."
+        },
+        "qualityOfLife": {
+          "title": "Calidad de vida",
+          "description": "Excelente clima, seguridad, rica cultura y coste de vida competitivo atraen talento internacional."
+        }
+      }
+    },
+    "funds": {
+      "title": "Fondos europeos en Portugal",
+      "description": "Portugal tiene acceso a miles de millones de euros en fondos europeos para apoyar el desarrollo empresarial y la innovación.",
+      "availableLabel": "disponibles",
+      "programs": {
+        "portugal2030": {
+          "title": "Portugal 2030",
+          "description": "Programa de apoyo al desarrollo empresarial, la innovación, la competitividad y la internacionalización.",
+          "amount": "23.000 millones de €"
+        },
+        "prr": {
+          "title": "PRR – plan de recuperación",
+          "description": "Financiación para proyectos de transición digital, climática y de resiliencia económica.",
+          "amount": "16.600 millones de €"
+        },
+        "horizonEurope": {
+          "title": "Horizonte Europa",
+          "description": "Programa europeo de apoyo a la investigación e innovación, abierto a entidades portuguesas.",
+          "amount": "95.500 millones de €"
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para invertir en Portugal?",
+      "description": "Neomarca le ayuda a navegar por el ecosistema de fondos e incentivos portugueses y europeos.",
+      "button": "Reservar una consulta →"
+    }
+  },
+  "blogPage": {
+    "hero": {
+      "title": "Blog e insights",
+      "subtitle": "Manténgase al día sobre fondos europeos, incentivos y oportunidades de financiación."
+    },
+    "categories": {
+      "all": "Todos",
+      "funds": "Fondos europeos",
+      "incentives": "Incentivos",
+      "consulting": "Consultoría",
+      "guides": "Guías"
+    },
+    "posts": {
+      "post1": {
+        "title": "Portugal 2030: oportunidades para pymes",
+        "excerpt": "Descubra las principales líneas de financiación de Portugal 2030 destinadas a pequeñas y medianas empresas.",
+        "date": "15 de marzo de 2024",
+        "category": "Fondos europeos",
+        "readTime": "Lectura de 5 minutos"
+      },
+      "post2": {
+        "title": "SIFIDE: cómo maximizar el beneficio fiscal en I+D",
+        "excerpt": "Guía completa sobre el Sistema de Incentivos Fiscales a la Investigación y Desarrollo Empresarial.",
+        "date": "10 de marzo de 2024",
+        "category": "Incentivos",
+        "readTime": "Lectura de 8 minutos"
+      },
+      "post3": {
+        "title": "PRR: plazos y oportunidades en 2024",
+        "excerpt": "Calendario actualizado de las convocatorias del Plan de Recuperación y Resiliencia para este año.",
+        "date": "5 de marzo de 2024",
+        "category": "Fondos europeos",
+        "readTime": "Lectura de 6 minutos"
+      },
+      "post4": {
+        "title": "Internacionalización: apoyos disponibles",
+        "excerpt": "Conozca los programas de apoyo a la exportación y expansión internacional de empresas portuguesas.",
+        "date": "28 de febrero de 2024",
+        "category": "Consultoría",
+        "readTime": "Lectura de 7 minutos"
+      },
+      "post5": {
+        "title": "Errores comunes en solicitudes de fondos",
+        "excerpt": "Los 10 errores más frecuentes que pueden llevar al rechazo de una solicitud y cómo evitarlos.",
+        "date": "20 de febrero de 2024",
+        "category": "Guías",
+        "readTime": "Lectura de 10 minutos"
+      },
+      "post6": {
+        "title": "Sostenibilidad: fondos para economía verde",
+        "excerpt": "Programas europeos de financiación para proyectos de sostenibilidad y transición climática.",
+        "date": "15 de febrero de 2024",
+        "category": "Fondos europeos",
+        "readTime": "Lectura de 6 minutos"
+      }
+    },
+    "newsletter": {
+      "title": "Reciba nuestras novedades",
+      "subtitle": "Suscríbase a nuestro boletín y manténgase al tanto de las últimas oportunidades de financiación.",
+      "emailPlaceholder": "Su email",
+      "button": "Suscribirse",
+      "helperText": "Solo enviamos contenido relevante. Sin spam."
+    },
+    "cta": {
+      "title": "¿Necesita ayuda personalizada?",
+      "subtitle": "Hable con nuestros especialistas y descubra las mejores oportunidades para su negocio.",
+      "button": "Hablar con un especialista"
+    },
+    "postDetail": {
+      "backToBlog": "Volver al Blog e insights",
+      "genericIntro": "Este artículo forma parte de nuestra selección de contenidos sobre fondos europeos, incentivos y estrategias para hacer crecer su negocio en Portugal.",
+      "genericBody": "Pronto publicaremos la versión completa de este artículo. Mientras tanto, si desea explorar cómo estos temas se aplican a su proyecto, póngase en contacto con nosotros para un análisis personalizado de las mejores oportunidades de financiación.",
+      "ctaButton": "Hablar con un especialista"
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "Póngase en contacto",
+      "subtitle": "Estamos listos para ayudar a que su negocio alcance un nuevo nivel. Hable con nosotros."
+    },
+    "info": {
+      "title": "Información de contacto",
+      "email": {
+        "label": "Email"
+      },
+      "phone": {
+        "label": "Teléfono"
+      },
+      "address": {
+        "label": "Dirección"
+      },
+      "hours": {
+        "label": "Horario"
+      },
+      "fastResponse": {
+        "title": "Respuesta rápida",
+        "description": "Respondemos a todos los contactos en un plazo máximo de 24 horas laborables."
+      }
+    },
+    "formLoading": "Cargando formulario..."
+  },
+  "contactForm": {
+    "title": "Envíenos su mensaje",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "Su nombre completo",
+    "emailLabel": "Email",
+    "emailPlaceholder": "usted@ejemplo.com",
+    "companyLabel": "Empresa",
+    "companyPlaceholder": "Nombre de su empresa (opcional)",
+    "interestLabel": "Interés",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Describa cómo podemos ayudarle...",
+    "errors": {
+      "nameRequired": "El nombre es obligatorio",
+      "emailRequired": "El email es obligatorio",
+      "emailInvalid": "Introduzca una dirección de email válida",
+      "interestRequired": "Seleccione un interés",
+      "messageRequired": "El mensaje es obligatorio",
+      "messageTooShort": "El mensaje debe tener al menos 10 caracteres",
+      "consentRequired": "Debe aceptar la política de privacidad"
+    },
+    "consent": {
+      "textBeforeLink": "He leído y acepto la ",
+      "linkText": "política de privacidad",
+      "textAfterLink": " y autorizo el tratamiento de mis datos personales."
+    },
+    "submit": {
+      "sending": "Enviando...",
+      "label": "Enviar mensaje"
+    },
+    "status": {
+      "success": {
+        "title": "¡Mensaje enviado con éxito!",
+        "description": "Nos pondremos en contacto con usted en breve."
+      },
+      "error": {
+        "title": "Error al enviar el mensaje.",
+        "description": "Vuelva a intentarlo o contáctenos directamente por email."
+      }
+    }
+  },
   "footer": {
     "tagline": "Transformando oportunidades europeas en resultados concretos.",
     "navigation": "Navegación",
@@ -98,6 +479,7 @@
     "subscribe": "Suscribirse",
     "privacyPolicy": "Política de Privacidad",
     "cookiePolicy": "Política de Cookies",
+    "termsOfService": "Términos de servicio",
     "copyright": "© 2024 Neomarca. Todos los derechos reservados."
   }
 }

@@ -1,0 +1,33 @@
+"use client";
+
+import Image from "next/image";
+import { useI18n } from "@/components/I18nProvider";
+
+export function ServicosHero() {
+  const { t } = useI18n();
+
+  return (
+    <section className="relative pt-32 pb-20 bg-gradient-to-br from-[#1c2544] to-[#2a3558] text-white overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
+        <Image
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2340"
+          alt="Background"
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            {t("servicesPage.hero.title")}
+          </h1>
+          <p className="text-xl opacity-90">
+            {t("servicesPage.hero.subtitle")}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
