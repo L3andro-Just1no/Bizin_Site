@@ -40,11 +40,11 @@ function LanguageSelector() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 text-[18px] text-[rgba(28,37,68,0.7)] uppercase hover:text-[#1c2544] transition-colors"
+        className="flex items-center gap-1.5 text-[14px] 2xl:text-[16px] text-[rgba(28,37,68,0.7)] uppercase hover:text-[#1c2544] transition-colors"
       >
         {/* Globe Icon */}
         <svg 
-          className="w-5 h-5" 
+          className="w-4 h-4 2xl:w-5 2xl:h-5" 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -126,7 +126,7 @@ export function Header() {
         isScrolled ? "shadow-md" : ""
       )}
     >
-      <div className="container mx-auto px-4 md:px-4 lg:px-6 py-6">
+      <div className="container mx-auto px-4 md:px-4 lg:px-6 py-4 2xl:py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -136,19 +136,19 @@ export function Header() {
               width={152}
               height={74}
               priority
-              className="h-auto w-[152px]"
+              className="h-auto w-[120px] 2xl:w-[140px]"
             />
           </Link>
 
           {/* Desktop Navigation & Language - Right Side */}
-          <div className="hidden xl:flex items-center gap-8">
-            <nav className="flex items-center gap-8">
+          <div className="hidden xl:flex items-center gap-4 2xl:gap-6">
+            <nav className="flex items-center gap-4 2xl:gap-6">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-[18px] font-normal uppercase transition-colors tracking-[-0.18px]",
+                    "text-[14px] 2xl:text-[16px] font-normal uppercase transition-colors tracking-[-0.14px]",
                     pathname === item.href
                       ? "text-[#1c2544] font-medium"
                       : "text-[#1c2544] hover:text-[#1c2544]/80"
@@ -161,7 +161,7 @@ export function Header() {
             </nav>
 
             {/* Vertical Separator */}
-            <div className="h-6 w-px bg-gray-300" />
+            <div className="h-5 w-px bg-gray-300" />
             
             {/* Language Selector */}
             <LanguageSelector />
