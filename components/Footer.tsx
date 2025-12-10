@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { CONTACT_INFO, EXTERNAL_URLS } from "@/lib/constants";
 import { useI18n } from "@/components/I18nProvider";
 
@@ -17,23 +16,15 @@ const NAV_ITEMS = [
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState("");
   const { t } = useI18n();
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle newsletter subscription
-    console.log("Newsletter subscription:", email);
-    setEmail("");
-  };
 
   return (
     <footer className="bg-[#1c2544] text-white text-[15px]">
       <div className="container mx-auto px-4 md:px-4 lg:px-6 py-12">
-        {/* Main Grid: Logo, Nav, Newsletter & Contact Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-[225px_1fr_auto] gap-y-6 gap-x-12 mb-12 items-end">
+        {/* Main Grid: Logo, Nav & Contact Block */}
+        <div className="grid grid-cols-1 lg:grid-cols-[225px_1fr_auto] gap-y-6 gap-x-12 mb-12">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-start">
             <Image
               src="/logo_2.svg"
               alt="Bizin Portugal"
@@ -44,7 +35,7 @@ export function Footer() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-end">
+          <div className="flex items-start">
             <nav className="flex flex-wrap items-center gap-6 md:gap-8">
               {NAV_ITEMS.map((item) => (
                 <Link
@@ -59,9 +50,9 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Contact: title + details (spans both rows on desktop) */}
-          <div className="lg:row-span-2">
-            <div className="space-y-4 lg:grid lg:grid-cols-[32px_auto] lg:gap-x-4 lg:gap-y-4">
+          {/* Contact: title + details */}
+          <div>
+            <div className="lg:grid lg:grid-cols-[32px_auto] lg:gap-x-4 lg:gap-y-4 space-y-4 lg:space-y-0">
               {/* Empty cell so the title aligns with the text column on desktop */}
               <div className="hidden lg:block" />
               <h3
@@ -143,36 +134,6 @@ export function Footer() {
               </div>
             </div>
           </div>
-
-          {/* Newsletter - Starts under "Home" */}
-          <div className="max-w-md lg:col-start-2 lg:row-start-2">
-            <h3 className="text-[28px] font-medium leading-normal mb-4" style={{ fontVariationSettings: "'wdth' 100" }}>
-              {t("footer.newsletter")}
-            </h3>
-            <p className="text-[16px] font-light leading-[28px] mb-6 opacity-90">
-              {t("footer.newsletterText")}
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex gap-2 max-w-[340px]">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={t("footer.emailPlaceholder")}
-                className="flex-1 bg-white text-[#1c2544] text-[14px] px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white/50"
-                style={{ fontVariationSettings: "'wdth' 100" }}
-              />
-              <button
-                type="submit"
-                className="bg-white text-[#1c2544] p-3 rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
-                aria-label={t("footer.subscribe")}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-            </form>
-          </div>
-
         </div>
 
         {/* Bottom Section - Copyright, Privacy Links & Social Icons */}
@@ -183,7 +144,7 @@ export function Footer() {
               {t("footer.copyright")}
             </p>
 
-            {/* Privacy links, aligned with newsletter column */}
+            {/* Privacy links */}
             <div
               className="flex items-center gap-6 text-[16px] opacity-60 tracking-[-0.16px]"
               style={{ fontVariationSettings: "'wdth' 100" }}

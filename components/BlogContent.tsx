@@ -162,48 +162,6 @@ export function BlogContent() {
         </div>
       </Section>
 
-      {/* Newsletter CTA with Image */}
-      <Section className="py-20">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-[#87c76c] to-[#6baa53] rounded-3xl overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-0">
-              <div className="p-12 lg:p-16 flex flex-col justify-center text-white">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  {t("blogPage.newsletter.title")}
-                </h2>
-                <p className="text-xl mb-8 opacity-95">
-                  {t("blogPage.newsletter.subtitle")}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <input
-                    type="email"
-                    placeholder={t("blogPage.newsletter.emailPlaceholder")}
-                    className="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/30"
-                  />
-                  <Button
-                    variant="secondary"
-                    className="whitespace-nowrap px-8 py-4"
-                  >
-                    {t("blogPage.newsletter.button")}
-                  </Button>
-                </div>
-                <p className="text-sm mt-4 opacity-80">
-                  {t("blogPage.newsletter.helperText")}
-                </p>
-              </div>
-              <div className="relative h-[400px] lg:h-auto">
-                <Image
-                  src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2340"
-                  alt="Newsletter"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
       {/* CTA Section */}
       <Section variant="light" className="py-20">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
