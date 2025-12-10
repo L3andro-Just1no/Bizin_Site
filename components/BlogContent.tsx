@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Section } from "@/components/ui/Section";
 import {
   Card,
@@ -12,64 +12,43 @@ import {
 } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { useI18n } from "@/components/I18nProvider";
+import type { SimpleBlogPost, SimpleBlogCategory } from "@/lib/supabase/types";
 
-const categories = ["all", "funds", "incentives", "consulting", "guides"] as const;
-type Category = (typeof categories)[number];
+// Alias for compatibility
+type BlogPost = SimpleBlogPost;
+type BlogCategory = SimpleBlogCategory;
 
-const blogPosts: { id: number; key: string; image: string; category: Exclude<Category, "all"> }[] =
-  [
-    {
-      id: 1,
-      key: "post1",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800",
-      category: "funds",
-    },
-    {
-      id: 2,
-      key: "post2",
-      image:
-        "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=800",
-      category: "incentives",
-    },
-    {
-      id: 3,
-      key: "post3",
-      image:
-        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800",
-      category: "funds",
-    },
-    {
-      id: 4,
-      key: "post4",
-      image:
-        "https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=800",
-      category: "consulting",
-    },
-    {
-      id: 5,
-      key: "post5",
-      image:
-        "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800",
-      category: "guides",
-    },
-    {
-      id: 6,
-      key: "post6",
-      image:
-        "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800",
-      category: "funds",
-    },
-  ];
+interface BlogContentProps {
+  posts: BlogPost[];
+  categories: BlogCategory[];
+}
 
-export function BlogContent() {
+export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
   const { t } = useI18n();
-  const [activeCategory, setActiveCategory] = useState<Category>("all");
+  const [activeCategory, setActiveCategory] = useState<string>("all");
 
-  const filteredPosts =
-    activeCategory === "all"
-      ? blogPosts
-      : blogPosts.filter((post) => post.category === activeCategory);
+  // Create category options including "all"
+  const categoryOptions = useMemo(() => {
+    return ["all", ...categories.map((cat) => cat.slug)];
+  }, [categories]);
+
+  // Filter posts by active category
+  const filteredPosts = useMemo(() => {
+    if (activeCategory === "all") {
+      return posts;
+    }
+    return posts.filter((post) => post.categories.includes(activeCategory));
+  }, [posts, activeCategory]);
+
+  // Format date for display
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("pt-PT", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
 
   return (
     <>
@@ -99,8 +78,13 @@ export function BlogContent() {
       <Section className="py-8 bg-[#f3f9f0]">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((category) => {
+            {categoryOptions.map((category) => {
               const isActive = activeCategory === category;
+              const categoryData = categories.find((cat) => cat.slug === category);
+              const displayName = category === "all" 
+                ? t("blogPage.categories.all")
+                : categoryData?.name || category;
+              
               return (
                 <button
                   key={category}
@@ -112,7 +96,7 @@ export function BlogContent() {
                       : "bg-white border-transparent hover:border-[#87c76c] hover:text-[#87c76c]"
                   }`}
                 >
-                  {t(`blogPage.categories.${category}`)}
+                  {displayName}
                 </button>
               );
             })}
@@ -123,42 +107,59 @@ export function BlogContent() {
       {/* Blog Posts Grid */}
       <Section className="py-20">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.key}`} className="block">
-                <Card
-                  variant="elevated"
-                  className="hover:shadow-2xl transition-all cursor-pointer group overflow-hidden h-full"
-                >
-                  <div className="relative h-56">
-                    <Image
-                      src={post.image}
-                      alt={t(`blogPage.posts.${post.key}.title`)}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-[#87c76c] text-white px-4 py-2 rounded-full text-sm font-medium">
-                        {t(`blogPage.posts.${post.key}.category`)}
-                      </span>
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-xl text-gray-600 mb-4">
+                {t("blogPage.noPosts") || "No blog posts found."}
+              </p>
+              <p className="text-gray-500">
+                {t("blogPage.noPostsHint") || "Check back soon for new content!"}
+              </p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post) => (
+                <Link key={post.id} href={`/blog/${post.slug}`} className="block">
+                  <Card
+                    variant="elevated"
+                    className="hover:shadow-2xl transition-all cursor-pointer group overflow-hidden h-full"
+                  >
+                    <div className="relative h-56">
+                      <Image
+                        src={
+                          post.featuredImage?.url ||
+                          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800"
+                        }
+                        alt={post.featuredImage?.alt || post.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      {post.categories.length > 0 && (
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-[#87c76c] text-white px-4 py-2 rounded-full text-sm font-medium">
+                            {categories.find((cat) => cat.slug === post.categories[0])?.name ||
+                              post.categories[0]}
+                          </span>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                  <CardHeader className="p-6">
-                    <div className="flex items-center justify-between mb-3 text-sm text-gray-500">
-                      <span>{t(`blogPage.posts.${post.key}.date`)}</span>
-                      <span>{t(`blogPage.posts.${post.key}.readTime`)}</span>
-                    </div>
-                    <CardTitle className="group-hover:text-[#87c76c] transition-colors mb-3">
-                      {t(`blogPage.posts.${post.key}.title`)}
-                    </CardTitle>
-                    <CardDescription className="text-gray-600 leading-relaxed">
-                      {t(`blogPage.posts.${post.key}.excerpt`)}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              </Link>
-            ))}
-          </div>
+                    <CardHeader className="p-6">
+                      <div className="flex items-center justify-between mb-3 text-sm text-gray-500">
+                        <span>{formatDate(post.date)}</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                      <CardTitle className="group-hover:text-[#87c76c] transition-colors mb-3">
+                        {post.title}
+                      </CardTitle>
+                      <CardDescription className="text-gray-600 leading-relaxed">
+                        {post.excerpt}
+                      </CardDescription>
+                    </CardHeader>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </Section>
 

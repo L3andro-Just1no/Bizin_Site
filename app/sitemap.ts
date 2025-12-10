@@ -1,58 +1,64 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next';
+import { getAllPostSlugs } from '@/lib/supabase/blog';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://neomarca.pt";
-  const currentDate = new Date();
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://bizin.pt';
+  
+  // Get all blog post slugs
+  let blogPosts: string[] = [];
+  try {
+    blogPosts = await getAllPostSlugs();
+  } catch (error) {
+    console.error('Error fetching blog posts for sitemap:', error);
+  }
 
-  return [
+  // Static pages
+  const staticPages = [
     {
       url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 1.0,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 1,
     },
     {
       url: `${baseUrl}/servicos`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/sobre-portugal`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
+      url: `${baseUrl}/sobre-neomarca`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/sobre-neomarca`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
+      url: `${baseUrl}/sobre-portugal`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contactos`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/politicas/privacidade`,
-      lastModified: currentDate,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/politicas/cookies`,
-      lastModified: currentDate,
-      changeFrequency: "yearly",
-      priority: 0.3,
+      url: `${baseUrl}/contactos`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     },
   ];
-}
 
+  // Blog post pages
+  const blogPages = blogPosts.map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...blogPages];
+}

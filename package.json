@@ -9,11 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.15.0",
+    "@supabase/supabase-js": "^2.87.1",
+    "@tailwindcss/typography": "^0.5.19",
     "clsx": "^2.1.1",
+    "js-cookie": "^3.0.5",
     "next": "^14.2.18",
     "next-intl": "^4.5.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.68.0",
+    "react-quill": "^2.0.0",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
