@@ -151,8 +151,17 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
                       <CardTitle className="group-hover:text-[#87c76c] transition-colors mb-3">
                         {post.title}
                       </CardTitle>
-                      <CardDescription className="text-gray-600 leading-relaxed">
-                        {post.excerpt}
+                      <CardDescription 
+                        className="text-gray-600 leading-relaxed"
+                        style={{
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                        }}
+                      >
+                        {post.excerpt || post.content.substring(0, 150).replace(/<[^>]*>/g, '') + '...'}
                       </CardDescription>
                     </CardHeader>
                   </Card>
