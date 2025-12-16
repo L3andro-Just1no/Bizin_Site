@@ -8,7 +8,8 @@ export function BizinWidget() {
     
     // Create script element
     const script = document.createElement('script');
-    script.src = 'https://bizin-assistant.vercel.app/widget.js';
+    // Add timestamp to bust cache
+    script.src = `https://bizin-assistant.vercel.app/widget.js?v=${Date.now()}`;
     script.setAttribute('data-bizin-auto-init', 'true');
     script.setAttribute('data-api-url', 'https://bizin-assistant.vercel.app');
     script.setAttribute('data-language', 'pt');
