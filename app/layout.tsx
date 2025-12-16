@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Inter, Roboto, Manrope } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 import { I18nProvider } from "@/components/I18nProvider";
+import { BizinWidget } from "@/components/BizinWidget";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const roboto = Roboto({
@@ -64,17 +64,8 @@ export default function RootLayout({
           <Footer />
           <CookieBanner />
           <AnalyticsProvider />
+          <BizinWidget />
         </I18nProvider>
-        
-        {/* Bizin AI Assistant Widget */}
-        <Script
-          src="https://bizin-assistant.vercel.app/widget.js"
-          strategy="lazyOnload"
-          data-bizin-auto-init="true"
-          data-api-url="https://bizin-assistant.vercel.app"
-          data-language="pt"
-          data-theme="light"
-        />
       </body>
     </html>
   );
