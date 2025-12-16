@@ -7,7 +7,7 @@ export const revalidate = 0;
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createServerClient();
+    const supabase: any = createServerClient();
     
     const { data, error } = await supabase
       .from('blog_categories')
