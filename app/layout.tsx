@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 import { I18nProvider } from "@/components/I18nProvider";
+import { BizinWidget } from "@/components/BizinWidget";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const roboto = Roboto({
@@ -63,6 +64,7 @@ export default function RootLayout({
           <Footer />
           <CookieBanner />
           <AnalyticsProvider />
+          <BizinWidget />
         </I18nProvider>
       </body>
     </html>

@@ -10,9 +10,17 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
       <div
         className="prose prose-lg max-w-none blog-content"
         dangerouslySetInnerHTML={{ __html: content }}
+        style={{ whiteSpace: 'normal', overflowWrap: 'break-word' }}
       />
       
       <style jsx global>{`
+        .blog-content {
+          word-wrap: break-word !important;
+          overflow-wrap: break-word !important;
+          word-break: break-word !important;
+          hyphens: auto !important;
+        }
+        
         .blog-content h1,
         .blog-content h2,
         .blog-content h3,
@@ -22,6 +30,8 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
           color: #1c2544 !important;
           font-weight: 700 !important;
           line-height: 1.3 !important;
+          word-wrap: break-word !important;
+          overflow-wrap: break-word !important;
         }
         
         .blog-content h1 {
@@ -58,6 +68,8 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
           color: #374151;
           margin-bottom: 1.5rem !important;
           line-height: 1.75 !important;
+          white-space: pre-wrap !important;
+          word-wrap: break-word !important;
         }
         
         .blog-content ul,
@@ -69,6 +81,8 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
         .blog-content li {
           margin-bottom: 0.5rem !important;
           color: #374151;
+          word-wrap: break-word !important;
+          overflow-wrap: break-word !important;
         }
         
         .blog-content a {
@@ -86,6 +100,18 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
           font-style: italic;
           color: #6b7280 !important;
           margin: 1.5rem 0 !important;
+          word-wrap: break-word !important;
+          overflow-wrap: break-word !important;
+        }
+        
+        /* Ensure all text elements break properly */
+        .blog-content * {
+          max-width: 100% !important;
+        }
+        
+        /* Add spacing between direct children */
+        .blog-content > * + * {
+          margin-top: 1rem !important;
         }
         
         .blog-content img {
