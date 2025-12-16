@@ -61,8 +61,8 @@ export const revalidate = 60;
 
 export default async function BlogPage() {
   // Fetch posts and categories from Supabase
-  let posts = [];
-  let categories = [];
+  let posts: any[] = [];
+  let categories: any[] = [];
 
   try {
     [posts, categories] = await Promise.all([

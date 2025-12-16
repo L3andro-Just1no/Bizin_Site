@@ -9,7 +9,7 @@ export const revalidate = 0;
 export async function GET(request: NextRequest) {
   try {
     // Get all posts (including drafts for admin)
-    const supabase = createServerClient();
+    const supabase: any = createServerClient();
     
     // First get all posts
     const { data: postsData, error: postsError } = await supabase

@@ -8,7 +8,7 @@ export const revalidate = 0;
 // Utility endpoint to list ALL posts including problematic ones
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createServerClient();
+    const supabase: any = createServerClient();
     
     // Get absolutely all posts, no filtering
     const { data, error } = await supabase
@@ -45,7 +45,7 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    const supabase = createServerClient();
+    const supabase: any = createServerClient();
     
     let query = supabase.from('blog_posts').delete();
     
