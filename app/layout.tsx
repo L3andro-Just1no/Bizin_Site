@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Roboto, Manrope } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -64,6 +65,16 @@ export default function RootLayout({
           <CookieBanner />
           <AnalyticsProvider />
         </I18nProvider>
+        
+        {/* Bizin AI Assistant Widget */}
+        <Script
+          src="https://bizin-assistant.vercel.app/widget.js"
+          strategy="lazyOnload"
+          data-bizin-auto-init="true"
+          data-api-url="https://bizin-assistant.vercel.app"
+          data-language="pt"
+          data-theme="light"
+        />
       </body>
     </html>
   );
