@@ -20,8 +20,12 @@ export function RichTextEditor({ value, onChange, placeholder }: RichTextEditorP
       [{ list: 'ordered' }, { list: 'bullet' }],
       ['blockquote', 'code-block'],
       ['link', 'image'],
+      [{ align: [] }],
       ['clean'],
     ],
+    clipboard: {
+      matchVisual: false,
+    },
   };
 
   const formats = [
@@ -36,6 +40,7 @@ export function RichTextEditor({ value, onChange, placeholder }: RichTextEditorP
     'code-block',
     'link',
     'image',
+    'align',
   ];
 
   return (
@@ -109,6 +114,20 @@ export function RichTextEditor({ value, onChange, placeholder }: RichTextEditorP
         .rich-text-editor .ql-editor p {
           margin-bottom: 1rem;
           line-height: 1.75;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+        
+        /* Ensure proper line breaking */
+        .rich-text-editor .ql-editor {
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          white-space: normal;
+        }
+        
+        /* Add spacing between paragraphs */
+        .rich-text-editor .ql-editor > * + * {
+          margin-top: 0.5rem;
         }
       `}</style>
     </div>
