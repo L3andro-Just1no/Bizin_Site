@@ -1,17 +1,14 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://neomarca.pt";
-
   return {
     rules: [
       {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/admin/"],
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/blog/admin', '/api/'],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: 'https://bizin.pt/sitemap.xml',
   };
 }
-

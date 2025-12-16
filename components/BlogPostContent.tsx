@@ -1,63 +1,121 @@
-"use client";
-
-import Link from "next/link";
-import { Section } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
-import { useI18n } from "@/components/I18nProvider";
-
-type PostKey = "post1" | "post2" | "post3" | "post4" | "post5" | "post6";
+'use client';
 
 interface BlogPostContentProps {
-  postKey: PostKey;
+  content: string;
 }
 
-export function BlogPostContent({ postKey }: BlogPostContentProps) {
-  const { t } = useI18n();
-
+export function BlogPostContent({ content }: BlogPostContentProps) {
   return (
-    <Section className="py-16 md:py-20">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <Link
-          href="/blog"
-          className="inline-flex items-center text-sm text-[#1c2544] hover:text-[#87c76c] transition-colors mb-6"
-        >
-          <span className="mr-2">←</span>
-          {t("blogPage.postDetail.backToBlog")}
-        </Link>
-
-        <div className="mb-4 flex items-center gap-3 text-sm text-gray-500">
-          <span className="inline-flex items-center rounded-full bg-[#f3f9f0] px-3 py-1 text-[#1c2544]">
-            {t(`blogPage.posts.${postKey}.category`)}
-          </span>
-          <span>•</span>
-          <span>{t(`blogPage.posts.${postKey}.date`)}</span>
-          <span>•</span>
-          <span>{t(`blogPage.posts.${postKey}.readTime`)}</span>
-        </div>
-
-        <h1 className="text-3xl md:text-4xl font-bold text-[#1c2544] mb-6">
-          {t(`blogPage.posts.${postKey}.title`)}
-        </h1>
-
-        <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-          {t(`blogPage.posts.${postKey}.excerpt`)}
-        </p>
-
-        <div className="space-y-5 text-gray-700 text-base md:text-lg leading-relaxed">
-          <p>{t("blogPage.postDetail.genericIntro")}</p>
-          <p>{t("blogPage.postDetail.genericBody")}</p>
-        </div>
-
-        <div className="mt-10">
-          <Button variant="primary" size="lg" asChild>
-            <Link href="/contactos">
-              {t("blogPage.postDetail.ctaButton")}
-            </Link>
-          </Button>
-        </div>
-      </div>
-    </Section>
+    <>
+      <div
+        className="prose prose-lg max-w-none blog-content"
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
+      
+      <style jsx global>{`
+        .blog-content h1,
+        .blog-content h2,
+        .blog-content h3,
+        .blog-content h4,
+        .blog-content h5,
+        .blog-content h6 {
+          color: #1c2544 !important;
+          font-weight: 700 !important;
+          line-height: 1.3 !important;
+        }
+        
+        .blog-content h1 {
+          font-size: 2.25rem !important;
+          margin-top: 3rem !important;
+          margin-bottom: 1.5rem !important;
+        }
+        
+        .blog-content h2 {
+          font-size: 1.875rem !important;
+          margin-top: 3rem !important;
+          margin-bottom: 1.5rem !important;
+        }
+        
+        .blog-content h3 {
+          font-size: 1.5rem !important;
+          margin-top: 2rem !important;
+          margin-bottom: 1rem !important;
+        }
+        
+        .blog-content h4 {
+          font-size: 1.25rem !important;
+          margin-top: 1.5rem !important;
+          margin-bottom: 0.75rem !important;
+        }
+        
+        .blog-content strong,
+        .blog-content b {
+          color: #1c2544 !important;
+          font-weight: 700 !important;
+        }
+        
+        .blog-content p {
+          color: #374151;
+          margin-bottom: 1.5rem !important;
+          line-height: 1.75 !important;
+        }
+        
+        .blog-content ul,
+        .blog-content ol {
+          margin: 1.5rem 0 !important;
+          padding-left: 1.5rem !important;
+        }
+        
+        .blog-content li {
+          margin-bottom: 0.5rem !important;
+          color: #374151;
+        }
+        
+        .blog-content a {
+          color: #87c76c !important;
+          text-decoration: none;
+        }
+        
+        .blog-content a:hover {
+          text-decoration: underline;
+        }
+        
+        .blog-content blockquote {
+          border-left: 4px solid #87c76c !important;
+          padding-left: 1.5rem !important;
+          font-style: italic;
+          color: #6b7280 !important;
+          margin: 1.5rem 0 !important;
+        }
+        
+        .blog-content img {
+          border-radius: 0.75rem !important;
+          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1) !important;
+          margin: 2rem 0 !important;
+        }
+        
+        .blog-content code {
+          background: #f3f4f6 !important;
+          padding: 0.125rem 0.5rem !important;
+          border-radius: 0.25rem !important;
+          font-size: 0.875em !important;
+        }
+        
+        .blog-content pre {
+          background: #1f2937 !important;
+          color: #f9fafb !important;
+          padding: 1.5rem !important;
+          border-radius: 0.75rem !important;
+          overflow-x: auto;
+          margin: 1.5rem 0 !important;
+        }
+        
+        .blog-content pre code {
+          background: transparent !important;
+          color: inherit !important;
+          padding: 0 !important;
+        }
+      `}</style>
+    </>
   );
 }
-
-

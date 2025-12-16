@@ -19,6 +19,13 @@ const nextConfig = {
         port: '',
         pathname: '/api/mcp/asset/**',
       },
+      // Supabase Storage for uploaded images
+      {
+        protocol: 'https',
+        hostname: 'vqcapoyfpoakgibkaqnf.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/**',
+      },
     ],
   },
 }
