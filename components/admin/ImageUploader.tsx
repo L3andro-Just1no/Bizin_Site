@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 import { supabase } from '@/lib/supabase/client';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -168,10 +169,11 @@ export function ImageUploader({ value, onChange, label = 'Featured Image' }: Ima
       {/* Preview */}
       {value && (
         <div className="mt-4 relative w-full h-40 rounded-lg overflow-hidden border-2 border-gray-200">
-          <img
+          <Image
             src={value}
             alt="Preview"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
             onError={(e) => {
               e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Invalid+URL';
             }}
@@ -179,7 +181,7 @@ export function ImageUploader({ value, onChange, label = 'Featured Image' }: Ima
           <button
             type="button"
             onClick={() => onChange('')}
-            className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors shadow-lg"
+            className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors shadow-lg z-10"
             title="Remove image"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
