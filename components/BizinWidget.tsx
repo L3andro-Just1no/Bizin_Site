@@ -4,15 +4,52 @@ import { useEffect, useState } from 'react';
 
 export function BizinWidget() {
   const [locale, setLocale] = useState('pt'); // Default to Portuguese
+  const [widgetInitialized, setWidgetInitialized] = useState(false);
   
   useEffect(() => {
-    // Get locale from HTML lang attribute or pathname
-    const htmlLang = document.documentElement.lang || 'pt';
-    const pathLocale = window.location.pathname.split('/')[1];
-    const detectedLocale = ['pt', 'en', 'es', 'fr'].includes(pathLocale) ? pathLocale : htmlLang;
+    // Function to detect language
+    const detectLanguage = () => {
+      const htmlLang = document.documentElement.lang || 'pt';
+      const pathLocale = window.location.pathname.split('/')[1];
+      return ['pt', 'en', 'es', 'fr'].includes(pathLocale) ? pathLocale : htmlLang;
+    };
     
-    setLocale(detectedLocale);
-    console.log('🤖 BizinWidget: Initializing...', 'Language:', detectedLocale);
+    const initialLocale = detectLanguage();
+    setLocale(initialLocale);
+    console.log('🤖 BizinWidget: Initializing...', 'Language:', initialLocale);
+    
+    // Watch for language changes
+    const observer = new MutationObserver(() => {
+      const newLocale = detectLanguage();
+      if (newLocale !== locale && widgetInitialized) {
+        console.log('🔄 Language changed:', locale, '→', newLocale);
+        setLocale(newLocale);
+        
+        // Destroy and reinitialize widget with new language
+        if (window.BizinAgent && typeof window.BizinAgent.destroy === 'function') {
+          window.BizinAgent.destroy();
+        }
+        
+        if (window.BizinAgent && typeof window.BizinAgent.init === 'function') {
+          window.BizinAgent.init({
+            apiUrl: 'https://bizin-assistant.vercel.app',
+            language: newLocale,
+            theme: 'light',
+            primaryColor: '#87c76c',
+            position: 'bottom-right'
+          });
+          console.log(`🚀 Widget reinitialized with language: ${newLocale}`);
+        }
+      }
+    });
+    
+    // Observe HTML lang attribute changes
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang']
+    });
+    
+    return () => observer.disconnect();
     
     // Create script element
     const script = document.createElement('script');
@@ -39,6 +76,7 @@ export function BizinWidget() {
             primaryColor: '#87c76c', // Neomarca green color
             position: 'bottom-right'
           });
+          setWidgetInitialized(true);
           console.log(`🚀 BizinWidget: Initialized with language: ${locale}`);
         } catch (error) {
           console.error('❌ BizinWidget: Manual initialization failed', error);
