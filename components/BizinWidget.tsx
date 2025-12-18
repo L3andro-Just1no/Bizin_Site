@@ -1,10 +1,18 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export function BizinWidget() {
+  const [locale, setLocale] = useState('pt'); // Default to Portuguese
+  
   useEffect(() => {
-    console.log('🤖 BizinWidget: Initializing...');
+    // Get locale from HTML lang attribute or pathname
+    const htmlLang = document.documentElement.lang || 'pt';
+    const pathLocale = window.location.pathname.split('/')[1];
+    const detectedLocale = ['pt', 'en', 'es', 'fr'].includes(pathLocale) ? pathLocale : htmlLang;
+    
+    setLocale(detectedLocale);
+    console.log('🤖 BizinWidget: Initializing...', 'Language:', detectedLocale);
     
     // Create script element
     const script = document.createElement('script');
@@ -12,7 +20,7 @@ export function BizinWidget() {
     script.src = `https://bizin-assistant.vercel.app/widget.js?v=${Date.now()}`;
     script.setAttribute('data-bizin-auto-init', 'true');
     script.setAttribute('data-api-url', 'https://bizin-assistant.vercel.app');
-    script.setAttribute('data-language', 'pt');
+    script.setAttribute('data-language', locale);
     script.setAttribute('data-theme', 'light');
     script.async = true;
     
@@ -26,12 +34,12 @@ export function BizinWidget() {
         try {
           window.BizinAgent.init({
             apiUrl: 'https://bizin-assistant.vercel.app',
-            language: 'pt',
+            language: locale,
             theme: 'light',
             primaryColor: '#87c76c', // Neomarca green color
             position: 'bottom-right'
           });
-          console.log('🚀 BizinWidget: Manually initialized with custom styling');
+          console.log(`🚀 BizinWidget: Initialized with language: ${locale}`);
         } catch (error) {
           console.error('❌ BizinWidget: Manual initialization failed', error);
         }
@@ -54,7 +62,7 @@ export function BizinWidget() {
         console.log('🧹 BizinWidget: Cleanup - script removed');
       }
     };
-  }, []);
+  }, []); // Only run once on mount
 
   return null;
 }
