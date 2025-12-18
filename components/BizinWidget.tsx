@@ -18,39 +18,6 @@ export function BizinWidget() {
     setLocale(initialLocale);
     console.log('🤖 BizinWidget: Initializing...', 'Language:', initialLocale);
     
-    // Watch for language changes
-    const observer = new MutationObserver(() => {
-      const newLocale = detectLanguage();
-      if (newLocale !== locale && widgetInitialized) {
-        console.log('🔄 Language changed:', locale, '→', newLocale);
-        setLocale(newLocale);
-        
-        // Destroy and reinitialize widget with new language
-        if (window.BizinAgent && typeof window.BizinAgent.destroy === 'function') {
-          window.BizinAgent.destroy();
-        }
-        
-        if (window.BizinAgent && typeof window.BizinAgent.init === 'function') {
-          window.BizinAgent.init({
-            apiUrl: 'https://bizin-assistant.vercel.app',
-            language: newLocale,
-            theme: 'light',
-            primaryColor: '#87c76c',
-            position: 'bottom-right'
-          });
-          console.log(`🚀 Widget reinitialized with language: ${newLocale}`);
-        }
-      }
-    });
-    
-    // Observe HTML lang attribute changes
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['lang']
-    });
-    
-    return () => observer.disconnect();
-    
     // Create script element
     const script = document.createElement('script');
     // Add timestamp to bust cache
@@ -93,8 +60,40 @@ export function BizinWidget() {
     document.body.appendChild(script);
     console.log('📝 BizinWidget: Script tag added to body');
     
+    // Watch for language changes
+    const observer = new MutationObserver(() => {
+      const newLocale = detectLanguage();
+      if (newLocale !== initialLocale && widgetInitialized) {
+        console.log('🔄 Language changed:', initialLocale, '→', newLocale);
+        setLocale(newLocale);
+        
+        // Destroy and reinitialize widget with new language
+        if (window.BizinAgent && typeof window.BizinAgent.destroy === 'function') {
+          window.BizinAgent.destroy();
+        }
+        
+        if (window.BizinAgent && typeof window.BizinAgent.init === 'function') {
+          window.BizinAgent.init({
+            apiUrl: 'https://bizin-assistant.vercel.app',
+            language: newLocale,
+            theme: 'light',
+            primaryColor: '#87c76c',
+            position: 'bottom-right'
+          });
+          console.log(`🚀 Widget reinitialized with language: ${newLocale}`);
+        }
+      }
+    });
+    
+    // Observe HTML lang attribute changes
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang']
+    });
+    
     // Cleanup function
     return () => {
+      observer.disconnect();
       if (document.body.contains(script)) {
         document.body.removeChild(script);
         console.log('🧹 BizinWidget: Cleanup - script removed');
