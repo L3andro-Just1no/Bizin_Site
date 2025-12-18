@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   keywords: "fundos europeus, incentivos, apoio empresarial, Portugal, Neomarca",
   authors: [{ name: "Neomarca" }],
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "Neomarca - Apoio a Fundos e Incentivos Europeus",
