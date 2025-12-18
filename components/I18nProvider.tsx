@@ -4,6 +4,7 @@ import React, {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -41,6 +42,12 @@ function getNestedValue(obj: any, key: string): string {
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>("pt");
+
+  // Update HTML lang attribute when locale changes
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    console.log('🌐 I18nProvider: Language changed to', locale);
+  }, [locale]);
 
   const t = useCallback(
     (key: string) => {
