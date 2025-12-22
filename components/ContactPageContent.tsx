@@ -14,13 +14,14 @@ export function ContactPageContent() {
     <>
       {/* Hero Section with Background */}
       <section className="relative py-32 bg-gradient-to-br from-[#1c2544] to-[#2a3558] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2340"
             alt="Background"
             fill
             className="object-cover"
           />
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
