@@ -339,6 +339,8 @@
       "consulting": "Conseil",
       "guides": "Guides"
     },
+    "noPosts": "Aucun article trouvé.",
+    "noPostsHint": "Revenez bientôt pour découvrir de nouveaux contenus !",
     "posts": {
       "post1": {
         "title": "Portugal 2030 : opportunités pour les PME",

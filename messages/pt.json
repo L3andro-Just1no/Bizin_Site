@@ -339,6 +339,8 @@
       "consulting": "Consultoria",
       "guides": "Guias"
     },
+    "noPosts": "Nenhum artigo encontrado.",
+    "noPostsHint": "Volte em breve para ver novos conteúdos!",
     "posts": {
       "post1": {
         "title": "Portugal 2030: oportunidades para PMEs",

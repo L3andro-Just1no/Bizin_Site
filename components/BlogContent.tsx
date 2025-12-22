@@ -27,6 +27,14 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
   const { t } = useI18n();
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
+  // Category slug to translation key mapping
+  const categoryTranslationMap: Record<string, string> = {
+    "fundos-europeus": "blogPage.categories.funds",
+    "incentivos": "blogPage.categories.incentives",
+    "consultoria": "blogPage.categories.consulting",
+    "guias": "blogPage.categories.guides",
+  };
+
   // Create category options including "all"
   const categoryOptions = useMemo(() => {
     return ["all", ...categories.map((cat) => cat.slug)];
@@ -53,12 +61,18 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
   return (
     <>
       {/* Hero Section with Background */}
-      <section className="relative py-32 bg-gradient-to-br from-[#1c2544] to-[#2a3558] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section 
+        className="relative py-32 text-white overflow-hidden"
+        style={{
+          background: 'linear-gradient(to bottom right, #1c2544, #2a3558)'
+        }}
+      >
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
           <Image
             src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2340"
             alt="Background"
             fill
+            priority
             className="object-cover"
           />
         </div>
@@ -80,10 +94,11 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
           <div className="flex flex-wrap gap-3 justify-center">
             {categoryOptions.map((category) => {
               const isActive = activeCategory === category;
-              const categoryData = categories.find((cat) => cat.slug === category);
               const displayName = category === "all" 
                 ? t("blogPage.categories.all")
-                : categoryData?.name || category;
+                : categoryTranslationMap[category] 
+                  ? t(categoryTranslationMap[category])
+                  : categories.find((cat) => cat.slug === category)?.name || category;
               
               return (
                 <button

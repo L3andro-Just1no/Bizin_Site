@@ -339,6 +339,8 @@
       "consulting": "Consulting",
       "guides": "Guides"
     },
+    "noPosts": "No blog posts found.",
+    "noPostsHint": "Check back soon for new content!",
     "posts": {
       "post1": {
         "title": "Portugal 2030: opportunities for SMEs",

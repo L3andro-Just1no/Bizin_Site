@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -95,6 +95,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -110,14 +112,31 @@ export function Header() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Close language dropdown when clicking outside
+  // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleClick = () => {
-      // This will be handled by the LanguageSelector component
+    if (!isMobileMenuOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuRef.current &&
+        hamburgerButtonRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        !hamburgerButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
     };
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
-  }, []);
+
+    // Use setTimeout to avoid race condition with the button click
+    const timeoutId = setTimeout(() => {
+      document.addEventListener("mousedown", handleClickOutside);
+    }, 0);
+
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <header
@@ -169,8 +188,12 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
+            ref={hamburgerButtonRef}
             className="xl:hidden p-2 text-[#1c2544]"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
             aria-label="Toggle menu"
           >
             <svg
@@ -200,7 +223,10 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="xl:hidden mt-6 pb-4 border-t border-gray-200 pt-4">
+          <div 
+            ref={mobileMenuRef}
+            className="xl:hidden mt-6 pb-4 border-t border-gray-200 pt-4"
+          >
             <nav className="flex flex-col space-y-4">
               {NAV_ITEMS.map((item) => (
                 <Link
