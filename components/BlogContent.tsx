@@ -67,7 +67,7 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
           background: 'linear-gradient(to bottom right, #1c2544, #2a3558)'
         }}
       >
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none">
           <Image
             src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2340"
             alt="Background"
@@ -75,6 +75,7 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
             priority
             className="object-cover"
           />
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">

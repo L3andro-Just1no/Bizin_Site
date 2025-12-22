@@ -81,6 +81,78 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...
 - ✅ **NEXT_PUBLIC_SUPABASE_ANON_KEY**: Safe to expose (it's for public read-only access)
 - ⚠️ **SUPABASE_SERVICE_ROLE_KEY**: Keep this secret! Never commit to git or expose in frontend
 
+## SendGrid Email Integration
+
+The contact form uses SendGrid to send email notifications when users submit inquiries.
+
+### Getting Started with SendGrid
+
+1. **Sign up for SendGrid** (free tier includes 100 emails/day):
+   - Visit [sendgrid.com](https://sendgrid.com)
+   - Create a free account
+
+2. **Create an API Key**:
+   - Log in to SendGrid dashboard
+   - Go to Settings → API Keys
+   - Click "Create API Key"
+   - Choose "Restricted Access" and enable "Mail Send" permission
+   - Copy the API key (you won't be able to see it again!)
+
+3. **Verify Sender Email**:
+   - Go to Settings → Sender Authentication
+   - Click "Verify a Single Sender"
+   - Add and verify an email address (this will be the "from" address)
+   - Check your email for verification link
+
+### Configuration
+
+Add these variables to your `.env.local` file:
+
+```bash
+# SendGrid Configuration
+SENDGRID_API_KEY=SG.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+SENDGRID_FROM_EMAIL=noreply@yourdomain.com  # Must be verified in SendGrid
+```
+
+### Testing
+
+1. Add the SendGrid variables to `.env.local`
+2. Restart the development server:
+   ```bash
+   npm run dev
+   ```
+3. Go to `http://localhost:3000/contactos`
+4. Submit the contact form
+5. Check the inbox at the configured recipient email
+
+### Production Setup (Vercel)
+
+1. Go to Vercel project → Settings → Environment Variables
+2. Add these variables:
+   - `SENDGRID_API_KEY` → Production (mark as "Sensitive")
+   - `SENDGRID_FROM_EMAIL` → Production
+3. Redeploy your site
+
+### Security Notes
+
+- ⚠️ **SENDGRID_API_KEY**: Keep this secret! Never commit to git or expose in frontend
+- ✅ **SENDGRID_FROM_EMAIL**: Can be public, but must be verified in SendGrid dashboard
+
+### Troubleshooting
+
+**Error: "Forbidden"**
+- Make sure your API key has "Mail Send" permission enabled
+- Verify the API key is correctly copied
+
+**Error: "The from email does not match a verified Sender Identity"**
+- Go to SendGrid dashboard → Settings → Sender Authentication
+- Verify the email address you're using in `SENDGRID_FROM_EMAIL`
+
+**Emails not arriving**
+- Check your spam/junk folder
+- Check SendGrid dashboard → Activity for delivery status
+- Verify recipient email is correct in the code
+
 ## Quick Start
 
 See `SUPABASE_QUICK_START.md` for a 5-minute setup guide!
