@@ -41,7 +41,7 @@ export function BizinWidget() {
             language: locale,
             theme: 'light',
             primaryColor: '#87c76c', // Neomarca green color
-            position: 'bottom-right'
+            position: 'bottom-center'
           });
           setWidgetInitialized(true);
           console.log(`🚀 BizinWidget: Initialized with language: ${locale}`);
@@ -78,7 +78,7 @@ export function BizinWidget() {
             language: newLocale,
             theme: 'light',
             primaryColor: '#87c76c',
-            position: 'bottom-right'
+            position: 'bottom-center'
           });
           console.log(`🚀 Widget reinitialized with language: ${newLocale}`);
         }

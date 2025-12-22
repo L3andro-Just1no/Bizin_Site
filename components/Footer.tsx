@@ -144,20 +144,28 @@ export function Footer() {
               {t("footer.copyright")}
             </p>
 
-            {/* Privacy links */}
+            {/* Legal Information links */}
             <div
-              className="flex items-center gap-6 text-[16px] opacity-60 tracking-[-0.16px]"
+              className="flex flex-wrap items-center gap-4 md:gap-6 text-[16px] opacity-60 tracking-[-0.16px]"
               style={{ fontVariationSettings: "'wdth' 100" }}
             >
-              <Link href="/politicas/privacidade" className="hover:opacity-100 transition-opacity">
+              <Link href="/politicas/termos" className="hover:opacity-100 transition-opacity whitespace-nowrap">
+                {t("footer.termsAndConditions")}
+              </Link>
+              <Link href="/politicas/privacidade" className="hover:opacity-100 transition-opacity whitespace-nowrap">
                 {t("footer.privacyPolicy")}
               </Link>
-              <Link href="/politicas/termos" className="hover:opacity-100 transition-opacity">
-                {t("footer.termsOfService")}
-              </Link>
-              <Link href="/politicas/cookies" className="hover:opacity-100 transition-opacity">
+              <Link href="/politicas/cookies" className="hover:opacity-100 transition-opacity whitespace-nowrap">
                 {t("footer.cookiePolicy")}
               </Link>
+              <a 
+                href="https://www.livroreclamacoes.pt/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-100 transition-opacity whitespace-nowrap"
+              >
+                {t("footer.complaintsBook")}
+              </a>
             </div>
 
             {/* Social Icons */}

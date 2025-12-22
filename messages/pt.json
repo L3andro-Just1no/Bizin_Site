@@ -339,6 +339,8 @@
       "consulting": "Consultoria",
       "guides": "Guias"
     },
+    "noPosts": "Nenhum artigo encontrado.",
+    "noPostsHint": "Volte em breve para ver novos conteúdos!",
     "posts": {
       "post1": {
         "title": "Portugal 2030: oportunidades para PMEs",
@@ -477,10 +479,11 @@
     "newsletterText": "Receba as últimas novidades sobre fundos e incentivos",
     "emailPlaceholder": "O seu email",
     "subscribe": "Subscrever",
-    "privacyPolicy": "Política de privacidade",
-    "cookiePolicy": "Política de cookies",
-    "termsOfService": "Termos de serviço",
-    "copyright": "© 2024 Neomarca. Todos os direitos reservados."
+    "termsAndConditions": "Termos e Condições",
+    "privacyPolicy": "Política de Privacidade",
+    "cookiePolicy": "Política de Cookies",
+    "complaintsBook": "Livro de Reclamações",
+    "copyright": "© 2025 Neomarca. Todos os direitos reservados."
   }
 }
 
