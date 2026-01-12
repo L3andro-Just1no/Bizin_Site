@@ -81,12 +81,12 @@ export function FAQ() {
       })}
       
       {/* AI Assistant CTA Button */}
-      <div className="mt-8 text-center">
+      <div className="pt-12 mt-8 text-center">
         <Button 
           variant="primary" 
           size="lg" 
           onClick={openAIChat}
-          className="px-8"
+          className="px-8 py-6 rounded-2xl"
         >
           {t("faq.aiCta")}
         </Button>

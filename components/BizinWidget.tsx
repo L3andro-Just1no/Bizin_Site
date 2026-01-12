@@ -97,6 +97,13 @@ export function BizinWidget() {
               }
             }
           };
+          
+          // Auto-open chat on page load after a short delay
+          setTimeout(() => {
+            if (window.openBizinChat) {
+              window.openBizinChat();
+            }
+          }, 1000);
         } catch (error) {
           // Silent error handling
         }
@@ -150,13 +157,25 @@ export function BizinWidget() {
     
     document.addEventListener('click', handleClickOutside);
     
-    // Watch for chat opening (by any method) to track the open time
+    // Watch for chat opening (by any method) to track the open time and hide button
     const chatObserver = new MutationObserver(() => {
       const chatPanel = document.querySelector('div.fixed[class*="bottom-6"][class*="right-6"]:not(button)');
+      const floatingButton = document.querySelector('#bizin-agent-container > button.rounded-full') as HTMLElement;
+      
       if (chatPanel && chatOpenedAt === 0) {
         chatOpenedAt = Date.now();
+        
+        // Hide the floating button whenever chat opens (by any method)
+        if (floatingButton) {
+          floatingButton.style.display = 'none';
+        }
       } else if (!chatPanel) {
         chatOpenedAt = 0;
+        
+        // Restore the floating button when chat closes
+        if (floatingButton && floatingButton.style.display === 'none') {
+          floatingButton.style.display = '';
+        }
       }
     });
     
@@ -234,6 +253,46 @@ export function BizinWidget() {
       
       #bizin-agent-container > button.rounded-full:hover {
         animation: bizin-pulse 1s ease-in-out infinite;
+      }
+      
+      /* Center chat panel on mobile */
+      @media (max-width: 768px) {
+        #bizin-agent-container > div[class*="fixed"] {
+          left: 50% !important;
+          right: auto !important;
+          transform: translateX(-50%);
+          max-width: calc(100vw - 2rem);
+          width: 100% !important;
+        }
+      }
+      
+      /* Smooth animation for chat panel - sliding from below */
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(60px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      
+      @media (max-width: 768px) {
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(60px) scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0) scale(1);
+          }
+        }
+      }
+      
+      #bizin-agent-container > div[class*="fixed"]:not(button) {
+        animation: slideInUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
       }
     `}} />
   );
