@@ -31,6 +31,89 @@ export function BizinWidget() {
     const initialLocale = detectLanguage();
     setLocale(initialLocale);
     
+    // Intercept console.log to catch widget restart events
+    const originalConsoleLog = console.log;
+    console.log = function(...args: any[]) {
+      // Call original console.log
+      originalConsoleLog.apply(console, args);
+      
+      // Check if the log is from the widget about restart/session
+      const logMessage = args.join(' ');
+      
+      // Parse current state if available
+      if (logMessage.includes('📊 Current state')) {
+        try {
+          // Extract the state object from the log
+          const stateMatch = logMessage.match(/\{.*\}/);
+          if (stateMatch) {
+            const stateStr = stateMatch[0];
+            originalConsoleLog('🔍 Captured session state:', stateStr);
+          }
+        } catch (e) {
+          // Ignore parsing errors
+        }
+      }
+      
+      // Check for no session warning
+      if (logMessage.includes('⚠️ No session ID to end')) {
+        originalConsoleLog('⚠️ Widget tried to end session but no session ID exists');
+      }
+      
+      // Detect session end/restart
+      if (logMessage.includes('🔄 Restart clicked') || 
+          logMessage.includes('🆕 Creating new session') ||
+          logMessage.includes('🔚 Ending session')) {
+        originalConsoleLog('✅ SESSION END DETECTED - Widget is restarting!', args);
+        
+        // Check localStorage for session data and send to admin panel
+        (async () => {
+          try {
+            const bizinSession = localStorage.getItem('bizin-session');
+            const bizinState = localStorage.getItem('bizin-state');
+            const allBizinKeys = Object.keys(localStorage).filter(k => k.toLowerCase().includes('bizin'));
+            
+            originalConsoleLog('💾 LocalStorage data:', {
+              session: bizinSession,
+              state: bizinState,
+              allKeys: allBizinKeys,
+              allData: Object.fromEntries(allBizinKeys.map(k => [k, localStorage.getItem(k)]))
+            });
+            
+            // Prepare session data to send
+            const sessionData = {
+              event: 'session_end',
+              timestamp: new Date().toISOString(),
+              language: locale,
+              userAgent: navigator.userAgent,
+              pageUrl: window.location.href,
+              sessionId: bizinSession ? JSON.parse(bizinSession)?.sessionId : null,
+              storageData: bizinState ? JSON.parse(bizinState) : null,
+              localStorage: Object.fromEntries(allBizinKeys.map(k => [k, localStorage.getItem(k)]))
+            };
+            
+            originalConsoleLog('📤 Sending session end to admin panel:', sessionData);
+            
+            const response = await fetch('https://bizin-assistant.vercel.app/admin/conversations', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(sessionData)
+            });
+            
+            if (response.ok) {
+              const result = await response.json().catch(() => ({}));
+              originalConsoleLog('✅ Session end sent successfully to admin panel', result);
+            } else {
+              originalConsoleLog('⚠️ Failed to send session end:', response.status, response.statusText);
+            }
+          } catch (error) {
+            originalConsoleLog('❌ Error sending session end to admin panel:', error);
+          }
+        })();
+      }
+    };
+    
     // Create script element
     const script = document.createElement('script');
     // Add timestamp to bust cache
@@ -54,6 +137,35 @@ export function BizinWidget() {
             position: 'bottom-center'
           });
           setWidgetInitialized(true);
+          
+          // Log the BizinAgent object to see what methods/properties it has
+          console.log('🔍 BizinAgent object:', window.BizinAgent);
+          console.log('🔍 BizinAgent keys:', Object.keys(window.BizinAgent || {}));
+          
+          // Check for session state in window object
+          const checkSessionState = () => {
+            // @ts-ignore - checking for dynamic properties
+            if (window.bizinSessionId || window.bizinState || window.BizinAgent?.sessionId || window.BizinAgent?.state) {
+              console.log('📊 Found session state:', {
+                // @ts-ignore
+                sessionId: window.bizinSessionId || window.BizinAgent?.sessionId,
+                // @ts-ignore
+                state: window.bizinState || window.BizinAgent?.state,
+                // @ts-ignore
+                isPaid: window.bizinIsPaid || window.BizinAgent?.isPaid,
+                // @ts-ignore
+                messageCount: window.bizinMessageCount || window.BizinAgent?.messageCount
+              });
+            }
+          };
+          
+          // Check immediately and then every 2 seconds
+          checkSessionState();
+          const stateCheckInterval = setInterval(checkSessionState, 2000);
+          
+          // Store interval to clear it later
+          // @ts-ignore
+          window.bizinStateCheckInterval = stateCheckInterval;
           
           // Expose a global function to open the chat
           window.openBizinChat = () => {
@@ -112,6 +224,46 @@ export function BizinWidget() {
     
     // Append to body
     document.body.appendChild(script);
+    
+    // Listen for messages from the widget
+    const handleWidgetMessage = (event: MessageEvent) => {
+      // Check if message is from the widget domain
+      if (event.origin === 'https://bizin-assistant.vercel.app') {
+        console.log('📨 Message from Bizin widget:', event.data);
+        
+        // Handle session end/reload events
+        if (event.data?.type === 'sessionEnd' || 
+            event.data?.type === 'conversationReset' ||
+            event.data?.action === 'reload' ||
+            event.data?.action === 'endSession' ||
+            event.data?.event === 'restart' ||
+            event.data?.event === 'sessionEnd') {
+          console.log('🔄 Session restart detected:', event.data);
+          
+          // Handle the session end - you can add custom logic here
+          // For example: clear local state, send analytics, etc.
+        }
+      }
+    };
+    
+    // Also listen for custom events from the widget
+    const handleCustomEvent = (event: Event) => {
+      const customEvent = event as CustomEvent;
+      if (customEvent.detail) {
+        console.log('🎯 Custom event from widget:', customEvent.type, customEvent.detail);
+        
+        if (customEvent.type === 'bizin-session-end' || 
+            customEvent.type === 'bizin-restart' ||
+            customEvent.detail.sessionId !== undefined) {
+          console.log('✅ Session end event captured:', customEvent.detail);
+        }
+      }
+    };
+    
+    window.addEventListener('message', handleWidgetMessage);
+    document.addEventListener('bizin-session-end', handleCustomEvent);
+    document.addEventListener('bizin-restart', handleCustomEvent);
+    document.addEventListener('bizin-state-change', handleCustomEvent);
     
     // Track when chat opens to prevent immediate close
     let chatOpenedAt = 0;
@@ -215,6 +367,17 @@ export function BizinWidget() {
       observer.disconnect();
       chatObserver.disconnect();
       document.removeEventListener('click', handleClickOutside);
+      window.removeEventListener('message', handleWidgetMessage);
+      document.removeEventListener('bizin-session-end', handleCustomEvent);
+      document.removeEventListener('bizin-restart', handleCustomEvent);
+      document.removeEventListener('bizin-state-change', handleCustomEvent);
+      // @ts-ignore
+      if (window.bizinStateCheckInterval) {
+        // @ts-ignore
+        clearInterval(window.bizinStateCheckInterval);
+      }
+      // Restore original console.log
+      console.log = originalConsoleLog;
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
