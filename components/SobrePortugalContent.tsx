@@ -78,9 +78,9 @@ export function SobrePortugalContent() {
           src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=2340"
           alt="Lisboa, Portugal"
           fill
-          className="object-cover brightness-70"
+          className="object-cover brightness-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center text-white">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
             {t("aboutPortugal.hero.title")}
