@@ -32,9 +32,12 @@ export function FAQ() {
   };
 
   const openAIChat = () => {
-    // Open the Bizin AI widget if it's available
-    if (typeof window !== 'undefined' && window.BizinAgent && typeof window.BizinAgent.open === 'function') {
-      window.BizinAgent.open();
+    // Open the Bizin AI widget
+    if (typeof window !== 'undefined' && (window as any).openBizinChat) {
+      (window as any).openBizinChat();
+    } else {
+      // Fallback: redirect to contact form if widget is not available
+      window.location.href = '/contactos';
     }
   };
 

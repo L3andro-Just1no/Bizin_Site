@@ -2,9 +2,23 @@
 
 import { useEffect, useState } from 'react';
 
+// Extend window interface
+declare global {
+  interface Window {
+    BizinAgent?: {
+      init?: (config: any) => void;
+      destroy?: () => void;
+      open?: () => void;
+      openChat?: () => void;
+    };
+    openBizinChat?: () => void;
+  }
+}
+
 export function BizinWidget() {
   const [locale, setLocale] = useState('pt'); // Default to Portuguese
   const [widgetInitialized, setWidgetInitialized] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   
   useEffect(() => {
     // Function to detect language
@@ -16,7 +30,6 @@ export function BizinWidget() {
     
     const initialLocale = detectLanguage();
     setLocale(initialLocale);
-    console.log('🤖 BizinWidget: Initializing...', 'Language:', initialLocale);
     
     // Create script element
     const script = document.createElement('script');
@@ -30,9 +43,6 @@ export function BizinWidget() {
     
     // Add load event listener
     script.onload = () => {
-      console.log('✅ BizinWidget: Script loaded successfully');
-      console.log('🔍 BizinAgent object:', window.BizinAgent);
-      
       // Manually initialize if auto-init didn't work
       if (window.BizinAgent && typeof window.BizinAgent.init === 'function') {
         try {
@@ -44,27 +54,118 @@ export function BizinWidget() {
             position: 'bottom-center'
           });
           setWidgetInitialized(true);
-          console.log(`🚀 BizinWidget: Initialized with language: ${locale}`);
+          
+          // Expose a global function to open the chat
+          window.openBizinChat = () => {
+            // Find the floating circular widget button specifically (not chat UI buttons)
+            const floatingButton = document.querySelector('#bizin-agent-container > button.rounded-full') as HTMLElement;
+            
+            if (floatingButton) {
+              // Record when chat opens
+              chatOpenedAt = Date.now();
+              
+              // Click to open chat
+              floatingButton.click();
+              
+              // Widget doesn't hide button on programmatic clicks, so we do it manually
+              // Use requestAnimationFrame to ensure it runs after the widget's click handler
+              requestAnimationFrame(() => {
+                const button = document.querySelector('#bizin-agent-container > button.rounded-full') as HTMLElement;
+                if (button) {
+                  button.style.display = 'none';
+                }
+              });
+              
+              // Watch for chat close to restore button
+              const observer = new MutationObserver(() => {
+                const container = document.getElementById('bizin-agent-container');
+                if (container) {
+                  const hasChat = container.querySelector('div[class*="rounded-2xl"]');
+                  const button = container.querySelector('button.rounded-full') as HTMLElement;
+                  
+                  // If chat closed (no chat div) and button exists, restore it
+                  if (!hasChat && button && button.style.display === 'none') {
+                    button.style.display = '';
+                    observer.disconnect();
+                  }
+                }
+              });
+              
+              const container = document.getElementById('bizin-agent-container');
+              if (container) {
+                observer.observe(container, { childList: true, subtree: true });
+              }
+            }
+          };
         } catch (error) {
-          console.error('❌ BizinWidget: Manual initialization failed', error);
+          // Silent error handling
         }
       }
     };
     
-    // Add error event listener
-    script.onerror = (error) => {
-      console.error('❌ BizinWidget: Failed to load script', error);
-    };
-    
     // Append to body
     document.body.appendChild(script);
-    console.log('📝 BizinWidget: Script tag added to body');
+    
+    // Track when chat opens to prevent immediate close
+    let chatOpenedAt = 0;
+    
+    // Add click-outside-to-close functionality
+    const handleClickOutside = (event: MouseEvent) => {
+      // Ignore clicks within 300ms of chat opening
+      if (Date.now() - chatOpenedAt < 300) {
+        return;
+      }
+      
+      // Look for chat panel anywhere in the DOM (widget might render it outside container)
+      const chatPanel = document.querySelector('div.fixed[class*="bottom-6"][class*="right-6"]:not(button)') as HTMLElement;
+      const floatingButton = document.querySelector('#bizin-agent-container > button.rounded-full') as HTMLElement;
+      
+      // If chat is open and click is outside both the chat panel and the floating button
+      if (chatPanel && !chatPanel.contains(event.target as Node) && 
+          (!floatingButton || !floatingButton.contains(event.target as Node))) {
+        
+        // Find and click the close button inside the chat
+        const allButtons = chatPanel.querySelectorAll('button');
+        
+        // Try to find close button by looking for X icon path
+        let closeButton: HTMLElement | null = null;
+        
+        for (let i = 0; i < allButtons.length; i++) {
+          const btn = allButtons[i] as HTMLElement;
+          const svg = btn.querySelector('svg');
+          const path = svg?.querySelector('path')?.getAttribute('d') || '';
+          
+          // Look for X icon pattern (diagonal lines crossing)
+          if (path.includes('M18 6') && path.includes('6 18')) {
+            closeButton = btn;
+            break;
+          }
+        }
+        
+        if (closeButton) {
+          closeButton.click();
+        }
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    
+    // Watch for chat opening (by any method) to track the open time
+    const chatObserver = new MutationObserver(() => {
+      const chatPanel = document.querySelector('div.fixed[class*="bottom-6"][class*="right-6"]:not(button)');
+      if (chatPanel && chatOpenedAt === 0) {
+        chatOpenedAt = Date.now();
+      } else if (!chatPanel) {
+        chatOpenedAt = 0;
+      }
+    });
+    
+    chatObserver.observe(document.body, { childList: true, subtree: true });
     
     // Watch for language changes
     const observer = new MutationObserver(() => {
       const newLocale = detectLanguage();
       if (newLocale !== initialLocale && widgetInitialized) {
-        console.log('🔄 Language changed:', initialLocale, '→', newLocale);
         setLocale(newLocale);
         
         // Destroy and reinitialize widget with new language
@@ -80,7 +181,6 @@ export function BizinWidget() {
             primaryColor: '#87c76c',
             position: 'bottom-center'
           });
-          console.log(`🚀 Widget reinitialized with language: ${newLocale}`);
         }
       }
     });
@@ -94,19 +194,47 @@ export function BizinWidget() {
     // Cleanup function
     return () => {
       observer.disconnect();
+      chatObserver.disconnect();
+      document.removeEventListener('click', handleClickOutside);
       if (document.body.contains(script)) {
         document.body.removeChild(script);
-        console.log('🧹 BizinWidget: Cleanup - script removed');
       }
     };
   }, []); // Only run once on mount
 
-  return null;
-}
-
-// TypeScript declaration for window.BizinAgent
-declare global {
-  interface Window {
-    BizinAgent?: any;
-  }
+  // Add animation styles for the widget button
+  return (
+    <style dangerouslySetInnerHTML={{__html: `
+      @keyframes bizin-bounce {
+        0%, 20%, 50%, 80%, 100% {
+          transform: translateY(0) scale(1);
+        }
+        40% {
+          transform: translateY(-12px) scale(1.05);
+        }
+        60% {
+          transform: translateY(-6px) scale(1.02);
+        }
+      }
+      
+      @keyframes bizin-pulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.3), 0 8px 10px -6px rgba(16, 185, 129, 0.2);
+        }
+        50% {
+          transform: scale(1.08);
+          box-shadow: 0 20px 40px -5px rgba(16, 185, 129, 0.5), 0 12px 20px -6px rgba(16, 185, 129, 0.4);
+        }
+      }
+      
+      #bizin-agent-container > button.rounded-full {
+        animation: bizin-bounce 2s ease-in-out infinite, bizin-pulse 2s ease-in-out infinite;
+      }
+      
+      #bizin-agent-container > button.rounded-full:hover {
+        animation: bizin-pulse 1s ease-in-out infinite;
+      }
+    `}} />
+  );
 }
