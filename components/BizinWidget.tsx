@@ -253,6 +253,35 @@ export function BizinWidget() {
           width: 100% !important;
         }
       }
+      
+      /* Smooth animation for chat panel - sliding from below */
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(60px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      
+      @media (max-width: 768px) {
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(60px) scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0) scale(1);
+          }
+        }
+      }
+      
+      #bizin-agent-container > div[class*="fixed"]:not(button) {
+        animation: slideInUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
     `}} />
   );
 }
