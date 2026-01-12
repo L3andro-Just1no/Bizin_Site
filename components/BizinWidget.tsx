@@ -72,11 +72,19 @@ export function BizinWidget() {
             const bizinState = localStorage.getItem('bizin-state');
             const allBizinKeys = Object.keys(localStorage).filter(k => k.toLowerCase().includes('bizin'));
             
+            const allData = Object.fromEntries(allBizinKeys.map(k => [k, localStorage.getItem(k)]));
+            
             originalConsoleLog('💾 LocalStorage data:', {
               session: bizinSession,
               state: bizinState,
               allKeys: allBizinKeys,
-              allData: Object.fromEntries(allBizinKeys.map(k => [k, localStorage.getItem(k)]))
+              allData: allData
+            });
+            
+            // Log each key individually for better visibility
+            allBizinKeys.forEach(key => {
+              const value = localStorage.getItem(key);
+              originalConsoleLog(`  📦 localStorage["${key}"]:`, value);
             });
             
             // Extract session ID from localStorage
@@ -85,11 +93,13 @@ export function BizinWidget() {
               if (bizinSession) {
                 const parsed = JSON.parse(bizinSession);
                 sessionId = parsed?.sessionId || parsed?.id || null;
+                originalConsoleLog('  🔎 Checked bizin-session:', { parsed, sessionId });
               }
               // Also check in state
               if (!sessionId && bizinState) {
                 const parsed = JSON.parse(bizinState);
                 sessionId = parsed?.sessionId || parsed?.id || null;
+                originalConsoleLog('  🔎 Checked bizin-state:', { parsed, sessionId });
               }
               // Check all bizin keys for session ID
               if (!sessionId) {
@@ -98,12 +108,19 @@ export function BizinWidget() {
                   if (value) {
                     try {
                       const parsed = JSON.parse(value);
+                      originalConsoleLog(`  🔎 Checking ${key}:`, parsed);
                       if (parsed?.sessionId || parsed?.id) {
                         sessionId = parsed.sessionId || parsed.id;
+                        originalConsoleLog(`  ✅ Found session ID in ${key}:`, sessionId);
                         break;
                       }
                     } catch (e) {
-                      // Not JSON, skip
+                      // Not JSON, might be a plain string session ID
+                      if (value.length > 10 && value.length < 100) {
+                        originalConsoleLog(`  🔎 ${key} might be session ID (plain string):`, value);
+                        sessionId = value;
+                        break;
+                      }
                     }
                   }
                 }
@@ -112,13 +129,53 @@ export function BizinWidget() {
               originalConsoleLog('⚠️ Error extracting session ID:', e);
             }
             
-            originalConsoleLog('🔍 Extracted session ID:', sessionId);
+            // Also check window/global scope for session ID
+            if (!sessionId) {
+              // @ts-ignore - check various possible global properties
+              const possibleSessionIds = [
+                window.bizinSessionId,
+                window.BizinAgent?.sessionId,
+                window.BizinAgent?.state?.sessionId,
+                // @ts-ignore
+                window.__BIZIN_SESSION_ID__,
+                // @ts-ignore
+                window.__bizin_state__?.sessionId
+              ];
+              
+              for (const id of possibleSessionIds) {
+                if (id) {
+                  sessionId = id;
+                  originalConsoleLog('  ✅ Found session ID in window:', sessionId);
+                  break;
+                }
+              }
+              
+              // @ts-ignore
+              originalConsoleLog('  🌐 Checked window properties:', {
+                bizinSessionId: window.bizinSessionId,
+                BizinAgentSessionId: window.BizinAgent?.sessionId,
+                // @ts-ignore
+                allBizinWindowProps: Object.keys(window).filter(k => k.toLowerCase().includes('bizin'))
+              });
+            }
+            
+            // If no session ID found, try the last known one
+            if (!sessionId && lastKnownSessionId) {
+              sessionId = lastKnownSessionId;
+              originalConsoleLog('  ✅ Using last known session ID:', sessionId);
+            }
+            
+            originalConsoleLog('🔍 Final extracted session ID:', sessionId);
             
             // If no session ID, log and skip
             if (!sessionId) {
               originalConsoleLog('⚠️ No session ID found, skipping session end API call');
+              originalConsoleLog('💡 Tip: The widget might not have created a session yet, or session ID might be stored differently');
               return;
             }
+            
+            // Clear the last known session ID since we're ending this session
+            lastKnownSessionId = null;
             
             // Prepare session data to send
             const sessionData = {
@@ -187,31 +244,6 @@ export function BizinWidget() {
           // Log the BizinAgent object to see what methods/properties it has
           console.log('🔍 BizinAgent object:', window.BizinAgent);
           console.log('🔍 BizinAgent keys:', Object.keys(window.BizinAgent || {}));
-          
-          // Check for session state in window object
-          const checkSessionState = () => {
-            // @ts-ignore - checking for dynamic properties
-            if (window.bizinSessionId || window.bizinState || window.BizinAgent?.sessionId || window.BizinAgent?.state) {
-              console.log('📊 Found session state:', {
-                // @ts-ignore
-                sessionId: window.bizinSessionId || window.BizinAgent?.sessionId,
-                // @ts-ignore
-                state: window.bizinState || window.BizinAgent?.state,
-                // @ts-ignore
-                isPaid: window.bizinIsPaid || window.BizinAgent?.isPaid,
-                // @ts-ignore
-                messageCount: window.bizinMessageCount || window.BizinAgent?.messageCount
-              });
-            }
-          };
-          
-          // Check immediately and then every 2 seconds
-          checkSessionState();
-          const stateCheckInterval = setInterval(checkSessionState, 2000);
-          
-          // Store interval to clear it later
-          // @ts-ignore
-          window.bizinStateCheckInterval = stateCheckInterval;
           
           // Expose a global function to open the chat
           window.openBizinChat = () => {
@@ -313,6 +345,45 @@ export function BizinWidget() {
     
     // Track when chat opens to prevent immediate close
     let chatOpenedAt = 0;
+    
+    // Track the last known session ID
+    let lastKnownSessionId: string | null = null;
+    
+    // Monitor localStorage for session ID changes
+    const monitorSessionId = () => {
+      try {
+        const allKeys = Object.keys(localStorage).filter(k => k.toLowerCase().includes('bizin'));
+        
+        for (const key of allKeys) {
+          const value = localStorage.getItem(key);
+          if (value) {
+            try {
+              const parsed = JSON.parse(value);
+              if (parsed?.sessionId || parsed?.id) {
+                const foundId = parsed.sessionId || parsed.id;
+                if (foundId && foundId !== lastKnownSessionId) {
+                  lastKnownSessionId = foundId;
+                  console.log('🆔 Session ID updated:', lastKnownSessionId);
+                }
+              }
+            } catch (e) {
+              // Not JSON, might be plain string
+              if (value.length > 10 && value.length < 100 && value !== lastKnownSessionId) {
+                lastKnownSessionId = value;
+                console.log('🆔 Session ID updated (plain):', lastKnownSessionId);
+              }
+            }
+          }
+        }
+      } catch (e) {
+        // Ignore errors
+      }
+    };
+    
+    // Monitor every 2 seconds
+    const sessionMonitorInterval = setInterval(monitorSessionId, 2000);
+    // Also monitor immediately
+    monitorSessionId();
     
     // Add click-outside-to-close functionality
     const handleClickOutside = (event: MouseEvent) => {
@@ -417,11 +488,7 @@ export function BizinWidget() {
       document.removeEventListener('bizin-session-end', handleCustomEvent);
       document.removeEventListener('bizin-restart', handleCustomEvent);
       document.removeEventListener('bizin-state-change', handleCustomEvent);
-      // @ts-ignore
-      if (window.bizinStateCheckInterval) {
-        // @ts-ignore
-        clearInterval(window.bizinStateCheckInterval);
-      }
+      clearInterval(sessionMonitorInterval);
       // Restore original console.log
       console.log = originalConsoleLog;
       if (document.body.contains(script)) {
