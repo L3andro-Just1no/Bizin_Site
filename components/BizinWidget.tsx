@@ -79,6 +79,47 @@ export function BizinWidget() {
               allData: Object.fromEntries(allBizinKeys.map(k => [k, localStorage.getItem(k)]))
             });
             
+            // Extract session ID from localStorage
+            let sessionId: string | null = null;
+            try {
+              if (bizinSession) {
+                const parsed = JSON.parse(bizinSession);
+                sessionId = parsed?.sessionId || parsed?.id || null;
+              }
+              // Also check in state
+              if (!sessionId && bizinState) {
+                const parsed = JSON.parse(bizinState);
+                sessionId = parsed?.sessionId || parsed?.id || null;
+              }
+              // Check all bizin keys for session ID
+              if (!sessionId) {
+                for (const key of allBizinKeys) {
+                  const value = localStorage.getItem(key);
+                  if (value) {
+                    try {
+                      const parsed = JSON.parse(value);
+                      if (parsed?.sessionId || parsed?.id) {
+                        sessionId = parsed.sessionId || parsed.id;
+                        break;
+                      }
+                    } catch (e) {
+                      // Not JSON, skip
+                    }
+                  }
+                }
+              }
+            } catch (e) {
+              originalConsoleLog('⚠️ Error extracting session ID:', e);
+            }
+            
+            originalConsoleLog('🔍 Extracted session ID:', sessionId);
+            
+            // If no session ID, log and skip
+            if (!sessionId) {
+              originalConsoleLog('⚠️ No session ID found, skipping session end API call');
+              return;
+            }
+            
             // Prepare session data to send
             const sessionData = {
               event: 'session_end',
@@ -86,26 +127,31 @@ export function BizinWidget() {
               language: locale,
               userAgent: navigator.userAgent,
               pageUrl: window.location.href,
-              sessionId: bizinSession ? JSON.parse(bizinSession)?.sessionId : null,
               storageData: bizinState ? JSON.parse(bizinState) : null,
               localStorage: Object.fromEntries(allBizinKeys.map(k => [k, localStorage.getItem(k)]))
             };
             
-            originalConsoleLog('📤 Sending session end to admin panel:', sessionData);
+            originalConsoleLog('📤 Sending session end to API:', sessionData);
             
-            const response = await fetch('https://bizin-assistant.vercel.app/admin/conversations', {
+            // Call the correct endpoint with session ID
+            const apiUrl = `https://bizin-assistant.vercel.app/api/sessions/${sessionId}/end`;
+            originalConsoleLog('🎯 API URL:', apiUrl);
+            
+            const response = await fetch(apiUrl, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify(sessionData)
+              body: JSON.stringify(sessionData),
+              mode: 'cors'
             });
             
             if (response.ok) {
               const result = await response.json().catch(() => ({}));
-              originalConsoleLog('✅ Session end sent successfully to admin panel', result);
+              originalConsoleLog('✅ Session end sent successfully', result);
             } else {
-              originalConsoleLog('⚠️ Failed to send session end:', response.status, response.statusText);
+              const errorText = await response.text().catch(() => '');
+              originalConsoleLog('⚠️ Failed to send session end:', response.status, response.statusText, errorText);
             }
           } catch (error) {
             originalConsoleLog('❌ Error sending session end to admin panel:', error);
