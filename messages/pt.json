@@ -60,6 +60,9 @@
   "articles": {
     "title": "Artigos notícias e oportunidades",
     "description": "Mantenha-se atualizado sobre incentivos, legislação e tendências de mercado.",
+    "incentivesDescription": "Informação sobre incentivos fiscais, apoios empresariais e oportunidades de financiamento em Portugal.",
+    "consultingDescription": "Insights estratégicos, orientações especializadas e melhores práticas para impulsionar o seu negócio.",
+    "guidesDescription": "Guias práticos e completos para navegar o ecossistema empresarial e legislativo português.",
     "eventsTitle": "Eventos e networking",
     "eventsDescription": "Participe em eventos exclusivos sobre fundos europeus, investimento e empreendedorismo em Portugal.",
     "trainingTitle": "Formações e cursos",
@@ -354,7 +357,6 @@
     },
     "categories": {
       "all": "Todos",
-      "funds": "Incentivos ao Investimento",
       "incentives": "Incentivos",
       "consulting": "Consultoria",
       "guides": "Guias"

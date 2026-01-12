@@ -12,6 +12,7 @@ export async function GET(request: NextRequest) {
     const { data, error } = await supabase
       .from('blog_categories')
       .select('*')
+      .neq('slug', 'fundos-europeus')
       .order('name');
 
     if (error) throw error;

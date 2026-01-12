@@ -221,9 +221,9 @@ export function ServicosPageContent() {
                     ))}
                   </ul>
                   <Button variant="secondary" size="lg" className="px-8 w-fit" asChild>
-                    <Link href="/contactos">
+                    <a href="https://2siglas.pt/site/loja-de-formacao/" target="_blank" rel="noopener noreferrer">
                       {t("servicesPage.training.button")}
-                    </Link>
+                    </a>
                   </Button>
                 </div>
                 <div className="relative h-[400px] lg:h-auto">

@@ -27,9 +27,13 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
   const { t } = useI18n();
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
+  // Filter out unwanted categories and get only the 3 we want
+  const filteredCategories = useMemo(() => {
+    return categories.filter(cat => cat.slug !== 'fundos-europeus');
+  }, [categories]);
+
   // Category slug to translation key mapping
   const categoryTranslationMap: Record<string, string> = {
-    "fundos-europeus": "blogPage.categories.funds",
     "incentivos": "blogPage.categories.incentives",
     "consultoria": "blogPage.categories.consulting",
     "guias": "blogPage.categories.guides",
@@ -37,8 +41,8 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
 
   // Create category options including "all"
   const categoryOptions = useMemo(() => {
-    return ["all", ...categories.map((cat) => cat.slug)];
-  }, [categories]);
+    return ["all", ...filteredCategories.map((cat) => cat.slug)];
+  }, [filteredCategories]);
 
   // Filter posts by active category
   const filteredPosts = useMemo(() => {
@@ -99,7 +103,7 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
                 ? t("blogPage.categories.all")
                 : categoryTranslationMap[category] 
                   ? t(categoryTranslationMap[category])
-                  : categories.find((cat) => cat.slug === category)?.name || category;
+                  : filteredCategories.find((cat) => cat.slug === category)?.name || category;
               
               return (
                 <button
@@ -150,10 +154,10 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                      {post.categories.length > 0 && (
+                      {post.categories.length > 0 && post.categories[0] !== 'fundos-europeus' && (
                         <div className="absolute top-4 left-4">
                           <span className="bg-[#87c76c] text-white px-4 py-2 rounded-full text-sm font-medium">
-                            {categories.find((cat) => cat.slug === post.categories[0])?.name ||
+                            {filteredCategories.find((cat) => cat.slug === post.categories[0])?.name ||
                               post.categories[0]}
                           </span>
                         </div>
