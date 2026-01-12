@@ -157,13 +157,25 @@ export function BizinWidget() {
     
     document.addEventListener('click', handleClickOutside);
     
-    // Watch for chat opening (by any method) to track the open time
+    // Watch for chat opening (by any method) to track the open time and hide button
     const chatObserver = new MutationObserver(() => {
       const chatPanel = document.querySelector('div.fixed[class*="bottom-6"][class*="right-6"]:not(button)');
+      const floatingButton = document.querySelector('#bizin-agent-container > button.rounded-full') as HTMLElement;
+      
       if (chatPanel && chatOpenedAt === 0) {
         chatOpenedAt = Date.now();
+        
+        // Hide the floating button whenever chat opens (by any method)
+        if (floatingButton) {
+          floatingButton.style.display = 'none';
+        }
       } else if (!chatPanel) {
         chatOpenedAt = 0;
+        
+        // Restore the floating button when chat closes
+        if (floatingButton && floatingButton.style.display === 'none') {
+          floatingButton.style.display = '';
+        }
       }
     });
     
