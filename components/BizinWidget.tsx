@@ -131,15 +131,13 @@ export function BizinWidget() {
             
             // Also check window/global scope for session ID
             if (!sessionId) {
-              // @ts-ignore - check various possible global properties
+              const windowAny = window as any;
               const possibleSessionIds = [
-                window.bizinSessionId,
-                window.BizinAgent?.sessionId,
-                window.BizinAgent?.state?.sessionId,
-                // @ts-ignore
-                window.__BIZIN_SESSION_ID__,
-                // @ts-ignore
-                window.__bizin_state__?.sessionId
+                windowAny.bizinSessionId,
+                windowAny.BizinAgent?.sessionId,
+                windowAny.BizinAgent?.state?.sessionId,
+                windowAny.__BIZIN_SESSION_ID__,
+                windowAny.__bizin_state__?.sessionId
               ];
               
               for (const id of possibleSessionIds) {
@@ -150,11 +148,9 @@ export function BizinWidget() {
                 }
               }
               
-              // @ts-ignore
               originalConsoleLog('  🌐 Checked window properties:', {
-                bizinSessionId: window.bizinSessionId,
-                BizinAgentSessionId: window.BizinAgent?.sessionId,
-                // @ts-ignore
+                bizinSessionId: windowAny.bizinSessionId,
+                BizinAgentSessionId: windowAny.BizinAgent?.sessionId,
                 allBizinWindowProps: Object.keys(window).filter(k => k.toLowerCase().includes('bizin'))
               });
             }
