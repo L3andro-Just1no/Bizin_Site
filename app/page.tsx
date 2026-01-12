@@ -21,6 +21,12 @@ const CLIENT_LOGOS = [
 export default function Home() {
   const { t } = useI18n();
 
+  const handleOpenChat = () => {
+    if (typeof window !== 'undefined' && (window as any).openBizinChat) {
+      (window as any).openBizinChat();
+    }
+  };
+
   return (
     <>
       {/* Hero Section with Background Image */}
@@ -37,11 +43,11 @@ export default function Home() {
                 {t("hero.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="primary" size="lg" className="px-8 py-6" asChild>
-                  <Link href="/contactos">{t("hero.ctaInvest")}</Link>
+                <Button variant="primary" size="lg" className="px-8 py-6" onClick={handleOpenChat}>
+                  {t("hero.ctaInvest")}
                 </Button>
-                <Button variant="secondary" size="lg" className="px-8 py-6" asChild>
-                  <Link href="/servicos">{t("hero.ctaTraining")}</Link>
+                <Button variant="secondary" size="lg" className="px-8 py-6" onClick={handleOpenChat}>
+                  {t("hero.ctaTraining")}
                 </Button>
               </div>
             </div>
@@ -237,11 +243,11 @@ export default function Home() {
                 {t("cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="primary" size="lg" className="px-8 py-6" asChild>
-                  <Link href="/contactos">{t("hero.ctaInvest")}</Link>
+                <Button variant="primary" size="lg" className="px-8 py-6" onClick={handleOpenChat}>
+                  {t("hero.ctaInvest")}
                 </Button>
-                <Button variant="secondary" size="lg" className="px-8 py-6" asChild>
-                  <Link href="/servicos">{t("hero.ctaTraining")}</Link>
+                <Button variant="secondary" size="lg" className="px-8 py-6" onClick={handleOpenChat}>
+                  {t("hero.ctaTraining")}
                 </Button>
               </div>
             </div>
