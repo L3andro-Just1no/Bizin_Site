@@ -7,33 +7,38 @@ import { Card, CardHeader, CardDescription } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { useI18n } from "@/components/I18nProvider";
 
-export function SobreNeomarcaContent() {
+export function SobreNosContent() {
   const { t } = useI18n();
 
   return (
     <>
       {/* Hero Section with Background */}
-      <section className="relative py-32 bg-gradient-to-br from-[#1c2544] to-[#2a3558] text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2340"
-            alt="Background"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/30"></div>
-        </div>
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <section 
+        className="relative py-32 overflow-hidden"
+        style={{
+          backgroundImage: 'linear-gradient(to right bottom, #1c2544, #2a3558)'
+        }}
+      >
+          <div className="absolute inset-0">
+            <Image
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2340"
+              alt="Background"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30"></div>
+          </div>
+        <div className="hero-content container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-white">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
               {t("aboutNeomarca.hero.title")}
             </h1>
-            <p className="text-xl md:text-2xl opacity-90">
+            <p className="text-xl md:text-2xl opacity-90 text-white">
               {t("aboutNeomarca.hero.subtitle")}
             </p>
           </div>
         </div>
-      </section>
+        </section>
 
       {/* Missão e Visão with Images */}
       <Section className="py-20">
@@ -47,7 +52,12 @@ export function SobreNeomarcaContent() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1c2544] to-transparent" />
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: 'linear-gradient(to top, #1c2544, transparent)'
+                  }}
+                />
                 <div className="absolute bottom-6 left-6">
                   <div className="w-16 h-16 bg-[#87c76c] rounded-2xl flex items-center justify-center mb-4">
                     <svg
@@ -84,7 +94,12 @@ export function SobreNeomarcaContent() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1c2544] to-transparent" />
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: 'linear-gradient(to top, #1c2544, transparent)'
+                  }}
+                />
                 <div className="absolute bottom-6 left-6">
                   <div className="w-16 h-16 bg-[#87c76c] rounded-2xl flex items-center justify-center mb-4">
                     <svg

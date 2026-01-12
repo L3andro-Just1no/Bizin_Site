@@ -35,7 +35,7 @@ export async function generateMetadata({
 
     if (!post) {
       return {
-        title: "Post Not Found - Neomarca",
+        title: "Post Not Found - Bizin Portugal",
         description: "O artigo que procura não foi encontrado.",
       };
     }
@@ -50,10 +50,10 @@ export async function generateMetadata({
       keywords: [
         ...post.categories,
         ...post.tags,
-        'fundos europeus',
+        'incentivos ao investimento',
         'incentivos',
         'Portugal',
-        'Neomarca',
+        'Bizin Portugal',
       ],
       alternates: {
         canonical: url,
@@ -62,7 +62,7 @@ export async function generateMetadata({
         title: post.title,
         description: post.excerpt,
         url: url,
-        siteName: 'Neomarca',
+        siteName: 'Bizin Portugal',
         locale: 'pt_PT',
         type: 'article',
         publishedTime: post.date,
@@ -96,8 +96,8 @@ export async function generateMetadata({
     };
   } catch (error) {
     return {
-      title: "Blog Post - Neomarca",
-      description: "Artigos e insights sobre fundos europeus e incentivos.",
+      title: "Blog Post - Bizin Portugal",
+      description: "Artigos e insights sobre incentivos ao investimento.",
     };
   }
 }
@@ -137,12 +137,12 @@ export default async function BlogPostPage({
     dateModified: post.date,
     author: {
       "@type": "Organization",
-      name: post.author || "Neomarca",
+      name: post.author || "Bizin Portugal",
       url: "https://bizin.pt",
     },
     publisher: {
       "@type": "Organization",
-      name: "Neomarca",
+      name: "Bizin Portugal",
       url: "https://bizin.pt",
       logo: {
         "@type": "ImageObject",
@@ -191,14 +191,14 @@ export default async function BlogPostPage({
   const organizationStructuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Neomarca",
+    name: "Bizin Portugal",
     url: "https://bizin.pt",
     logo: "https://bizin.pt/logo.svg",
-    description: "Apoio a empresas no acesso a fundos europeus, incentivos e programas de financiamento.",
+    description: "Apoio a empresas no acesso a incentivos ao investimento e programas de financiamento.",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
-      email: "geral@neomarca.pt",
+      email: "info@bizin.pt",
       availableLanguage: ["Portuguese"],
     },
     sameAs: [
@@ -224,17 +224,22 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationStructuredData) }}
       />
       {/* Hero Section */}
-      <header className="relative py-20 bg-gradient-to-br from-[#1c2544] to-[#2a3558] text-white overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <header 
+        className="relative py-20 overflow-hidden"
+        style={{
+          backgroundImage: 'linear-gradient(to right bottom, #1c2544, #2a3558)'
+        }}
+      >
+        <div className="hero-content container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-white">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb Navigation */}
-            <nav className="mb-6" aria-label="Breadcrumb">
+            <nav className="mb-6 text-white" aria-label="Breadcrumb">
               <Link
                 href="/blog"
-                className="text-white/80 hover:text-white transition-colors inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity text-white"
               >
                 <svg
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -252,12 +257,12 @@ export default async function BlogPostPage({
             </nav>
 
             {/* Post Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
               {post.title}
             </h1>
 
             {/* Post Meta */}
-            <div className="flex flex-wrap items-center gap-4 text-white/90">
+            <div className="flex flex-wrap items-center gap-4 text-white">
               <div className="flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
@@ -419,7 +424,7 @@ export default async function BlogPostPage({
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-6">
-              Precisa de Ajuda com Fundos Europeus?
+              Precisa de Ajuda com Incentivos ao Investimento?
             </h2>
             <p className="text-xl text-gray-600 mb-8">
               A nossa equipa está pronta para ajudar a sua empresa a aceder aos melhores

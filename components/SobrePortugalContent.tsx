@@ -58,15 +58,15 @@ export function SobrePortugalContent() {
   const fundsPrograms = [
     {
       key: "portugal2030",
-      color: "from-[#87c76c] to-[#6baa53]",
+      gradient: "linear-gradient(to right bottom, #87c76c, #6baa53)",
     },
     {
       key: "prr",
-      color: "from-[#1c2544] to-[#2a3558]",
+      gradient: "linear-gradient(to right bottom, #1c2544, #2a3558)",
     },
     {
       key: "horizonEurope",
-      color: "from-[#5a5a5a] to-[#3a3a3a]",
+      gradient: "linear-gradient(to right bottom, #5a5a5a, #3a3a3a)",
     },
   ];
 
@@ -118,7 +118,12 @@ export function SobrePortugalContent() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1c2544]/90 to-transparent" />
+                  <div 
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage: 'linear-gradient(to top, rgba(28, 37, 68, 0.9), transparent)'
+                    }}
+                  />
                   <div className="absolute bottom-4 left-4 right-4">
                     <svg
                       className="w-10 h-10 text-[#87c76c] mb-2"
@@ -176,7 +181,10 @@ export function SobrePortugalContent() {
             {fundsPrograms.map((fund) => (
               <div
                 key={fund.key}
-                className={`bg-gradient-to-br ${fund.color} text-white rounded-2xl p-8 hover:shadow-2xl transition-all`}
+                className="text-white rounded-2xl p-8 hover:shadow-2xl transition-all"
+                style={{
+                  backgroundImage: fund.gradient
+                }}
               >
                 <h3 className="text-2xl font-bold mb-3">
                   {t(`aboutPortugal.funds.programs.${fund.key}.title`)}
@@ -198,34 +206,39 @@ export function SobrePortugalContent() {
 
       {/* CTA with dual images */}
       <Section className="py-20">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-[#1c2544] to-[#2a3558] rounded-3xl overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-0">
-              <div className="relative h-[400px] lg:h-auto">
-                <Image
-                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2340"
-                  alt="Equipa a trabalhar em projeto de investimento"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-12 lg:p-16 flex flex-col justify-center text-white">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  {t("aboutPortugal.cta.title")}
-                </h2>
-                <p className="text-xl mb-8 opacity-95 leading-relaxed">
-                  {t("aboutPortugal.cta.description")}
-                </p>
-                <Button variant="secondary" size="lg" className="px-8" asChild>
-                  <Link href="/contactos">
-                    {t("aboutPortugal.cta.button")}
-                  </Link>
-                </Button>
+          <div className="container mx-auto px-4 md:px-6 lg:px-8">
+            <div 
+              className="rounded-3xl overflow-hidden"
+              style={{
+                backgroundImage: 'linear-gradient(to right bottom, #1c2544, #2a3558)'
+              }}
+            >
+              <div className="grid lg:grid-cols-2 gap-0">
+                <div className="relative h-[400px] lg:h-auto">
+                  <Image
+                    src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2340"
+                    alt="Equipa a trabalhar em projeto de investimento"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="cta-content p-12 lg:p-16 flex flex-col justify-center text-white">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                    {t("aboutPortugal.cta.title")}
+                  </h2>
+                  <p className="text-xl mb-8 opacity-95 leading-relaxed text-white">
+                    {t("aboutPortugal.cta.description")}
+                  </p>
+                  <Button variant="secondary" size="lg" className="px-8" asChild>
+                    <Link href="/contactos">
+                      {t("aboutPortugal.cta.button")}
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </Section>
+        </Section>
     </>
   );
 }

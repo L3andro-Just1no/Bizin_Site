@@ -30,3 +30,22 @@ body {
   }
 }
 
+/* Bizin AI Widget Pulse Animation */
+@keyframes bizin-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(135, 199, 108, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(135, 199, 108, 0);
+  }
+}
+
+/* Target the Bizin widget button */
+#bizin-agent-button,
+[id*="bizin"] button[class*="button"],
+.bizin-widget-button {
+  animation: bizin-pulse 2s infinite;
+}
+

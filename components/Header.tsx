@@ -10,8 +10,9 @@ import { useI18n } from "@/components/I18nProvider";
 const NAV_ITEMS = [
   { href: "/", labelKey: "common.home" },
   { href: "/servicos", labelKey: "nav.services" },
-  { href: "/sobre-neomarca", labelKey: "nav.aboutNeomarca" },
+  { href: "/parceiros", labelKey: "nav.partners", hidden: true },
   { href: "/sobre-portugal", labelKey: "nav.aboutPortugal" },
+  { href: "/sobre-nos", labelKey: "nav.aboutUs" },
   { href: "/blog", labelKey: "nav.blog" },
   { href: "/contactos", labelKey: "nav.contacts" },
 ];
@@ -162,7 +163,7 @@ export function Header() {
           {/* Desktop Navigation & Language - Right Side */}
           <div className="hidden xl:flex items-center gap-4 2xl:gap-6">
             <nav className="flex items-center gap-4 2xl:gap-6">
-              {NAV_ITEMS.map((item) => (
+              {NAV_ITEMS.filter((item) => !item.hidden).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -228,7 +229,7 @@ export function Header() {
             className="xl:hidden mt-6 pb-4 border-t border-gray-200 pt-4"
           >
             <nav className="flex flex-col space-y-4">
-              {NAV_ITEMS.map((item) => (
+              {NAV_ITEMS.filter((item) => !item.hidden).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}

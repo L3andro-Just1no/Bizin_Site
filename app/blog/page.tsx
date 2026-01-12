@@ -3,11 +3,11 @@ import { BlogContent } from "@/components/BlogContent";
 import { getPosts, getCategories } from "@/lib/supabase/blog";
 
 export const metadata: Metadata = {
-  title: "Blog e insights sobre fundos europeus - Neomarca",
+  title: "Blog e insights sobre incentivos ao investimento - Bizin Portugal",
   description:
-    "Artigos, notícias e insights sobre fundos europeus, incentivos e empreendedorismo em Portugal. Mantenha-se atualizado sobre oportunidades de financiamento.",
+    "Artigos, notícias e insights sobre incentivos ao investimento e empreendedorismo em Portugal. Mantenha-se atualizado sobre oportunidades de financiamento.",
   keywords: [
-    "fundos europeus",
+    "incentivos ao investimento",
     "incentivos",
     "apoio empresarial",
     "Portugal",
@@ -20,11 +20,11 @@ export const metadata: Metadata = {
     canonical: "https://bizin.pt/blog",
   },
   openGraph: {
-    title: "Blog e insights sobre fundos europeus - Neomarca",
+    title: "Blog e insights sobre incentivos ao investimento - Bizin Portugal",
     description:
-      "Artigos, notícias e insights sobre fundos europeus, incentivos e empreendedorismo em Portugal.",
+      "Artigos, notícias e insights sobre incentivos ao investimento e empreendedorismo em Portugal.",
     url: "https://bizin.pt/blog",
-    siteName: "Neomarca",
+    siteName: "Bizin Portugal",
     locale: "pt_PT",
     type: "website",
     images: [
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog e insights sobre fundos europeus - Neomarca",
+    title: "Blog e insights sobre incentivos ao investimento - Bizin Portugal",
     description:
-      "Artigos, notícias e insights sobre fundos europeus, incentivos e empreendedorismo em Portugal.",
+      "Artigos, notícias e insights sobre incentivos ao investimento e empreendedorismo em Portugal.",
     images: ["https://bizin.pt/og-image.jpg"],
   },
   robots: {
@@ -78,8 +78,8 @@ export default async function BlogPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: "Neomarca Blog",
-    description: "Artigos, notícias e insights sobre fundos europeus, incentivos e empreendedorismo em Portugal.",
+    name: "Bizin Portugal Blog",
+    description: "Artigos, notícias e insights sobre incentivos ao investimento e empreendedorismo em Portugal.",
     url: "https://bizin.pt/blog",
     publisher: {
       "@type": "Organization",

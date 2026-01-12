@@ -14,14 +14,15 @@
   "nav": {
     "services": "Serviços",
     "aboutPortugal": "Sobre Portugal",
-    "aboutNeomarca": "Sobre a Neomarca",
+    "aboutUs": "Sobre Nós",
+    "partners": "Parceiros",
     "blog": "Blog & Insights",
     "contacts": "Contactos"
   },
   "hero": {
     "title": "Portugal.",
     "subtitle": "O seu próximo destino de investimento e carreira.",
-    "description": "Oferecemos serviços personalizados, consultoria estratégica (Neomarca) e formação de excelência (2 Siglas) para garantir o seu sucesso, seja a investir, a empreender ou a desenvolver a sua carreira em Portugal",
+    "description": "Oferecemos serviços personalizados, consultoria estratégica e formação de excelência para garantir o seu sucesso, seja a investir, a empreender ou a desenvolver a sua carreira em Portugal.",
     "ctaInvest": "Quero investir em Portugal",
     "ctaTraining": "Quero capacitar-me"
   },
@@ -31,17 +32,17 @@
     "badge": "Desde 2018 a apoiar empreendedores",
     "investmentAdvisory": {
       "title": "Consultoria de investimento",
-      "description": "Obtenha consultoria especializada para lançar e financiar o seu projeto em Portugal. Apoiamos a tomada de decisão com análise de mercado, benchmarking e apoio na elegibilidade para incentivos e fundos europeus, como o Portugal 2030.",
-      "item1": "Consultoria para Arranque de Negócio e Estratégia Corporativa",
-      "item2": "Acesso a Fundos Nacionais e Europeus (Portugal 2030, PRR).",
-      "item3": "Apoio a Incentivos Fiscais e Vistos de Residência (Golden Visa, Startup Visa)."
+      "description": "Obtenha consultoria especializada para lançar e financiar o seu projeto em Portugal. Apoiamos a tomada de decisão com análise de mercado, benchmarking e apoio na elegibilidade para incentivos ao investimento, como o Portugal 2030.",
+      "item1": "Análise de Mercado",
+      "item2": "Acesso a Incentivos ao Investimento",
+      "item3": "Acompanhamento de Processos"
     },
     "humanCapital": {
       "title": "Capital humano",
       "description": "Invista nas competências certas para o mercado português. A nossa oferta de formação e capacitação é desenhada para profissionais e empreendedores que procuram reconversão, certificação nacional ou atualização de conhecimento.",
-      "item1": "Formação profissional certificada e infoprodutos",
-      "item2": "Cursos e eBooks sobre ambiente fiscal e oportunidades de negócio.",
-      "item3": "Apoio à capacitação para o mercado de trabalho português"
+      "item1": "Formação e Qualificação Certificada | Online e Presencial",
+      "item2": "Apoio à capacitação para o mercado de trabalho português",
+      "item3": "Gestão da Força de Trabalho"
     }
   },
   "success": {
@@ -108,12 +109,13 @@
     "intro": "Tem dúvidas? Compilámos as questões mais frequentes sobre investir, empreender e trabalhar em Portugal. Se não encontrar a resposta, estamos aqui para ajudar.",
     "q1": "Quanto tempo demora para abrir uma empresa em Portugal?",
     "a1": "O processo varia entre 2 a 4 semanas, dependendo do tipo de sociedade e documentação. Acompanhamos todo o processo, desde a escolha da estrutura legal até ao registo na Autoridade Tributária e Segurança Social.",
-    "q2": "Preciso estar em Portugal para candidatar-me a fundos europeus?",
+    "q2": "Preciso estar em Portugal para candidatar-me a incentivos ao investimento?",
     "a2": "Não necessariamente. Pode iniciar o processo à distância, mas a presença em Portugal é recomendada para certas etapas, como abertura de conta bancária e assinatura de documentos. Orientamos sobre os momentos em que a presença é obrigatória.",
-    "q3": "Que vistos existem para empreendedores e investidores?",
-    "a3": "Portugal oferece o Golden Visa (investimento mínimo), Startup Visa (para projetos inovadores), D2 Visa (empreendedores), e D7 (rendimentos passivos). Cada um tem requisitos específicos que avaliamos consigo.",
-    "q4": "Como sei se sou elegível para fundos do Portugal 2030?",
-    "a4": "A elegibilidade depende do setor, dimensão da empresa, localização e tipo de projeto. Fazemos uma análise gratuita da sua situação e identificamos as melhores oportunidades de financiamento disponíveis."
+    "q3": "Que setores podem beneficiar de incentivos ao investimento?",
+    "a3": "Portugal oferece incentivos para diversos setores, incluindo Turismo, Indústria e Tecnologia. Cada setor tem programas específicos que avaliamos consigo para identificar as melhores oportunidades.",
+    "q4": "Como sei se sou elegível para incentivos do Portugal 2030?",
+    "a4": "A elegibilidade depende do setor, dimensão da empresa, localização e tipo de projeto. Fazemos uma análise gratuita da sua situação e identificamos as melhores oportunidades de financiamento disponíveis.",
+    "aiCta": "Não encontrou resposta? Fale com a nossa IA"
   },
   "contactPreview": {
     "title": "Contacte-nos",
@@ -125,8 +127,8 @@
       "subtitle": "Soluções completas e personalizadas para maximizar as oportunidades de financiamento do seu negócio."
     },
     "funds": {
-      "title": "Fundos europeus",
-      "description": "Apoiamos empresas e empreendedores na identificação e candidatura aos programas de financiamento mais adequados, maximizando as hipóteses de aprovação.",
+      "title": "Incentivos ao investimento",
+      "description": "Apoiamos empresas e empreendedores na identificação e candidatura aos programas de incentivos mais adequados, maximizando as hipóteses de aprovação.",
       "bullets": {
         "eligibility": "Análise de elegibilidade",
         "programs": "Identificação de programas adequados",
@@ -181,19 +183,37 @@
           "description": "Definição de objetivos e estratégia de financiamento."
         },
         "step3": {
-          "title": "Execução",
+          "title": "Acompanhamento da Execução",
           "description": "Implementação e acompanhamento do projeto."
         },
         "step4": {
-          "title": "Prestação de contas",
+          "title": "Avaliação Pós-Projeto",
           "description": "Gestão de relatórios e compliance com entidades financiadoras."
         }
       }
     },
+    "training": {
+      "title": "Formação e Qualificação Profissional",
+      "description": "Apoiamos empresas e indivíduos no desenvolvimento de competências técnicas e comportamentais, promovendo a valorização do capital humano e o reforço do desempenho organizacional.",
+      "services": {
+        "item1": "Análise de necessidades formativas",
+        "item2": "Desenvolvimento de percursos de formação certificados",
+        "item3": "Capacitação em competências técnicas, soft skills e liderança",
+        "item4": "Apoio à gestão e qualificação da força de trabalho"
+      },
+      "button": "Saber mais"
+    },
+    "industries": {
+      "title": "Áreas de Atuação",
+      "subtitle": "Organizamos os nossos serviços por setores estratégicos",
+      "tourism": "Turismo",
+      "industry": "Indústria",
+      "technology": "Tecnologia"
+    },
     "twoSiglas": {
-      "title": "Serviços documentais 2 Siglas",
-      "description": "Precisa de certificações, traduções ou outros serviços documentais? Visite a nossa plataforma especializada.",
-      "button": "Explorar 2 Siglas →"
+      "title": "Formação e Qualificação Profissional",
+      "description": "Apoiamos empresas e indivíduos no desenvolvimento de competências técnicas e comportamentais, promovendo a valorização do capital humano e o reforço do desempenho organizacional.",
+      "button": "Saber mais"
     },
     "cta": {
       "title": "Interessado nos nossos serviços?",
@@ -203,16 +223,16 @@
   },
   "aboutNeomarca": {
     "hero": {
-      "title": "Sobre a Neomarca",
-      "subtitle": "Somos especialistas em transformar oportunidades europeias em resultados concretos para empresas e empreendedores."
+      "title": "Sobre Nós",
+      "subtitle": "Somos especialistas em transformar oportunidades de investimento em resultados concretos para empresas e empreendedores."
     },
     "mission": {
       "title": "A nossa missão",
-      "description": "Facilitar o acesso de empresas e empreendedores portugueses a fundos, incentivos e programas europeus, maximizando as suas hipóteses de sucesso através de acompanhamento especializado e personalizado."
+      "description": "Facilitar o acesso de empresas e empreendedores a incentivos ao investimento e programas de financiamento, maximizando as suas hipóteses de sucesso através de acompanhamento especializado e personalizado."
     },
     "vision": {
       "title": "A nossa visão",
-      "description": "Ser a referência nacional em consultoria de fundos europeus, reconhecida pela excelência do serviço, taxa de aprovação e impacto positivo no desenvolvimento empresarial português."
+      "description": "Ser a referência nacional em consultoria de investimento, reconhecida pela excelência do serviço, taxa de aprovação e impacto positivo no desenvolvimento empresarial."
     },
     "values": {
       "title": "Os nossos valores",
@@ -228,7 +248,7 @@
         },
         "expertise": {
           "title": "Especialização",
-          "description": "Conhecimento profundo de fundos e incentivos."
+          "description": "Conhecimento profundo de incentivos ao investimento."
         },
         "partnership": {
           "title": "Parceria",
@@ -267,7 +287,7 @@
   "aboutPortugal": {
     "hero": {
       "title": "Portugal: porta de entrada para a Europa",
-      "subtitle": "Um ecossistema empresarial dinâmico com acesso privilegiado a fundos e incentivos europeus."
+      "subtitle": "Um ecossistema empresarial dinâmico com acesso privilegiado a incentivos ao investimento e programas europeus."
     },
     "advantages": {
       "title": "Porquê Portugal?",
@@ -300,8 +320,8 @@
       }
     },
     "funds": {
-      "title": "Fundos europeus em Portugal",
-      "description": "Portugal tem acesso a milhares de milhões de euros em fundos europeus para apoiar o desenvolvimento empresarial e a inovação.",
+      "title": "Incentivos ao investimento em Portugal",
+      "description": "Portugal tem acesso a milhares de milhões de euros em incentivos e programas de financiamento para apoiar o desenvolvimento empresarial e a inovação.",
       "availableLabel": "disponíveis",
       "programs": {
         "portugal2030": {
@@ -323,18 +343,18 @@
     },
     "cta": {
       "title": "Pronto para investir em Portugal?",
-      "description": "A Neomarca ajuda‑o a navegar no ecossistema de fundos e incentivos portugueses e europeus.",
+      "description": "A Bizin Portugal ajuda‑o a navegar no ecossistema de incentivos portugueses e europeus.",
       "button": "Agendar consulta →"
     }
   },
   "blogPage": {
     "hero": {
       "title": "Blog e insights",
-      "subtitle": "Mantenha-se atualizado sobre fundos europeus, incentivos e oportunidades de financiamento."
+      "subtitle": "Mantenha-se atualizado sobre incentivos ao investimento e oportunidades de financiamento."
     },
     "categories": {
       "all": "Todos",
-      "funds": "Fundos europeus",
+      "funds": "Incentivos ao Investimento",
       "incentives": "Incentivos",
       "consulting": "Consultoria",
       "guides": "Guias"
@@ -346,7 +366,7 @@
         "title": "Portugal 2030: oportunidades para PMEs",
         "excerpt": "Descubra as principais linhas de financiamento do Portugal 2030 destinadas a pequenas e médias empresas.",
         "date": "15 de março de 2024",
-        "category": "Fundos europeus",
+        "category": "Incentivos ao Investimento",
         "readTime": "5 min de leitura"
       },
       "post2": {
@@ -360,7 +380,7 @@
         "title": "PRR: prazos e oportunidades em 2024",
         "excerpt": "Calendário atualizado das candidaturas ao Plano de Recuperação e Resiliência para este ano.",
         "date": "5 de março de 2024",
-        "category": "Fundos europeus",
+        "category": "Incentivos ao Investimento",
         "readTime": "6 min de leitura"
       },
       "post4": {
@@ -378,10 +398,10 @@
         "readTime": "10 min de leitura"
       },
       "post6": {
-        "title": "Sustentabilidade: fundos para economia verde",
+        "title": "Sustentabilidade: incentivos para economia verde",
         "excerpt": "Programas europeus de financiamento para projetos de sustentabilidade e transição climática.",
         "date": "15 de fevereiro de 2024",
-        "category": "Fundos europeus",
+        "category": "Incentivos ao Investimento",
         "readTime": "6 min de leitura"
       }
     },
@@ -399,7 +419,7 @@
     },
     "postDetail": {
       "backToBlog": "Voltar ao Blog e insights",
-      "genericIntro": "Este artigo faz parte da nossa curadoria de conteúdos sobre fundos europeus, incentivos e estratégias para fazer crescer o seu negócio em Portugal.",
+      "genericIntro": "Este artigo faz parte da nossa curadoria de conteúdos sobre incentivos ao investimento e estratégias para fazer crescer o seu negócio em Portugal.",
       "genericBody": "Em breve iremos disponibilizar a versão completa deste artigo. Até lá, se quiser explorar como estes temas se aplicam ao seu projeto, fale connosco para uma análise personalizada das melhores oportunidades de financiamento.",
       "ctaButton": "Falar com especialista"
     }
@@ -483,7 +503,7 @@
     "privacyPolicy": "Política de Privacidade",
     "cookiePolicy": "Política de Cookies",
     "complaintsBook": "Livro de Reclamações",
-    "copyright": "© 2025 Neomarca. Todos os direitos reservados."
+    "copyright": "© 2025 Bizin Portugal. Todos os direitos reservados."
   }
 }
 
