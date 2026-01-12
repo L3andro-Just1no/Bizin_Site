@@ -97,6 +97,13 @@ export function BizinWidget() {
               }
             }
           };
+          
+          // Auto-open chat on page load after a short delay
+          setTimeout(() => {
+            if (window.openBizinChat) {
+              window.openBizinChat();
+            }
+          }, 1000);
         } catch (error) {
           // Silent error handling
         }
@@ -234,6 +241,17 @@ export function BizinWidget() {
       
       #bizin-agent-container > button.rounded-full:hover {
         animation: bizin-pulse 1s ease-in-out infinite;
+      }
+      
+      /* Center chat panel on mobile */
+      @media (max-width: 768px) {
+        #bizin-agent-container > div[class*="fixed"] {
+          left: 50% !important;
+          right: auto !important;
+          transform: translateX(-50%);
+          max-width: calc(100vw - 2rem);
+          width: 100% !important;
+        }
       }
     `}} />
   );
