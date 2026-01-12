@@ -18,15 +18,15 @@ export const EXTERNAL_URLS = {
   },
 };
 
-// Contact information (aligned with official Neomarca site: https://neomarca.pt/pt/)
+// Contact information
 export const CONTACT_INFO = {
-  email: "geral@neomarca.pt",
+  email: "info@bizin.pt",
   phone: "+351 289 098 720",
   mobile: "+351 915 990 790",
   address: {
-    street: "Rua do Município, Lote 6, Loja 1",
+    street: "Rua Horta Machado Nº 02",
     city: "Faro",
-    postalCode: "8005-525",
+    postalCode: "8000-362",
     country: "Portugal",
   },
   hours: "Segunda a Sexta: 9h00 - 18h00",
@@ -34,10 +34,10 @@ export const CONTACT_INFO = {
 
 // Site configuration
 export const SITE_CONFIG = {
-  name: "Neomarca",
-  title: "Neomarca - Apoio a Fundos e Incentivos Europeus",
-  description: "A Neomarca apoia empresas e empreendedores no acesso a fundos, incentivos e programas europeus.",
-  url: "https://neomarca.pt",
+  name: "Bizin Portugal",
+  title: "Bizin Portugal - Apoio a Incentivos ao Investimento",
+  description: "A Bizin Portugal apoia empresas e empreendedores no acesso a incentivos ao investimento e programas europeus.",
+  url: "https://bizin.pt",
   locale: "pt_PT",
 };
 
@@ -45,15 +45,15 @@ export const SITE_CONFIG = {
 export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Serviços", href: "/servicos" },
+  { label: "Parceiros", href: "/parceiros", hidden: true },
   { label: "Sobre Portugal", href: "/sobre-portugal" },
-  { label: "Sobre Nós", href: "/sobre-neomarca" },
+  { label: "Sobre Nós", href: "/sobre-nos" },
   { label: "Blog", href: "/blog" },
   { label: "Contactos", href: "/contactos" },
 ];
 
 // Interest options for forms
 export const INTEREST_OPTIONS = [
-  { value: "fundos-europeus", label: "Fundos Europeus" },
   { value: "incentivos-investimento", label: "Incentivos ao Investimento" },
   { value: "apoio-exportacao", label: "Apoio à Exportação" },
   { value: "inovacao-id", label: "Inovação e I&D" },

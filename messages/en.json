@@ -14,14 +14,15 @@
   "nav": {
     "services": "Services",
     "aboutPortugal": "About Portugal",
-    "aboutNeomarca": "About Neomarca",
+    "aboutUs": "About Us",
+    "partners": "Partners",
     "blog": "Blog & Insights",
     "contacts": "Contacts"
   },
   "hero": {
     "title": "Portugal.",
     "subtitle": "Your Next Investment and Career Destination.",
-    "description": "We offer personalized services, strategic consulting (Neomarca) and excellent training (2 Siglas) to ensure your success, whether investing, entrepreneuring or developing your career in Portugal",
+    "description": "We offer personalized services, strategic consulting and excellent training to ensure your success, whether investing, entrepreneuring or developing your career in Portugal.",
     "ctaInvest": "I Want to Invest in Portugal",
     "ctaTraining": "I Want Training"
   },
@@ -31,17 +32,17 @@
     "badge": "Supporting Entrepreneurs Since 2018",
     "investmentAdvisory": {
       "title": "Investment Advisory",
-      "description": "Get specialized consulting to launch and finance your project in Portugal. We support decision-making with market analysis, benchmarking and eligibility support for incentives and European funds, such as Portugal 2030.",
-      "item1": "Business Start-Up Consulting and Corporate Strategy",
-      "item2": "Access to National and European Funds (Portugal 2030, RRP).",
-      "item3": "Support for Tax Incentives and Residence Visas (Golden Visa, Startup Visa)."
+      "description": "Get specialized consulting to launch and finance your project in Portugal. We support decision-making with market analysis, benchmarking and eligibility support for investment incentives, such as Portugal 2030.",
+      "item1": "Market Analysis",
+      "item2": "Access to Investment Incentives",
+      "item3": "Process Monitoring"
     },
     "humanCapital": {
       "title": "Human Capital",
       "description": "Invest in the right skills for the Portuguese market. Our training and capacity building offer is designed for professionals and entrepreneurs seeking retraining, national certification or knowledge updating.",
-      "item1": "Certified Professional Training and Info Products",
-      "item2": "Courses and eBooks on Tax Environment and Business Opportunities.",
-      "item3": "Support for capacity building for the Portuguese job market"
+      "item1": "Certified Training and Qualification | Online and In-Person",
+      "item2": "Support for capacity building for the Portuguese job market",
+      "item3": "Workforce Management"
     }
   },
   "success": {
@@ -108,12 +109,13 @@
     "intro": "Have questions? We've compiled the most frequently asked questions about investing, entrepreneuring and working in Portugal. If you can't find the answer, we're here to help.",
     "q1": "How long does it take to open a company in Portugal?",
     "a1": "The process varies between 2 to 4 weeks, depending on the type of company and documentation. We accompany the entire process, from choosing the legal structure to registering with the Tax Authority and Social Security.",
-    "q2": "Do I need to be in Portugal to apply for European funds?",
+    "q2": "Do I need to be in Portugal to apply for investment incentives?",
     "a2": "Not necessarily. You can start the process remotely, but presence in Portugal is recommended for certain stages, such as opening a bank account and signing documents. We guide you on when presence is mandatory.",
-    "q3": "What visas exist for entrepreneurs and investors?",
-    "a3": "Portugal offers the Golden Visa (minimum investment), Startup Visa (for innovative projects), D2 Visa (entrepreneurs), and D7 (passive income). Each has specific requirements that we evaluate with you.",
-    "q4": "How do I know if I'm eligible for Portugal 2030 funds?",
-    "a4": "Eligibility depends on the sector, company size, location and project type. We provide a free analysis of your situation and identify the best financing opportunities available."
+    "q3": "Which sectors can benefit from investment incentives?",
+    "a3": "Portugal offers incentives for various sectors, including Tourism, Industry, and Technology. Each sector has specific programs that we evaluate with you to identify the best opportunities.",
+    "q4": "How do I know if I'm eligible for Portugal 2030 incentives?",
+    "a4": "Eligibility depends on the sector, company size, location and project type. We provide a free analysis of your situation and identify the best financing opportunities available.",
+    "aiCta": "Didn't find your answer? Talk to our AI"
   },
   "contactPreview": {
     "title": "Contact Us",
@@ -194,6 +196,17 @@
       "title": "2 Siglas document services",
       "description": "Need certifications, translations or other document services? Visit our specialised platform.",
       "button": "Explore 2 Siglas →"
+    },
+    "training": {
+      "title": "Professional Training and Qualification",
+      "description": "We support companies and individuals in developing technical and behavioral skills, promoting human capital development and organizational performance enhancement.",
+      "services": {
+        "item1": "Training needs analysis",
+        "item2": "Development of certified training pathways",
+        "item3": "Technical skills, soft skills and leadership development",
+        "item4": "Workforce management and qualification support"
+      },
+      "button": "Learn more"
     },
     "cta": {
       "title": "Interested in our services?",
@@ -483,7 +496,7 @@
     "privacyPolicy": "Privacy Policy",
     "cookiePolicy": "Cookie Policy",
     "complaintsBook": "Complaints Book",
-    "copyright": "© 2025 Neomarca. All rights reserved."
+    "copyright": "© 2025 Bizin Portugal. All rights reserved."
   }
 }
 

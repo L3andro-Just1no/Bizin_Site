@@ -14,14 +14,15 @@
   "nav": {
     "services": "Services",
     "aboutPortugal": "À Propos du Portugal",
-    "aboutNeomarca": "À Propos de Neomarca",
+    "aboutUs": "À Propos de Nous",
+    "partners": "Partenaires",
     "blog": "Blog & Insights",
     "contacts": "Contacts"
   },
   "hero": {
     "title": "Portugal.",
     "subtitle": "Votre Prochaine Destination d'Investissement et de Carrière.",
-    "description": "Nous offrons des services personnalisés, du conseil stratégique (Neomarca) et une formation d'excellence (2 Siglas) pour garantir votre succès, que ce soit pour investir, entreprendre ou développer votre carrière au Portugal",
+    "description": "Nous offrons des services personnalisés, du conseil stratégique et une formation d'excellence pour garantir votre succès, que ce soit pour investir, entreprendre ou développer votre carrière au Portugal.",
     "ctaInvest": "Je Veux Investir au Portugal",
     "ctaTraining": "Je Veux me Former"
   },
@@ -32,16 +33,16 @@
     "investmentAdvisory": {
       "title": "Conseil en Investissement",
       "description": "Obtenez des conseils spécialisés pour lancer et financer votre projet au Portugal. Nous soutenons la prise de décision avec analyse de marché, benchmarking et support d'éligibilité pour les incitations et fonds européens, comme Portugal 2030.",
-      "item1": "Conseil pour le Démarrage d'Entreprise et la Stratégie d'Entreprise",
-      "item2": "Accès aux Fonds Nationaux et Européens (Portugal 2030, PRR).",
-      "item3": "Soutien aux Incitations Fiscales et Visas de Résidence (Golden Visa, Startup Visa)."
+      "item1": "Analyse de Marché",
+      "item2": "Accès aux Incitations à l'Investissement",
+      "item3": "Suivi des Processus"
     },
     "humanCapital": {
       "title": "Capital Humain",
       "description": "Investissez dans les bonnes compétences pour le marché portugais. Notre offre de formation et de renforcement des capacités est conçue pour les professionnels et entrepreneurs qui recherchent une reconversion, une certification nationale ou une mise à jour des connaissances.",
-      "item1": "Formation Professionnelle Certifiée et Infoproduits",
-      "item2": "Cours et eBooks sur l'Environnement Fiscal et les Opportunités d'Affaires.",
-      "item3": "Soutien au renforcement des capacités pour le marché du travail portugais"
+      "item1": "Formation et Qualification Certifiée | En Ligne et en Présentiel",
+      "item2": "Soutien au renforcement des capacités pour le marché du travail portugais",
+      "item3": "Gestion de la Main-d'œuvre"
     }
   },
   "success": {
@@ -108,12 +109,13 @@
     "intro": "Vous avez des questions? Nous avons compilé les questions les plus fréquemment posées sur l'investissement, l'entrepreneuriat et le travail au Portugal. Si vous ne trouvez pas la réponse, nous sommes là pour vous aider.",
     "q1": "Combien de temps faut-il pour ouvrir une entreprise au Portugal?",
     "a1": "Le processus varie entre 2 et 4 semaines, selon le type de société et la documentation. Nous accompagnons tout le processus, du choix de la structure juridique à l'enregistrement auprès de l'Autorité Fiscale et de la Sécurité Sociale.",
-    "q2": "Dois-je être au Portugal pour postuler aux fonds européens?",
+    "q2": "Dois-je être au Portugal pour postuler aux incitations à l'investissement?",
     "a2": "Pas nécessairement. Vous pouvez commencer le processus à distance, mais la présence au Portugal est recommandée pour certaines étapes, comme l'ouverture d'un compte bancaire et la signature de documents. Nous vous guidons sur les moments où la présence est obligatoire.",
-    "q3": "Quels visas existent pour les entrepreneurs et investisseurs?",
-    "a3": "Le Portugal propose le Golden Visa (investissement minimum), le Startup Visa (pour les projets innovants), le D2 Visa (entrepreneurs) et le D7 (revenus passifs). Chacun a des exigences spécifiques que nous évaluons avec vous.",
-    "q4": "Comment savoir si je suis éligible aux fonds Portugal 2030?",
-    "a4": "L'éligibilité dépend du secteur, de la taille de l'entreprise, de la localisation et du type de projet. Nous effectuons une analyse gratuite de votre situation et identifions les meilleures opportunités de financement disponibles."
+    "q3": "Quels secteurs peuvent bénéficier d'incitations à l'investissement?",
+    "a3": "Le Portugal offre des incitations pour divers secteurs, y compris le Tourisme, l'Industrie et la Technologie. Chaque secteur a des programmes spécifiques que nous évaluons avec vous pour identifier les meilleures opportunités.",
+    "q4": "Comment savoir si je suis éligible aux incitations Portugal 2030?",
+    "a4": "L'éligibilité dépend du secteur, de la taille de l'entreprise, de la localisation et du type de projet. Nous effectuons une analyse gratuite de votre situation et identifions les meilleures opportunités de financement disponibles.",
+    "aiCta": "Vous n'avez pas trouvé de réponse? Parlez à notre IA"
   },
   "contactPreview": {
     "title": "Contactez-nous",
@@ -194,6 +196,17 @@
       "title": "Services documentaires 2 Siglas",
       "description": "Besoin de certifications, de traductions ou d'autres services documentaires ? Visitez notre plateforme spécialisée.",
       "button": "Découvrir 2 Siglas →"
+    },
+    "training": {
+      "title": "Formation et Qualification Professionnelle",
+      "description": "Nous accompagnons les entreprises et les individus dans le développement de compétences techniques et comportementales, en valorisant le capital humain et en renforçant la performance organisationnelle.",
+      "services": {
+        "item1": "Analyse des besoins en formation",
+        "item2": "Développement de parcours de formation certifiés",
+        "item3": "Développement de compétences techniques, soft skills et leadership",
+        "item4": "Soutien à la gestion et à la qualification de la main-d'œuvre"
+      },
+      "button": "En savoir plus"
     },
     "cta": {
       "title": "Intéressé par nos services ?",
@@ -483,7 +496,7 @@
     "privacyPolicy": "Politique de Confidentialité",
     "cookiePolicy": "Politique des Cookies",
     "complaintsBook": "Livre de Réclamations",
-    "copyright": "© 2025 Neomarca. Tous droits réservés."
+    "copyright": "© 2025 Bizin Portugal. Tous droits réservés."
   }
 }
 

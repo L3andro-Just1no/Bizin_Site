@@ -42,7 +42,12 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1c2544] to-[#2a3558] flex items-center justify-center p-4">
+    <div 
+      className="min-h-screen flex items-center justify-center p-4"
+      style={{
+        backgroundImage: 'linear-gradient(to right bottom, #1c2544, #2a3558)'
+      }}
+    >
       <Container className="max-w-md">
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useI18n } from "@/components/I18nProvider";
+import { Button } from "@/components/ui/Button";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -28,6 +29,13 @@ export function FAQ() {
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const openAIChat = () => {
+    // Open the Bizin AI widget if it's available
+    if (typeof window !== 'undefined' && window.BizinAgent && typeof window.BizinAgent.open === 'function') {
+      window.BizinAgent.open();
+    }
   };
 
   return (
@@ -68,6 +76,18 @@ export function FAQ() {
           </div>
         );
       })}
+      
+      {/* AI Assistant CTA Button */}
+      <div className="mt-8 text-center">
+        <Button 
+          variant="primary" 
+          size="lg" 
+          onClick={openAIChat}
+          className="px-8"
+        >
+          {t("faq.aiCta")}
+        </Button>
+      </div>
     </div>
   );
 }

@@ -21,29 +21,29 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Neomarca - Apoio a Fundos e Incentivos Europeus",
+  title: "Bizin Portugal - Apoio a Incentivos ao Investimento",
   description:
-    "A Neomarca apoia empresas e empreendedores no acesso a fundos, incentivos e programas europeus.",
-  keywords: "fundos europeus, incentivos, apoio empresarial, Portugal, Neomarca",
-  authors: [{ name: "Neomarca" }],
+    "A Bizin Portugal apoia empresas e empreendedores no acesso a incentivos ao investimento e programas europeus.",
+  keywords: "incentivos ao investimento, apoio empresarial, Portugal, Bizin Portugal",
+  authors: [{ name: "Bizin Portugal" }],
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "Neomarca - Apoio a Fundos e Incentivos Europeus",
+    title: "Bizin Portugal - Apoio a Incentivos ao Investimento",
     description:
-      "A Neomarca apoia empresas e empreendedores no acesso a fundos, incentivos e programas europeus.",
+      "A Bizin Portugal apoia empresas e empreendedores no acesso a incentivos ao investimento e programas europeus.",
     type: "website",
     locale: "pt_PT",
-    siteName: "Neomarca",
+    siteName: "Bizin Portugal",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Neomarca - Apoio a Fundos e Incentivos Europeus",
+    title: "Bizin Portugal - Apoio a Incentivos ao Investimento",
     description:
-      "A Neomarca apoia empresas e empreendedores no acesso a fundos, incentivos e programas europeus.",
+      "A Bizin Portugal apoia empresas e empreendedores no acesso a incentivos ao investimento e programas europeus.",
   },
   metadataBase: new URL("https://neomarca.pt"),
 };
