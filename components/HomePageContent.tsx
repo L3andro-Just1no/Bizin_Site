@@ -7,6 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { ContentTabs } from "@/components/ContentTabs";
 import { FAQ } from "@/components/FAQ";
 import { useI18n } from "@/components/I18nProvider";
+import { EXTERNAL_URLS } from "@/lib/constants";
 import type { SimpleBlogPost, SimpleBlogCategory } from "@/lib/supabase/types";
 
 const CLIENT_LOGOS = [
@@ -231,6 +232,50 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
           </div>
         </div>
       </section>
+
+      {/* Booking Card - Schedule Meeting */}
+      <Section variant="default" className="py-20" id="booking-section">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div 
+            className="rounded-3xl overflow-hidden shadow-2xl"
+            style={{
+              backgroundImage: 'linear-gradient(to right bottom, #87c76c, #6baa53)'
+            }}
+          >
+            <div className="grid lg:grid-cols-2 gap-0">
+              <div className="p-12 lg:p-16 flex flex-col justify-center text-white">
+                <div className="flex items-center gap-3 mb-4">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-sm font-medium uppercase tracking-wide opacity-90">
+                    Consultoria Gratuita
+                  </span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                  {t("booking.title")}
+                </h2>
+                <p className="text-xl mb-8 text-white opacity-95 leading-relaxed">
+                  {t("booking.description")}
+                </p>
+                <Button variant="secondary" size="lg" className="px-8 w-fit" asChild>
+                  <a href={EXTERNAL_URLS.booking} target="_blank" rel="noopener noreferrer">
+                    {t("booking.button")}
+                  </a>
+                </Button>
+              </div>
+              <div className="relative h-[400px] lg:h-auto">
+                <Image
+                  src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2340"
+                  alt="Agendar reunião com especialistas"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
 
       {/* CTA Section */}
       <Section variant="default" className="py-20">

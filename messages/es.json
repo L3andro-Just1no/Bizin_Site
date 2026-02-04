@@ -13,6 +13,7 @@
   },
   "nav": {
     "services": "Servicios",
+    "products": "Productos",
     "aboutPortugal": "Sobre Portugal",
     "aboutUs": "Sobre Nosotros",
     "partners": "Socios",
@@ -56,6 +57,11 @@
     "title1": "Apoyo Estratégico,",
     "title2": "Empiece Ya.",
     "description": "Ya sea para iniciar un negocio, mudarse a Portugal o desarrollar nuevas habilidades, ofrecemos el apoyo completo que necesita. De la idea a la ejecución, estamos a su lado en cada etapa del viaje."
+  },
+  "booking": {
+    "title": "Reserve una reunión",
+    "description": "Hable directamente con nuestro equipo de expertos. Programe una reunión gratuita para discutir su proyecto y descubrir las mejores oportunidades de inversión y apoyo en Portugal.",
+    "button": "Reservar reunión"
   },
   "articles": {
   "title": "Artículos, noticias y oportunidades",
