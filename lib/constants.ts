@@ -1,5 +1,6 @@
 // External URLs
 export const EXTERNAL_URLS = {
+  booking: "https://outlook.office.com/bookwithme/user/a9514f096fe44f70a9798d6acc4a981c@neomarca.pt/meetingtype/3YxhDEIdNU-BKKmc6TrQ3Q2?anonymous&ismsaljsauthenabled&ep=mcard",
   twoSiglas: {
     main: process.env.NEXT_PUBLIC_2SIGLAS_URL || "https://example.com/2siglas",
     services:

@@ -13,6 +13,7 @@
   },
   "nav": {
     "services": "Services",
+    "products": "Produits",
     "aboutPortugal": "À Propos du Portugal",
     "aboutUs": "À Propos de Nous",
     "partners": "Partenaires",
@@ -56,6 +57,11 @@
     "title1": "Soutien Stratégique,",
     "title2": "Commencez Maintenant.",
     "description": "Que ce soit pour démarrer une entreprise, déménager au Portugal ou développer de nouvelles compétences, nous offrons le soutien complet dont vous avez besoin. De l'idée à l'exécution, nous sommes à vos côtés à chaque étape du voyage."
+  },
+  "booking": {
+    "title": "Réserver une réunion",
+    "description": "Parlez directement avec notre équipe d'experts. Planifiez une réunion gratuite pour discuter de votre projet et découvrir les meilleures opportunités d'investissement et de soutien au Portugal.",
+    "button": "Réserver une réunion"
   },
   "articles": {
   "title": "Articles, actualités et opportunités",

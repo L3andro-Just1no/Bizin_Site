@@ -13,6 +13,7 @@
   },
   "nav": {
     "services": "Services",
+    "products": "Products",
     "aboutPortugal": "About Portugal",
     "aboutUs": "About Us",
     "partners": "Partners",
@@ -56,6 +57,11 @@
     "title1": "Strategic Support,",
     "title2": "Start Now.",
     "description": "Whether to start a business, move to Portugal or develop new skills, we offer the complete support you need. From idea to execution, we are by your side at every step of the journey."
+  },
+  "booking": {
+    "title": "Book a meeting",
+    "description": "Speak directly with our team of experts. Schedule a free meeting to discuss your project and discover the best investment and support opportunities in Portugal.",
+    "button": "Book meeting"
   },
   "articles": {
   "title": "Articles, news and opportunities",

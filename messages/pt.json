@@ -13,6 +13,7 @@
   },
   "nav": {
     "services": "Serviços",
+    "products": "Produtos",
     "aboutPortugal": "Sobre Portugal",
     "aboutUs": "Sobre Nós",
     "partners": "Parceiros",
@@ -56,6 +57,11 @@
     "title1": "Apoio estratégico,",
     "title2": "Comece já.",
     "description": "Seja para iniciar um negócio, mudar-se para Portugal ou desenvolver novas competências, oferecemos o suporte completo que precisa. Da ideia à execução, estamos ao seu lado em cada etapa da jornada."
+  },
+  "booking": {
+    "title": "Agende uma reunião",
+    "description": "Fale diretamente com a nossa equipa de especialistas. Marque uma reunião gratuita para discutir o seu projeto e descobrir as melhores oportunidades de investimento e apoio em Portugal.",
+    "button": "Agendar reunião"
   },
   "articles": {
     "title": "Artigos notícias e oportunidades",
