@@ -7,8 +7,6 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/components/I18nProvider";
 
-import { EXTERNAL_URLS } from "@/lib/constants";
-
 const NAV_ITEMS = [
   { href: "/", labelKey: "common.home" },
   { href: "/sobre-portugal", labelKey: "nav.aboutPortugal" },
@@ -168,15 +166,11 @@ export function Header() {
             <nav className="flex items-center gap-4 2xl:gap-6">
               {NAV_ITEMS.filter((item) => !item.hidden).map((item) => {
                 const isActive = pathname === item.href;
-                const linkProps = item.external 
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {};
                 
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
-                    {...linkProps}
                     className={cn(
                       "text-[14px] 2xl:text-[16px] font-normal uppercase transition-colors tracking-[-0.14px]",
                       isActive
@@ -242,15 +236,11 @@ export function Header() {
             <nav className="flex flex-col space-y-4">
               {NAV_ITEMS.filter((item) => !item.hidden).map((item) => {
                 const isActive = pathname === item.href;
-                const linkProps = item.external 
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {};
                 
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
-                    {...linkProps}
                     className={cn(
                       "text-base font-normal uppercase transition-colors",
                       isActive
