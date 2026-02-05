@@ -233,41 +233,84 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
         </div>
       </section>
 
-      {/* Booking Card - Schedule Meeting */}
+      {/* Products Section - Booking Cards */}
       <Section variant="default" className="py-20" id="booking-section">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div 
-            className="rounded-3xl overflow-hidden shadow-2xl"
-            style={{
-              backgroundImage: 'linear-gradient(to right bottom, #87c76c, #6baa53)'
-            }}
-          >
-            <div className="grid lg:grid-cols-2 gap-0">
-              <div className="p-12 lg:p-16 flex flex-col justify-center text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-12 text-center">
+            {t("products.sectionTitle")}
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Investment Consulting Card */}
+            <div 
+              className="rounded-3xl overflow-hidden shadow-xl flex flex-col"
+              style={{
+                backgroundImage: 'linear-gradient(to right bottom, #1c2544, #2a3558)'
+              }}
+            >
+              <div className="p-8 lg:p-10 text-white flex flex-col flex-1">
                 <div className="flex items-center gap-3 mb-4">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="text-sm font-medium uppercase tracking-wide opacity-90">
                     Consultoria Gratuita
                   </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                  {t("booking.title")}
-                </h2>
-                <p className="text-xl mb-8 text-white opacity-95 leading-relaxed">
-                  {t("booking.description")}
+                <h3 className="text-3xl font-bold mb-4 text-white">
+                  {t("products.investment.title")}
+                </h3>
+                <p className="text-lg mb-6 text-white opacity-95 leading-relaxed flex-1">
+                  {t("products.investment.description")}
                 </p>
-                <Button variant="secondary" size="lg" className="px-8 w-fit" asChild>
-                  <a href={EXTERNAL_URLS.booking} target="_blank" rel="noopener noreferrer">
-                    {t("booking.button")}
+                <Button variant="primary" size="lg" className="w-full mt-auto" asChild>
+                  <a href={EXTERNAL_URLS.bookingInvestment} target="_blank" rel="noopener noreferrer">
+                    {t("products.investment.button")}
                   </a>
                 </Button>
               </div>
-              <div className="relative h-[400px] lg:h-auto">
+              <div className="relative h-[250px]">
                 <Image
                   src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2340"
-                  alt="Agendar reunião com especialistas"
+                  alt="Consultoria de Investimento"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Training Consulting Card */}
+            <div 
+              className="rounded-3xl overflow-hidden shadow-xl flex flex-col"
+              style={{
+                backgroundImage: 'linear-gradient(to right bottom, #87c76c, #6baa53)'
+              }}
+            >
+              <div className="p-8 lg:p-10 text-white flex flex-col flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  <span className="text-sm font-medium uppercase tracking-wide opacity-90">
+                    Consultoria Gratuita
+                  </span>
+                </div>
+                <h3 className="text-3xl font-bold mb-4 text-white">
+                  {t("products.training.title")}
+                </h3>
+                <p className="text-lg mb-6 text-white opacity-95 leading-relaxed flex-1">
+                  {t("products.training.description")}
+                </p>
+                <Button variant="secondary" size="lg" className="w-full mt-auto" asChild>
+                  <a href={EXTERNAL_URLS.bookingTraining} target="_blank" rel="noopener noreferrer">
+                    {t("products.training.button")}
+                  </a>
+                </Button>
+              </div>
+              <div className="relative h-[250px]">
+                <Image
+                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2340"
+                  alt="Consultoria de Formação"
                   fill
                   className="object-cover"
                 />
