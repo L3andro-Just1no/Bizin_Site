@@ -58,10 +58,18 @@
     "title2": "Start Now.",
     "description": "Whether to start a business, move to Portugal or develop new skills, we offer the complete support you need. From idea to execution, we are by your side at every step of the journey."
   },
-  "booking": {
-    "title": "Book a meeting",
-    "description": "Speak directly with our team of experts. Schedule a free meeting to discuss your project and discover the best investment and support opportunities in Portugal.",
-    "button": "Book meeting"
+  "products": {
+    "sectionTitle": "Our products",
+    "investment": {
+      "title": "Investment Consulting",
+      "description": "Schedule a free meeting with our European funding and Portugal investment specialists.",
+      "button": "Book meeting"
+    },
+    "training": {
+      "title": "Training Consulting",
+      "description": "Book a consultation about professional training programs and team qualification.",
+      "button": "Book meeting"
+    }
   },
   "articles": {
   "title": "Articles, news and opportunities",

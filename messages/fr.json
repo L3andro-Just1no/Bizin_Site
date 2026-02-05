@@ -58,10 +58,18 @@
     "title2": "Commencez Maintenant.",
     "description": "Que ce soit pour démarrer une entreprise, déménager au Portugal ou développer de nouvelles compétences, nous offrons le soutien complet dont vous avez besoin. De l'idée à l'exécution, nous sommes à vos côtés à chaque étape du voyage."
   },
-  "booking": {
-    "title": "Réserver une réunion",
-    "description": "Parlez directement avec notre équipe d'experts. Planifiez une réunion gratuite pour discuter de votre projet et découvrir les meilleures opportunités d'investissement et de soutien au Portugal.",
-    "button": "Réserver une réunion"
+  "products": {
+    "sectionTitle": "Nos produits",
+    "investment": {
+      "title": "Conseil en Investissement",
+      "description": "Planifiez une réunion gratuite avec nos spécialistes des fonds européens et de l'investissement au Portugal.",
+      "button": "Réserver une réunion"
+    },
+    "training": {
+      "title": "Conseil en Formation",
+      "description": "Réservez une consultation sur les programmes de formation professionnelle et la qualification des équipes.",
+      "button": "Réserver une réunion"
+    }
   },
   "articles": {
   "title": "Articles, actualités et opportunités",
