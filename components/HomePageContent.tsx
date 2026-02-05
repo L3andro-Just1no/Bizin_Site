@@ -263,7 +263,12 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
                 <p className="text-lg mb-6 text-white opacity-95 leading-relaxed flex-1">
                   {t("products.investment.description")}
                 </p>
-                <Button variant="primary" size="lg" className="w-full mt-auto" asChild>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="w-full mt-auto border-white/30 hover:bg-white/90"
+                  asChild
+                >
                   <a href={EXTERNAL_URLS.bookingInvestment} target="_blank" rel="noopener noreferrer">
                     {t("products.investment.button")}
                   </a>
