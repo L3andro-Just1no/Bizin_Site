@@ -221,6 +221,9 @@ export function BizinWidget() {
     script.setAttribute('data-api-url', 'https://bizin-assistant.vercel.app');
     script.setAttribute('data-language', locale);
     script.setAttribute('data-theme', 'light');
+    script.setAttribute('data-allow-links', 'true');
+    script.setAttribute('data-render-markdown', 'true');
+    script.setAttribute('data-sanitize', 'false');
     script.async = true;
     
     // Add load event listener
@@ -233,7 +236,10 @@ export function BizinWidget() {
             language: locale,
             theme: 'light',
             primaryColor: '#87c76c', // Neomarca green color
-            position: 'bottom-center'
+            position: 'bottom-center',
+            allowLinks: true,
+            renderMarkdown: true,
+            sanitizeHtml: false
           });
           setWidgetInitialized(true);
           
@@ -463,7 +469,10 @@ export function BizinWidget() {
             language: newLocale,
             theme: 'light',
             primaryColor: '#87c76c',
-            position: 'bottom-center'
+            position: 'bottom-center',
+            allowLinks: true,
+            renderMarkdown: true,
+            sanitizeHtml: false
           });
         }
       }

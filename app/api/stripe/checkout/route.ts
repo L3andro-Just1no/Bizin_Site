@@ -60,6 +60,7 @@ export async function POST(req: NextRequest) {
       ],
       success_url: successUrl,
       cancel_url: cancelUrl,
+      allow_promotion_codes: true, // Allow customers to enter promo codes
     });
 
     return NextResponse.json({ url: session.url }, { status: 200 });
