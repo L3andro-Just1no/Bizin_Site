@@ -60,16 +60,15 @@
   },
   "products": {
     "sectionTitle": "Our products",
-    "freeConsultingBadge": "Free consulting",
     "investment": {
       "title": "Investment Consulting",
-      "description": "Schedule a free meeting with our European funding and Portugal investment specialists.",
-      "button": "Book meeting"
+      "description": "Schedule a meeting with our European funding and Portugal investment specialists.",
+      "button": "Purchase and Book"
     },
     "training": {
       "title": "Training Consulting",
       "description": "Book a consultation about professional training programs and team qualification.",
-      "button": "Book meeting"
+      "button": "Purchase and Book"
     }
   },
   "articles": {

@@ -60,16 +60,15 @@
   },
   "products": {
     "sectionTitle": "Nos produits",
-    "freeConsultingBadge": "Conseil gratuit",
     "investment": {
       "title": "Conseil en Investissement",
-      "description": "Planifiez une réunion gratuite avec nos spécialistes des fonds européens et de l'investissement au Portugal.",
-      "button": "Réserver une réunion"
+      "description": "Planifiez une réunion avec nos spécialistes des fonds européens et de l'investissement au Portugal.",
+      "button": "Acheter et Réserver"
     },
     "training": {
       "title": "Conseil en Formation",
       "description": "Réservez une consultation sur les programmes de formation professionnelle et la qualification des équipes.",
-      "button": "Réserver une réunion"
+      "button": "Acheter et Réserver"
     }
   },
   "articles": {
