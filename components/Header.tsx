@@ -10,10 +10,10 @@ import { useI18n } from "@/components/I18nProvider";
 const NAV_ITEMS = [
   { href: "/", labelKey: "common.home" },
   { href: "/sobre-portugal", labelKey: "nav.aboutPortugal" },
+  { href: "/sobre-nos", labelKey: "nav.aboutUs" },
   { href: "/#booking-section", labelKey: "nav.products" },
   { href: "/parceiros", labelKey: "nav.partners", hidden: true },
   { href: "/servicos", labelKey: "nav.services" },
-  { href: "/sobre-nos", labelKey: "nav.aboutUs" },
   { href: "/blog", labelKey: "nav.blog" },
   { href: "/contactos", labelKey: "nav.contacts" },
 ];
