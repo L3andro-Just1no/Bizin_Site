@@ -32,6 +32,32 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
     }
   };
 
+  const handleCheckout = async (product: "investment" | "training") => {
+    try {
+      const response = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ product }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error("Checkout error:", data.error);
+        alert("Failed to create checkout session. Please try again.");
+        return;
+      }
+
+      // Redirect to Stripe Checkout
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+
   return (
     <>
       {/* Hero Section with Background Image */}
@@ -233,7 +259,7 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
         </div>
       </section>
 
-      {/* Products Section - Booking Cards */}
+      {/* Products Section - Booking / Checkout Cards */}
       <Section variant="default" className="py-20" id="booking-section">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-[#1c2544] mb-12 text-center">
@@ -253,9 +279,6 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="text-sm font-medium tracking-wide opacity-90">
-                    {t("products.freeConsultingBadge")}
-                  </span>
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-white">
                   {t("products.investment.title")}
@@ -267,11 +290,9 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
                   variant="secondary"
                   size="lg"
                   className="w-full mt-auto border-white/30 hover:bg-white/90"
-                  asChild
+                  onClick={() => handleCheckout("investment")}
                 >
-                  <a href={EXTERNAL_URLS.bookingInvestment} target="_blank" rel="noopener noreferrer">
-                    {t("products.investment.button")}
-                  </a>
+                  {t("products.investment.button")}
                 </Button>
               </div>
               <div className="relative h-[250px]">
@@ -296,9 +317,6 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
-                  <span className="text-sm font-medium tracking-wide opacity-90">
-                    {t("products.freeConsultingBadge")}
-                  </span>
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-white">
                   {t("products.training.title")}
@@ -306,10 +324,13 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
                 <p className="text-lg mb-6 text-white opacity-95 leading-relaxed flex-1">
                   {t("products.training.description")}
                 </p>
-                <Button variant="secondary" size="lg" className="w-full mt-auto" asChild>
-                  <a href={EXTERNAL_URLS.bookingTraining} target="_blank" rel="noopener noreferrer">
-                    {t("products.training.button")}
-                  </a>
+                <Button 
+                  variant="secondary" 
+                  size="lg" 
+                  className="w-full mt-auto"
+                  onClick={() => handleCheckout("training")}
+                >
+                  {t("products.training.button")}
                 </Button>
               </div>
               <div className="relative h-[250px]">
