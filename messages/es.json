@@ -69,6 +69,11 @@
       "title": "Consultoría de Formación",
       "description": "Reserve una consulta sobre programas de formación profesional y cualificación de equipos.",
       "button": "Comprar y Reservar"
+    },
+    "aiDiagnostic": {
+      "title": "Diagnóstico Estratégico de IA",
+      "description": "Evalúe la madurez digital de su empresa e identifique oportunidades reales de aplicación de IA. Incluye análisis estructurado, mapeo de riesgos y plan de acción priorizado.",
+      "button": "Comprar y Reservar"
     }
   },
   "articles": {

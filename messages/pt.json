@@ -69,6 +69,11 @@
       "title": "Consultoria de Formação",
       "description": "Agende uma consulta sobre programas de formação profissional e qualificação de equipas.",
       "button": "Comprar e Agendar"
+    },
+    "aiDiagnostic": {
+      "title": "Diagnóstico Estratégico de IA",
+      "description": "Avalie a maturidade digital da sua empresa e identifique oportunidades reais de aplicação de IA. Inclui análise estruturada, mapeamento de riscos e plano de ação priorizado.",
+      "button": "Comprar e Agendar"
     }
   },
   "articles": {
