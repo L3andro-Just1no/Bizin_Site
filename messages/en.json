@@ -69,6 +69,11 @@
       "title": "Training Consulting",
       "description": "Book a consultation about professional training programs and team qualification.",
       "button": "Purchase and Book"
+    },
+    "aiDiagnostic": {
+      "title": "Strategic AI Integration Diagnostic",
+      "description": "Assess your company's digital maturity and identify real opportunities for AI adoption. Includes structured analysis, risk mapping and a prioritised action plan.",
+      "button": "Purchase and Book"
     }
   },
   "articles": {

@@ -32,7 +32,7 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
     }
   };
 
-  const handleCheckout = async (product: "investment" | "training") => {
+  const handleCheckout = async (product: "investment" | "training" | "aiDiagnostic") => {
     try {
       const response = await fetch("/api/stripe/checkout", {
         method: "POST",
@@ -266,7 +266,7 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
             {t("products.sectionTitle")}
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Investment Consulting Card */}
             <div 
               className="rounded-3xl overflow-hidden shadow-xl flex flex-col"
@@ -337,6 +337,44 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
                 <Image
                   src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2340"
                   alt="Consultoria de Formação"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* AI Diagnostic Card */}
+            <div 
+              className="rounded-3xl overflow-hidden shadow-xl flex flex-col"
+              style={{
+                backgroundImage: 'linear-gradient(to right bottom, #4a5568, #2d3748)'
+              }}
+            >
+              <div className="p-8 lg:p-10 text-white flex flex-col flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold mb-4 text-white">
+                  {t("products.aiDiagnostic.title")}
+                </h3>
+                <p className="text-lg mb-6 text-white opacity-95 leading-relaxed flex-1">
+                  {t("products.aiDiagnostic.description")}
+                </p>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="w-full mt-auto border-white/30 hover:bg-white/90"
+                  onClick={() => handleCheckout("aiDiagnostic")}
+                >
+                  {t("products.aiDiagnostic.button")}
+                </Button>
+              </div>
+              <div className="relative h-[250px]">
+                <Image
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2340"
+                  alt="Diagnóstico Estratégico de IA"
                   fill
                   className="object-cover"
                 />

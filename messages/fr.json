@@ -69,6 +69,11 @@
       "title": "Conseil en Formation",
       "description": "Réservez une consultation sur les programmes de formation professionnelle et la qualification des équipes.",
       "button": "Acheter et Réserver"
+    },
+    "aiDiagnostic": {
+      "title": "Diagnostic Stratégique d'Intégration IA",
+      "description": "Évaluez la maturité numérique de votre entreprise et identifiez les opportunités réelles d'application de l'IA. Inclut une analyse structurée, une cartographie des risques et un plan d'action priorisé.",
+      "button": "Acheter et Réserver"
     }
   },
   "articles": {

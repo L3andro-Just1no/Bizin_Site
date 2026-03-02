@@ -2,6 +2,8 @@
 export const EXTERNAL_URLS = {
   bookingInvestment: "https://outlook.office.com/bookwithme/user/a9514f096fe44f70a9798d6acc4a981c@neomarca.pt/meetingtype/3YxhDEIdNU-BKKmc6TrQ3Q2?anonymous&ismsaljsauthenabled&ep=mcard",
   bookingTraining: "https://outlook.office.com/bookwithme/user/804f265f249d412eb553e8a87093441b@neomarca.pt/meetingtype/BuRINTzW5kyiouDZuPWBCw2?anonymous&ismsaljsauthenabled&ep=mlink",
+  /** URL para Comprar e Agendar o Diagnóstico de IA (opcional: definir NEXT_PUBLIC_BOOKING_AI_DIAGNOSTIC_URL no .env.local) */
+  bookingAiDiagnostic: process.env.NEXT_PUBLIC_BOOKING_AI_DIAGNOSTIC_URL ?? "",
   twoSiglas: {
     main: process.env.NEXT_PUBLIC_2SIGLAS_URL || "https://example.com/2siglas",
     services:
