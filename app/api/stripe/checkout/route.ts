@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
     const successUrlMap: Record<ProductKey, string> = {
       investment: EXTERNAL_URLS.bookingInvestment,
       training: EXTERNAL_URLS.bookingTraining,
-      aiDiagnostic: EXTERNAL_URLS.bookingAiDiagnostic || cancelUrl,
+      aiDiagnostic: EXTERNAL_URLS.bookingAiDiagnostic,
     };
     const successUrl = successUrlMap[product];
 
