@@ -171,7 +171,6 @@ The site is configured for deployment on Vercel:
 | `STRIPE_PRICE_INVESTMENT` | Stripe Price ID – Consultoria Investimento | If using products |
 | `STRIPE_PRICE_TRAINING` | Stripe Price ID – Consultoria Formação | If using products |
 | `STRIPE_PRICE_BRIEFING` | Stripe Price ID – Diagnóstico Estratégico de IA (Briefing) | If using products |
-| `NEXT_PUBLIC_WEBINAR_INCENTIVOS_URL` | URL do vídeo do Webinar Incentivos à Digitalização (produto gratuito) | No |
 
 ## Support
 
