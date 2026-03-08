@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
@@ -7,6 +8,7 @@ import { Section } from "@/components/ui/Section";
 import { ContentTabs } from "@/components/ContentTabs";
 import { FAQ } from "@/components/FAQ";
 import { useI18n } from "@/components/I18nProvider";
+import { VideoModal } from "@/components/ui/VideoModal";
 import { EXTERNAL_URLS } from "@/lib/constants";
 import type { SimpleBlogPost, SimpleBlogCategory } from "@/lib/supabase/types";
 
@@ -25,6 +27,7 @@ interface HomePageContentProps {
 
 export function HomePageContent({ recentPosts, categories }: HomePageContentProps) {
   const { t } = useI18n();
+  const [webinarOpen, setWebinarOpen] = useState(false);
 
   const handleOpenChat = () => {
     if (typeof window !== 'undefined' && (window as any).openBizinChat) {
@@ -60,6 +63,12 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
 
   return (
     <>
+      {webinarOpen && (
+        <VideoModal
+          src="/videos/webinar-incentivos.mp4"
+          onClose={() => setWebinarOpen(false)}
+        />
+      )}
       {/* Hero Section with Background Image */}
       <section className="relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40">
@@ -266,7 +275,7 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
             {t("products.sectionTitle")}
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Investment Consulting Card */}
             <div 
               className="rounded-3xl overflow-hidden shadow-xl flex flex-col"
@@ -375,6 +384,49 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
                 <Image
                   src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2340"
                   alt="Diagnóstico Estratégico de IA"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Webinar Incentivos - Gratuito */}
+            <div 
+              className="rounded-3xl overflow-hidden shadow-xl flex flex-col relative"
+              style={{
+                backgroundImage: 'linear-gradient(to right bottom, #0d9488, #0f766e)'
+              }}
+            >
+              <div className="absolute top-4 right-4 z-10">
+                <span className="bg-white text-teal-800 text-sm font-semibold px-3 py-1 rounded-full">
+                  {t("products.webinarIncentivos.tag")}
+                </span>
+              </div>
+              <div className="p-8 lg:p-10 text-white flex flex-col flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-white">
+                  {t("products.webinarIncentivos.title")}
+                </h3>
+                <p className="text-lg mb-6 text-white opacity-95 leading-relaxed flex-1">
+                  {t("products.webinarIncentivos.description")}
+                </p>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="w-full mt-auto border-white/30 hover:bg-white/90"
+                  onClick={() => setWebinarOpen(true)}
+                >
+                  {t("products.webinarIncentivos.button")}
+                </Button>
+              </div>
+              <div className="relative h-[250px]">
+                <Image
+                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2340"
+                  alt="Webinar Incentivos à Digitalização"
                   fill
                   className="object-cover"
                 />
