@@ -35,3 +35,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# large media files - host externally (YouTube/Vimeo/Cloudinary)
+*.mp4
+*.mov
+*.avi
+*.mkv
+/public/videos/
+

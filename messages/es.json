@@ -74,6 +74,12 @@
       "title": "Diagnóstico Estratégico de IA",
       "description": "Evalúe la madurez digital de su empresa e identifique oportunidades reales de aplicación de IA. Incluye análisis estructurado, mapeo de riesgos y plan de acción priorizado.",
       "button": "Comprar y Reservar"
+    },
+    "webinarIncentivos": {
+      "tag": "Gratis",
+      "title": "Webinar | Incentivos a la Digitalización, Cualificación y Sostenibilidad",
+      "description": "Sesión en vídeo con Neomarca y Sisgarbe para empresarios y gestores del Algarve: oportunidades de financiación, criterios de elegibilidad, implementación tecnológica y casos de éxito.",
+      "button": "Acceder gratuitamente"
     }
   },
   "articles": {
