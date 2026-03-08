@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
@@ -8,7 +7,6 @@ import { Section } from "@/components/ui/Section";
 import { ContentTabs } from "@/components/ContentTabs";
 import { FAQ } from "@/components/FAQ";
 import { useI18n } from "@/components/I18nProvider";
-import { VideoModal } from "@/components/ui/VideoModal";
 import { EXTERNAL_URLS } from "@/lib/constants";
 import type { SimpleBlogPost, SimpleBlogCategory } from "@/lib/supabase/types";
 
@@ -27,7 +25,6 @@ interface HomePageContentProps {
 
 export function HomePageContent({ recentPosts, categories }: HomePageContentProps) {
   const { t } = useI18n();
-  const [webinarOpen, setWebinarOpen] = useState(false);
 
   const handleOpenChat = () => {
     if (typeof window !== 'undefined' && (window as any).openBizinChat) {
@@ -63,12 +60,6 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
 
   return (
     <>
-      {webinarOpen && (
-        <VideoModal
-          src="/videos/webinar-incentivos.mp4"
-          onClose={() => setWebinarOpen(false)}
-        />
-      )}
       {/* Hero Section with Background Image */}
       <section className="relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40">
@@ -418,9 +409,11 @@ export function HomePageContent({ recentPosts, categories }: HomePageContentProp
                   variant="secondary"
                   size="lg"
                   className="w-full mt-auto border-white/30 hover:bg-white/90"
-                  onClick={() => setWebinarOpen(true)}
+                  asChild
                 >
-                  {t("products.webinarIncentivos.button")}
+                  <Link href={EXTERNAL_URLS.webinarIncentivos} target="_blank" rel="noopener noreferrer">
+                    {t("products.webinarIncentivos.button")}
+                  </Link>
                 </Button>
               </div>
               <div className="relative h-[250px]">
