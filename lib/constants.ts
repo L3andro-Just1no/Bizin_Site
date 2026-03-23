@@ -4,8 +4,10 @@ export const EXTERNAL_URLS = {
   bookingTraining: "https://outlook.office.com/bookwithme/user/804f265f249d412eb553e8a87093441b@neomarca.pt/meetingtype/BuRINTzW5kyiouDZuPWBCw2?anonymous&ismsaljsauthenabled&ep=mlink",
   /** Redirecionamento após pagamento do Diagnóstico Estratégico de IA (Briefing) – agendamento Outlook */
   bookingAiDiagnostic: "https://outlook.office.com/bookwithme/user/804f265f249d412eb553e8a87093441b@neomarca.pt/meetingtype/BuRINTzW5kyiouDZuPWBCw2?anonymous&ismsaljsauthenabled&ep=mlink",
+  /** YouTube link for the Webinar IA – O futuro das empresas não é artificial, é inteligente */
+  webinarIA: "https://youtu.be/KOXp6pCzklA",
   /** SharePoint Stream link for the Webinar Incentivos à Digitalização */
-  webinarIncentivos: "https://teamneomarca-my.sharepoint.com/personal/dario_neomarca_pt/_layouts/15/stream.aspx?id=%2Fpersonal%2Fdario%5Fneomarca%5Fpt%2FDocuments%2FAmbiente%20de%20Trabalho%2FWEBINAR%2FFINAL%2FPrograma%20Regional%20Algarve%202030%20%2D%20An%C3%A1lise%20Comparativa%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E10b0d649%2D6424%2D4ef7%2D9766%2D86b93bd9e5a9",
+  webinarIncentivos: "https://youtu.be/NUQN23O4lX8",
   twoSiglas: {
     main: process.env.NEXT_PUBLIC_2SIGLAS_URL || "https://example.com/2siglas",
     services:
