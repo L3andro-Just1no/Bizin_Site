@@ -80,6 +80,12 @@
       "title": "Webinar | Incentives for Digitalisation, Qualification and Sustainability",
       "description": "Video session with Neomarca and Sisgarbe for Algarve entrepreneurs and managers: funding opportunities, eligibility criteria, practical implementation and success cases.",
       "button": "Access for free"
+    },
+    "webinarIA": {
+      "tag": "Free",
+      "title": "Webinar | The future of business is not artificial, it's intelligent",
+      "description": "Promoted by 2Siglas and EED, this webinar is aimed at entrepreneurs, managers and teams looking to integrate AI into their organisations in a structured, strategic and sustainable way.",
+      "button": "Access for free"
     }
   },
   "articles": {

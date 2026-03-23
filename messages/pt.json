@@ -80,6 +80,12 @@
       "title": "Webinar | Incentivos a Digitalização, Qualificação e Sustentabilidade",
       "description": "Sessão em vídeo com a Neomarca e Sisgarbe para empresários e gestores do Algarve: oportunidades de financiamento, critérios de elegibilidade, implementação tecnológica e casos de sucesso.",
       "button": "Aceder gratuitamente"
+    },
+    "webinarIA": {
+      "tag": "Gratuito",
+      "title": "Webinar | O futuro das empresas não é artificial, é inteligente",
+      "description": "Promovido pela 2Siglas e pela EED, este webinar dirige-se a empresários, gestores e equipas que pretendem integrar a IA nas suas organizações de forma estruturada, estratégica e sustentável.",
+      "button": "Aceder gratuitamente"
     }
   },
   "articles": {
