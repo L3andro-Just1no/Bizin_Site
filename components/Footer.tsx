@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, EXTERNAL_URLS } from "@/lib/constants";
 import { useI18n } from "@/components/I18nProvider";
 
 const NAV_ITEMS = [
@@ -17,6 +17,8 @@ const NAV_ITEMS = [
 
 export function Footer() {
   const { t } = useI18n();
+  const currentYear = new Date().getFullYear();
+  const copyright = t("footer.copyright").replace(/© \d{4}/, `© ${currentYear}`);
 
   return (
     <footer className="bg-[#1c2544] text-white text-[15px]">
@@ -141,7 +143,7 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             {/* Copyright */}
             <p className="text-[16px] tracking-[-0.16px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-              {t("footer.copyright")}
+              {copyright}
             </p>
 
             {/* Legal Information links */}
