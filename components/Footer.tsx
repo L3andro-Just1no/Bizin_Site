@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, EXTERNAL_URLS } from "@/lib/constants";
 import { useI18n } from "@/components/I18nProvider";
 
 const NAV_ITEMS = [
@@ -17,6 +17,8 @@ const NAV_ITEMS = [
 
 export function Footer() {
   const { t } = useI18n();
+  const currentYear = new Date().getFullYear();
+  const copyright = t("footer.copyright").replace(/© \d{4}/, `© ${currentYear}`);
 
   return (
     <footer className="bg-[#1c2544] text-white text-[15px]">
@@ -141,7 +143,7 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             {/* Copyright */}
             <p className="text-[16px] tracking-[-0.16px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-              {t("footer.copyright")}
+              {copyright}
             </p>
 
             {/* Legal Information links */}
@@ -168,6 +170,66 @@ export function Footer() {
               </a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="border-t border-white/10 bg-zinc-100">
+        <div className="container mx-auto flex flex-col items-center gap-3 px-4 py-4 md:px-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+            <a
+              href={EXTERNAL_URLS.prr.projectSheet}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block transition-opacity hover:opacity-80"
+              aria-label="Ficha de projeto PRR"
+            >
+              <Image
+                src={EXTERNAL_URLS.prr.logo}
+                alt="PRR - Plano de Recuperação e Resiliência"
+                width={180}
+                height={54}
+                className="h-auto w-[130px] sm:w-[150px]"
+              />
+            </a>
+            <a
+              href={EXTERNAL_URLS.prr.governmentWebsite}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block transition-opacity hover:opacity-80"
+              aria-label="República Portuguesa"
+            >
+              <Image
+                src={EXTERNAL_URLS.prr.governmentLogo}
+                alt="República Portuguesa"
+                width={200}
+                height={54}
+                className="h-auto w-[140px] sm:w-[160px]"
+              />
+            </a>
+            <a
+              href={EXTERNAL_URLS.prr.euWebsite}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block transition-opacity hover:opacity-80"
+              aria-label="Financiado pela União Europeia - NextGenerationEU"
+            >
+              <Image
+                src={EXTERNAL_URLS.prr.euLogo}
+                alt="Financiado pela União Europeia - NextGenerationEU"
+                width={200}
+                height={54}
+                className="h-auto w-[140px] sm:w-[160px]"
+              />
+            </a>
+          </div>
+          <a
+            href={EXTERNAL_URLS.prr.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[#1c2544]/60 underline underline-offset-2 transition-colors hover:text-[#1c2544]"
+          >
+            recuperarportugal.gov.pt
+          </a>
         </div>
       </div>
     </footer>

@@ -24,6 +24,15 @@ export const EXTERNAL_URLS = {
     // Official X (Twitter) profile
     twitter: "https://x.com/neomarca",
   },
+  prr: {
+    website: "https://recuperarportugal.gov.pt/",
+    projectSheet: "/6938-PRR%20ficha%20projeto%20website.pdf",
+    logo: "/PRR_Logotipos-black_hor.png",
+    governmentLogo: "/Log%C3%B3tipo_do_Governo_Portugal.svg.png",
+    governmentWebsite: "https://www.portugal.gov.pt/",
+    euLogo: "/logo-ue.png",
+    euWebsite: "https://next-generation-eu.europa.eu/",
+  },
 };
 
 // Contact information
