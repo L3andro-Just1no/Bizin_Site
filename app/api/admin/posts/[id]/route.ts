@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase/client';
+import type { BlogPost, BlogPostUpdate } from '@/lib/supabase/types';
 
 // Disable caching for admin routes
 export const dynamic = 'force-dynamic';
@@ -10,7 +11,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const supabase = createServerClient();
+    const supabase: any = createServerClient();
     
     const { data, error } = await supabase
       .from('blog_posts')
@@ -18,7 +19,18 @@ export async function GET(
       .eq('id', params.id)
       .single();
 
-    if (error) throw error;
+    if (error) {
+      throw error;
+    }
+
+    if (!data) {
+      return NextResponse.json(
+        { error: 'Post not found' },
+        { status: 404 }
+      );
+    }
+
+    const postData = data as BlogPost;
 
     // Get categories for this post
     const { data: categoryData } = await supabase
@@ -27,16 +39,16 @@ export async function GET(
       .eq('post_id', params.id);
 
     const post = {
-      id: data.id,
-      title: data.title,
-      slug: data.slug,
-      excerpt: data.excerpt,
-      content: data.content,
-      featured_image_url: data.featured_image_url,
-      featured_image_alt: data.featured_image_alt,
-      status: data.status,
-      published_at: data.published_at,
-      author_name: data.author_name,
+      id: postData.id,
+      title: postData.title,
+      slug: postData.slug,
+      excerpt: postData.excerpt,
+      content: postData.content,
+      featured_image_url: postData.featured_image_url,
+      featured_image_alt: postData.featured_image_alt,
+      status: postData.status,
+      published_at: postData.published_at,
+      author_name: postData.author_name,
       categories: categoryData?.map((pc: any) => pc.category_id) || [],
     };
 
@@ -55,7 +67,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const supabase = createServerClient();
+    const supabase: any = createServerClient();
     
     const { error } = await supabase
       .from('blog_posts')
@@ -80,7 +92,7 @@ export async function PUT(
 ) {
   try {
     const body = await request.json();
-    const supabase = createServerClient();
+    const supabase: any = createServerClient();
     
     // Update post
     const { error: postError } = await supabase

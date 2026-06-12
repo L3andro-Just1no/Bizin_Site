@@ -152,7 +152,7 @@ export default function CleanupPage() {
         <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
           <p className="text-sm text-blue-800">
             <strong>Note:</strong> This page shows ALL posts from the database, including drafts.
-            Use this to clean up any posts that aren't showing in the main dashboard.
+            Use this to clean up any posts that aren&apos;t showing in the main dashboard.
           </p>
         </div>
       </Container>

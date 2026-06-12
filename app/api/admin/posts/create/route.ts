@@ -4,7 +4,7 @@ import { createServerClient } from '@/lib/supabase/client';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const supabase = createServerClient();
+    const supabase: any = createServerClient();
     
     // Generate slug if not provided
     const slug = body.slug || body.title.toLowerCase()

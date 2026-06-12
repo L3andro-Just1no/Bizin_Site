@@ -1,314 +1,181 @@
-# Neomarca Website
+# Bizin Portugal
 
-Website oficial da Neomarca - Apoio a Fundos e Incentivos Europeus.
+A modern, multilingual website for Bizin Portugal - providing investment consulting, business incentives, and professional training services in Portugal.
 
-Este é o website da Fase 1, incluindo todas as páginas principais, formulários de contacto, SEO otimizado e sistema de analytics com consentimento de cookies.
+## Tech Stack
 
-## 🚀 Status do Projeto
+- **Framework:** Next.js 14+ (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Database:** Supabase (PostgreSQL)
+- **Storage:** Supabase Storage
+- **Authentication:** JWT with HTTP-only cookies
+- **Internationalization:** next-intl (PT, EN, ES, FR)
+- **Email:** SendGrid
+- **Analytics:** Google Analytics 4
+- **AI Assistant:** Bizin Agent Widget
 
-✅ **Fase 1 Completa** - Website Foundation
-- ✅ Next.js 14+ com TypeScript e Tailwind CSS
-- ✅ Design system baseado no Figma
-- ✅ Todas as páginas principais implementadas
-- ✅ Formulários de captação de leads
-- ✅ SEO otimizado (sitemap, robots.txt, metadata)
-- ✅ Cookie consent banner e Google Analytics
-- ✅ CTAs para e-commerce 2 Siglas
-- ✅ Responsivo (desktop, tablet, mobile)
+## Getting Started
 
-🔜 **Fase 2** - Agente de IA (planeado)
+### Prerequisites
 
-## 🛠 Tecnologias
+- Node.js 18+ and npm
+- Supabase account
+- SendGrid account (for contact forms)
 
-- **Framework**: Next.js 14.2+ com App Router
-- **Linguagem**: TypeScript
-- **Estilos**: Tailwind CSS
-- **Deploy**: Vercel (recomendado)
-- **Analytics**: Google Analytics 4
-- **Forms**: API Routes com validação
+### Installation
 
-## 📦 Instalação e Desenvolvimento Local
-
-### Pré-requisitos
-
-- Node.js 18+ instalado
-- npm (vem com Node.js)
-
-### Passos
-
+1. Clone the repository:
 ```bash
-# 1. Clonar o repositório (se aplicável)
 git clone <repository-url>
 cd Bizin_Site
+```
 
-# 2. Instalar dependências
+2. Install dependencies:
+```bash
 npm install
+```
 
-# 3. Copiar ficheiro de ambiente
-cp .env.example .env.local
+3. Create a `.env.local` file in the root directory:
+```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 
-# 4. Editar .env.local com as suas configurações
-# - Adicionar Google Analytics ID
-# - Adicionar URL do 2 Siglas
+# Admin Authentication
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=your_secure_password
+JWT_SECRET=your_jwt_secret
 
-# 5. Executar em modo de desenvolvimento
+# SendGrid
+SENDGRID_API_KEY=your_sendgrid_api_key
+SENDGRID_FROM_EMAIL=noreply@bizinportugal.com
+
+# Google Analytics (optional)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+4. Set up the database:
+```bash
+# Run the SQL scripts in your Supabase SQL Editor:
+# 1. supabase/schema.sql
+# 2. supabase/storage-setup.sql
+```
+
+5. Run the development server:
+```bash
 npm run dev
 ```
 
-Abrir [http://localhost:3000](http://localhost:3000) no navegador.
+6. Open [http://localhost:3000](http://localhost:3000)
 
-### Comandos Disponíveis
+## Key Features
+
+### Public Features
+- **Multilingual Support:** Portuguese, English, Spanish, French
+- **Services Pages:** Investment consulting, incentives, training
+- **Blog/CMS:** Dynamic blog with categories and rich text editor
+- **Contact Forms:** Lead capture with SendGrid integration
+- **AI Assistant:** Interactive chat widget for visitor support
+- **SEO Optimized:** Dynamic sitemaps, robots.txt, meta tags
+- **Cookie Compliance:** GDPR-compliant cookie banner
+- **Responsive Design:** Mobile-first, modern UI
+
+### Admin Features
+- **Blog Management:** Create, edit, delete posts
+- **Rich Text Editor:** Full WYSIWYG editor with image uploads
+- **Image Management:** Supabase Storage integration
+- **Category Management:** Organize content by categories
+- **Protected Routes:** JWT-based authentication
+
+## Project Structure
+
+```
+Bizin_Site/
+├── app/                    # Next.js App Router pages
+│   ├── api/               # API routes (admin, leads)
+│   ├── blog/              # Blog pages (public + admin)
+│   ├── [locale]/          # Localized routes
+│   └── ...                # Other pages
+├── components/            # React components
+│   ├── admin/            # Admin-specific components
+│   ├── ui/               # Reusable UI components
+│   └── ...               # Page components
+├── lib/                   # Utilities and configurations
+│   ├── supabase/         # Supabase client and queries
+│   ├── utils/            # Helper functions
+│   ├── auth.ts           # Authentication logic
+│   ├── analytics.ts      # Google Analytics
+│   └── constants.ts      # App constants
+├── messages/              # i18n translation files
+│   ├── pt.json
+│   ├── en.json
+│   ├── es.json
+│   └── fr.json
+├── public/                # Static assets
+├── supabase/              # Database schemas
+└── middleware.ts          # Route protection & i18n
+
+```
+
+## Available Scripts
 
 ```bash
-npm run dev      # Servidor de desenvolvimento (porta 3000)
-npm run build    # Build de produção
-npm run start    # Servidor de produção
-npm run lint     # Verificar código
+# Development
+npm run dev          # Start development server
+
+# Production
+npm run build        # Build for production
+npm start            # Start production server
+
+# Linting
+npm run lint         # Run ESLint
 ```
 
-## 📁 Estrutura do Projeto
+## Admin Panel
 
-```
-.
-├── app/                        # Páginas e rotas (App Router)
-│   ├── page.tsx               # Home page
-│   ├── servicos/              # Página de serviços
-│   ├── sobre-portugal/        # Sobre Portugal
-│   ├── sobre-neomarca/        # Sobre a Neomarca
-│   ├── blog/                  # Blog e insights
-│   ├── contactos/             # Página de contactos
-│   ├── politicas/             # Políticas (privacidade, cookies)
-│   ├── api/leads/             # API para formulários
-│   ├── layout.tsx             # Layout global
-│   ├── globals.css            # Estilos globais
-│   ├── sitemap.ts             # Geração de sitemap
-│   └── robots.ts              # Geração de robots.txt
-├── components/                 # Componentes React
-│   ├── ui/                    # Componentes de UI base
-│   │   ├── Button.tsx
-│   │   ├── Card.tsx
-│   │   ├── Input.tsx
-│   │   ├── Select.tsx
-│   │   ├── Textarea.tsx
-│   │   ├── Section.tsx
-│   │   └── Container.tsx
-│   ├── Header.tsx             # Cabeçalho
-│   ├── Footer.tsx             # Rodapé
-│   ├── ContactForm.tsx        # Formulário de contacto
-│   ├── CookieBanner.tsx       # Banner de cookies
-│   └── AnalyticsProvider.tsx  # Provider de analytics
-├── lib/                       # Utilitários
-│   ├── constants.ts           # Constantes globais
-│   ├── utils.ts               # Funções auxiliares
-│   └── analytics.ts           # Configuração de analytics
-├── public/                    # Ficheiros estáticos
-│   └── robots.txt            # robots.txt estático
-├── .env.example               # Exemplo de variáveis de ambiente
-├── CONTENT_TODO.md            # Checklist de conteúdo
-├── DEPLOYMENT.md              # Guia de deploy
-└── README.md                  # Este ficheiro
-```
+Access the admin panel at `/blog/admin/login`
 
-## ⚙️ Configuração
+Default features:
+- Create and edit blog posts
+- Upload and manage images
+- Organize content with categories
+- Rich text editing with TipTap editor
 
-### Variáveis de Ambiente
+## Deployment
 
-Criar `.env.local` com:
+The site is configured for deployment on Vercel:
 
-```bash
-# Analytics
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy
 
-# 2 Siglas E-commerce
-NEXT_PUBLIC_2SIGLAS_URL=https://example.com/2siglas
-```
+**Important:** Ensure all environment variables are set in your deployment platform.
 
-### Personalização de Conteúdo
+## Environment Variables Reference
 
-**IMPORTANTE**: Este projeto contém conteúdo placeholder que deve ser substituído.
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL | Yes |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key | Yes |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key | Yes |
+| `ADMIN_USERNAME` | Admin panel username | Yes |
+| `ADMIN_PASSWORD` | Admin panel password | Yes |
+| `JWT_SECRET` | Secret for JWT token generation | Yes |
+| `SENDGRID_API_KEY` | SendGrid API key | Yes |
+| `SENDGRID_FROM_EMAIL` | Sender email address | Yes |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics ID | No |
+| `STRIPE_SECRET_KEY` | Stripe secret key (checkout) | If using products |
+| `STRIPE_PRICE_INVESTMENT` | Stripe Price ID – Consultoria Investimento | If using products |
+| `STRIPE_PRICE_TRAINING` | Stripe Price ID – Consultoria Formação | If using products |
+| `STRIPE_PRICE_BRIEFING` | Stripe Price ID – Diagnóstico Estratégico de IA (Briefing) | If using products |
 
-Consultar `CONTENT_TODO.md` para lista completa de:
-- Textos das páginas
-- Informações de contacto
-- URLs e links
-- Imagens e logótipos
+## Support
 
-Principais ficheiros a editar:
-- `lib/constants.ts` - URLs, contactos, navegação
-- Páginas em `app/` - Conteúdo específico de cada página
-
-## 🚀 Deploy
-
-### Deploy Rápido na Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
-
-1. Fazer push do código para GitHub/GitLab/Bitbucket
-2. Importar projeto na Vercel
-3. Configurar variáveis de ambiente
-4. Deploy automático!
-
-Para instruções detalhadas, consultar `DEPLOYMENT.md`.
-
-### Outros Providers
-
-O projeto pode ser deployado em qualquer plataforma que suporte Next.js:
-- Netlify
-- Cloudflare Pages
-- AWS Amplify
-- Self-hosted
-
-## 📊 SEO e Performance
-
-### Otimizações Implementadas
-
-- ✅ Meta tags otimizadas em todas as páginas
-- ✅ Open Graph tags para redes sociais
-- ✅ Sitemap.xml gerado automaticamente
-- ✅ Robots.txt configurado
-- ✅ Estrutura semântica HTML5
-- ✅ Imagens otimizadas (quando adicionadas)
-- ✅ Lazy loading de componentes
-- ✅ CSS otimizado com Tailwind
-
-### Lighthouse Scores Esperados
-
-- Performance: ≥ 85
-- SEO: ≥ 90
-- Accessibility: ≥ 90
-- Best Practices: ≥ 90
-
-## 🎨 Design System
-
-O design visual segue o Figma como fonte de verdade:
-- [Figma - Home](https://www.figma.com/design/7wfS3mlZbzi5XYcyFdX2VF/Bizin?node-id=67-66)
-
-### Componentes UI Disponíveis
-
-- `Button` - Botões com variantes (primary, secondary, outline, ghost)
-- `Card` - Cards com variantes (default, bordered, elevated)
-- `Input` - Campos de texto com validação
-- `Textarea` - Áreas de texto
-- `Select` - Dropdowns
-- `Section` - Secções de página
-- `Container` - Containers responsivos
-
-### Cores (Tailwind)
-
-```js
-primary: {
-  DEFAULT: "#0066CC",
-  50-900: // tons de azul
-}
-secondary: {
-  DEFAULT: "#00B8D4",
-  50-900: // tons de ciano
-}
-```
-
-## 📝 Formulários
-
-### Formulário de Contacto
-
-Localização: `/contactos`
-
-**Campos:**
-- Nome (obrigatório)
-- Email (obrigatório)
-- Empresa (opcional)
-- Interesse (dropdown, obrigatório)
-- Mensagem (obrigatório)
-- Consentimento RGPD (obrigatório)
-
-**Validação:**
-- Client-side com feedback em tempo real
-- Server-side na API route
-
-**Integração:**
-Atualmente logs para console. Para produção, integrar com:
-- CRM (Salesforce, HubSpot, etc.)
-- Email service (SendGrid, Resend, etc.)
-- Base de dados
-
-Editar `app/api/leads/route.ts` para adicionar integração.
-
-## 🔒 RGPD e Privacidade
-
-### Conformidade Implementada
-
-- ✅ Cookie consent banner
-- ✅ Política de Privacidade
-- ✅ Política de Cookies
-- ✅ Analytics apenas após consentimento
-- ✅ Formulários com consentimento explícito
-
-### Cookies Utilizados
-
-- `cookie_consent` - Armazena preferência do utilizador
-- `_ga`, `_ga_*` - Google Analytics (apenas se aceite)
-
-## 📱 Responsividade
-
-O website é totalmente responsivo com breakpoints:
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
-
-Testado em:
-- Chrome, Firefox, Safari, Edge
-- iOS Safari, Android Chrome
-
-## 🔄 Próximas Fases
-
-### Fase 2 - Agente de IA (Planeado)
-
-Funcionalidades:
-- Widget de chat conversacional
-- Integração com OpenAI
-- Modo freemium (5 mensagens grátis)
-- Modo pago via Stripe
-- Upload de documentos
-- Geração de relatórios PDF
-
-Ver `SPEC_NEOMARCA_WEBSITE_AGENT.md` para detalhes.
-
-## 🐛 Troubleshooting
-
-### Build Fails
-
-```bash
-# Limpar cache e reinstalar
-rm -rf .next node_modules
-npm install
-npm run build
-```
-
-### Variáveis de Ambiente Não Carregam
-
-- Verificar que ficheiro `.env.local` existe
-- Variáveis públicas devem começar com `NEXT_PUBLIC_`
-- Reiniciar servidor de desenvolvimento
-
-### Analytics Não Funciona
-
-- Verificar que `NEXT_PUBLIC_GA_ID` está configurado
-- Aceitar cookies no banner
-- Verificar console do browser para erros
-
-## 📄 Licença
-
-Propriedade da Neomarca. Todos os direitos reservados.
-
-## 📞 Suporte
-
-Para questões sobre este projeto:
-- Consultar `DEPLOYMENT.md` para deploy
-- Consultar `CONTENT_TODO.md` para conteúdo
-- Ver código fonte para implementação
+For questions or support, contact the development team.
 
 ---
 
-**Versão:** 1.0 (Fase 1)  
-**Última atualização:** {new Date().toLocaleDateString("pt-PT")}  
-**Status:** ✅ Produção Ready
-
+**© 2024 Bizin Portugal. All rights reserved.**

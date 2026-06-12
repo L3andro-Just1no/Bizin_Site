@@ -42,13 +42,15 @@ export function generateExcerpt(content: string, maxLength: number = 160): strin
   }
   
   // Cut at the last space before maxLength to avoid cutting words
-  const truncated = plainText.substring(0, maxLength);
+  let truncated = plainText.substring(0, maxLength);
   const lastSpace = truncated.lastIndexOf(' ');
   
-  if (lastSpace > 0) {
+  // If we find a space, cut there
+  if (lastSpace > maxLength * 0.7) { // Only use space if it's reasonably close to maxLength
     return truncated.substring(0, lastSpace) + '...';
   }
   
+  // Otherwise, just truncate at maxLength (for long words without spaces)
   return truncated + '...';
 }
 

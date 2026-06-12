@@ -70,7 +70,16 @@ export function CardDescription({
   ...props
 }: CardDescriptionProps) {
   return (
-    <p className={cn("text-gray-600 mt-2", className)} {...props}>
+    <p 
+      className={cn("text-gray-600 mt-2 break-words overflow-wrap-anywhere", className)} 
+      style={{ 
+        wordWrap: 'break-word',
+        overflowWrap: 'break-word',
+        wordBreak: 'break-word',
+        hyphens: 'auto'
+      }}
+      {...props}
+    >
       {children}
     </p>
   );

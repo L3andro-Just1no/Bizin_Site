@@ -27,10 +27,22 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
   const { t } = useI18n();
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
+  // Filter out unwanted categories and get only the 3 we want
+  const filteredCategories = useMemo(() => {
+    return categories.filter(cat => cat.slug !== 'fundos-europeus');
+  }, [categories]);
+
+  // Category slug to translation key mapping
+  const categoryTranslationMap: Record<string, string> = {
+    "incentivos": "blogPage.categories.incentives",
+    "consultoria": "blogPage.categories.consulting",
+    "guias": "blogPage.categories.guides",
+  };
+
   // Create category options including "all"
   const categoryOptions = useMemo(() => {
-    return ["all", ...categories.map((cat) => cat.slug)];
-  }, [categories]);
+    return ["all", ...filteredCategories.map((cat) => cat.slug)];
+  }, [filteredCategories]);
 
   // Filter posts by active category
   const filteredPosts = useMemo(() => {
@@ -53,14 +65,21 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
   return (
     <>
       {/* Hero Section with Background */}
-      <section className="relative py-32 bg-gradient-to-br from-[#1c2544] to-[#2a3558] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section 
+        className="relative py-32 text-white overflow-hidden"
+        style={{
+          background: 'linear-gradient(to bottom right, #1c2544, #2a3558)'
+        }}
+      >
+        <div className="absolute inset-0 pointer-events-none">
           <Image
             src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2340"
             alt="Background"
             fill
+            priority
             className="object-cover"
           />
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -80,10 +99,11 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
           <div className="flex flex-wrap gap-3 justify-center">
             {categoryOptions.map((category) => {
               const isActive = activeCategory === category;
-              const categoryData = categories.find((cat) => cat.slug === category);
               const displayName = category === "all" 
                 ? t("blogPage.categories.all")
-                : categoryData?.name || category;
+                : categoryTranslationMap[category] 
+                  ? t(categoryTranslationMap[category])
+                  : filteredCategories.find((cat) => cat.slug === category)?.name || category;
               
               return (
                 <button
@@ -134,10 +154,10 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                      {post.categories.length > 0 && (
+                      {post.categories.length > 0 && post.categories[0] !== 'fundos-europeus' && (
                         <div className="absolute top-4 left-4">
                           <span className="bg-[#87c76c] text-white px-4 py-2 rounded-full text-sm font-medium">
-                            {categories.find((cat) => cat.slug === post.categories[0])?.name ||
+                            {filteredCategories.find((cat) => cat.slug === post.categories[0])?.name ||
                               post.categories[0]}
                           </span>
                         </div>
@@ -151,8 +171,17 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
                       <CardTitle className="group-hover:text-[#87c76c] transition-colors mb-3">
                         {post.title}
                       </CardTitle>
-                      <CardDescription className="text-gray-600 leading-relaxed">
-                        {post.excerpt}
+                      <CardDescription 
+                        className="text-gray-600 leading-relaxed"
+                        style={{
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                        }}
+                      >
+                        {post.excerpt || post.content.substring(0, 150).replace(/<[^>]*>/g, '') + '...'}
                       </CardDescription>
                     </CardHeader>
                   </Card>

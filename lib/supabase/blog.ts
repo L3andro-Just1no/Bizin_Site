@@ -1,6 +1,9 @@
 import { supabase } from './client';
 import type { SimpleBlogPost, SimpleBlogCategory, BlogPostWithRelations } from './types';
 
+// Type the supabase client to avoid strict type checking issues
+const typedSupabase = supabase as any;
+
 /**
  * Transform database post to simplified format
  */
@@ -110,22 +113,29 @@ export async function getPostBySlug(slug: string): Promise<SimpleBlogPost | null
       .eq('status', 'published')
       .single();
 
-    if (error) throw error;
-    if (!data) return null;
+    if (error) {
+      throw error;
+    }
+
+    if (!data) {
+      return null;
+    }
+
+    const postData = data as any;
 
     // Increment view count (fire and forget)
-    supabase.rpc('increment_post_views', { post_slug: slug }).then(() => {});
+    typedSupabase.rpc('increment_post_views', { post_slug: slug }).then(() => {});
 
     // Get categories for this post
     const { data: categoryData } = await supabase
       .from('post_categories')
       .select('category_id, blog_categories(id, name, slug)')
-      .eq('post_id', data.id);
+      .eq('post_id', postData.id);
 
     const categories = categoryData?.map((pc: any) => pc.blog_categories).filter(Boolean) || [];
 
     return transformPost({
-      ...data,
+      ...postData,
       categories,
       tags: [],
     });
@@ -181,7 +191,7 @@ export async function getAllPostSlugs(): Promise<string[]> {
 
     if (error) throw error;
 
-    return (data || []).map(post => post.slug);
+    return (data || []).map((post: any) => post.slug);
   } catch (error) {
     console.error('Error fetching post slugs:', error);
     return [];
@@ -223,7 +233,7 @@ export async function getRelatedPosts(postId: string, limit: number = 3): Promis
       return getRecentPosts(limit);
     }
 
-    const categoryIds = postCategories.map(pc => pc.category_id);
+    const categoryIds = postCategories.map((pc: any) => pc.category_id);
 
     // Find posts with similar categories
     const { data: relatedPostIds, error: relError } = await supabase
@@ -239,7 +249,7 @@ export async function getRelatedPosts(postId: string, limit: number = 3): Promis
       return getRecentPosts(limit);
     }
 
-    const postIds = [...new Set(relatedPostIds.map(p => p.post_id))].slice(0, limit);
+    const postIds = Array.from(new Set(relatedPostIds.map((p: any) => p.post_id))).slice(0, limit);
 
     const { data, error } = await supabase
       .from('blog_posts')

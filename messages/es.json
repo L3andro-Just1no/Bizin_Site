@@ -13,15 +13,17 @@
   },
   "nav": {
     "services": "Servicios",
+    "products": "Productos",
     "aboutPortugal": "Sobre Portugal",
-    "aboutNeomarca": "Sobre Neomarca",
+    "aboutUs": "Sobre Nosotros",
+    "partners": "Socios",
     "blog": "Blog e Insights",
     "contacts": "Contactos"
   },
   "hero": {
     "title": "Portugal.",
     "subtitle": "Su Próximo Destino de Inversión y Carrera.",
-    "description": "Ofrecemos servicios personalizados, consultoría estratégica (Neomarca) y formación de excelencia (2 Siglas) para garantizar su éxito, ya sea invirtiendo, emprendiendo o desarrollando su carrera en Portugal",
+    "description": "Ofrecemos servicios personalizados, consultoría estratégica y formación de excelencia para garantizar su éxito, ya sea invirtiendo, emprendiendo o desarrollando su carrera en Portugal.",
     "ctaInvest": "Quiero Invertir en Portugal",
     "ctaTraining": "Quiero Formarme"
   },
@@ -32,16 +34,16 @@
     "investmentAdvisory": {
       "title": "Consultoría de Inversión",
       "description": "Obtenga consultoría especializada para lanzar y financiar su proyecto en Portugal. Apoyamos la toma de decisiones con análisis de mercado, benchmarking y apoyo en la elegibilidad para incentivos y fondos europeos, como Portugal 2030.",
-      "item1": "Consultoría para Inicio de Negocio y Estrategia Corporativa",
-      "item2": "Acceso a Fondos Nacionales y Europeos (Portugal 2030, PRR).",
-      "item3": "Apoyo a Incentivos Fiscales y Visas de Residencia (Golden Visa, Startup Visa)."
+      "item1": "Análisis de Mercado",
+      "item2": "Acceso a Incentivos a la Inversión",
+      "item3": "Seguimiento de Procesos"
     },
     "humanCapital": {
       "title": "Capital Humano",
       "description": "Invierta en las competencias adecuadas para el mercado portugués. Nuestra oferta de formación y capacitación está diseñada para profesionales y emprendedores que buscan reconversión, certificación nacional o actualización de conocimientos.",
-      "item1": "Formación Profesional Certificada e Infoproductos",
-      "item2": "Cursos y eBooks sobre Ambiente Fiscal y Oportunidades de Negocio.",
-      "item3": "Apoyo a la capacitación para el mercado laboral portugués"
+      "item1": "Formación y Cualificación Certificada | Online y Presencial",
+      "item2": "Apoyo a la capacitación para el mercado laboral portugués",
+      "item3": "Gestión de la Fuerza Laboral"
     }
   },
   "success": {
@@ -56,9 +58,42 @@
     "title2": "Empiece Ya.",
     "description": "Ya sea para iniciar un negocio, mudarse a Portugal o desarrollar nuevas habilidades, ofrecemos el apoyo completo que necesita. De la idea a la ejecución, estamos a su lado en cada etapa del viaje."
   },
+  "products": {
+    "sectionTitle": "Nuestros productos",
+    "investment": {
+      "title": "Consultoría de Inversión",
+      "description": "Programe una reunión con nuestros especialistas en fondos europeos e inversión en Portugal.",
+      "button": "Comprar y Reservar"
+    },
+    "training": {
+      "title": "Consultoría de Formación",
+      "description": "Reserve una consulta sobre programas de formación profesional y cualificación de equipos.",
+      "button": "Comprar y Reservar"
+    },
+    "aiDiagnostic": {
+      "title": "Diagnóstico Estratégico de IA",
+      "description": "Evalúe la madurez digital de su empresa e identifique oportunidades reales de aplicación de IA. Incluye análisis estructurado, mapeo de riesgos y plan de acción priorizado.",
+      "button": "Comprar y Reservar"
+    },
+    "webinarIncentivos": {
+      "tag": "Gratis",
+      "title": "Webinar | Incentivos a la Digitalización, Cualificación y Sostenibilidad",
+      "description": "Sesión en vídeo con Neomarca y Sisgarbe para empresarios y gestores del Algarve: oportunidades de financiación, criterios de elegibilidad, implementación tecnológica y casos de éxito.",
+      "button": "Acceder gratuitamente"
+    },
+    "webinarIA": {
+      "tag": "Gratis",
+      "title": "Webinar | El futuro de las empresas no es artificial, es inteligente",
+      "description": "Promovido por 2Siglas y EED, este webinar está dirigido a empresarios, gestores y equipos que desean integrar la IA en sus organizaciones de forma estructurada, estratégica y sostenible.",
+      "button": "Acceder gratuitamente"
+    }
+  },
   "articles": {
   "title": "Artículos, noticias y oportunidades",
   "description": "Manténgase al día sobre incentivos, legislación y tendencias del mercado.",
+  "incentivesDescription": "Información sobre incentivos fiscales, apoyo empresarial y oportunidades de financiación en Portugal.",
+  "consultingDescription": "Perspectivas estratégicas, orientación especializada y mejores prácticas para impulsar su negocio.",
+  "guidesDescription": "Guías prácticas y completas para navegar el ecosistema empresarial y legislativo portugués.",
   "eventsTitle": "Eventos y networking",
   "eventsDescription": "Participe en eventos exclusivos sobre fondos europeos, inversión y emprendimiento en Portugal.",
   "trainingTitle": "Formaciones y cursos",
@@ -108,12 +143,13 @@
     "intro": "¿Tiene dudas? Hemos recopilado las preguntas más frecuentes sobre invertir, emprender y trabajar en Portugal. Si no encuentra la respuesta, estamos aquí para ayudar.",
     "q1": "¿Cuánto tiempo se tarda en abrir una empresa en Portugal?",
     "a1": "El proceso varía entre 2 y 4 semanas, dependiendo del tipo de sociedad y documentación. Acompañamos todo el proceso, desde la elección de la estructura legal hasta el registro en la Autoridad Tributaria y Seguridad Social.",
-    "q2": "¿Necesito estar en Portugal para solicitar fondos europeos?",
+    "q2": "¿Necesito estar en Portugal para solicitar incentivos a la inversión?",
     "a2": "No necesariamente. Puede iniciar el proceso a distancia, pero la presencia en Portugal es recomendada para ciertas etapas, como la apertura de cuenta bancaria y firma de documentos. Orientamos sobre los momentos en que la presencia es obligatoria.",
-    "q3": "¿Qué visas existen para emprendedores e inversores?",
-    "a3": "Portugal ofrece la Golden Visa (inversión mínima), Startup Visa (para proyectos innovadores), D2 Visa (emprendedores) y D7 (ingresos pasivos). Cada una tiene requisitos específicos que evaluamos con usted.",
-    "q4": "¿Cómo sé si soy elegible para fondos de Portugal 2030?",
-    "a4": "La elegibilidad depende del sector, tamaño de la empresa, ubicación y tipo de proyecto. Hacemos un análisis gratuito de su situación e identificamos las mejores oportunidades de financiación disponibles."
+    "q3": "¿Qué sectores pueden beneficiarse de incentivos a la inversión?",
+    "a3": "Portugal ofrece incentivos para diversos sectores, incluyendo Turismo, Industria y Tecnología. Cada sector tiene programas específicos que evaluamos con usted para identificar las mejores oportunidades.",
+    "q4": "¿Cómo sé si soy elegible para incentivos de Portugal 2030?",
+    "a4": "La elegibilidad depende del sector, tamaño de la empresa, ubicación y tipo de proyecto. Hacemos un análisis gratuito de su situación e identificamos las mejores oportunidades de financiación disponibles.",
+    "aiCta": "¿No encontró respuesta? Hable con nuestra IA"
   },
   "contactPreview": {
     "title": "Contáctenos",
@@ -194,6 +230,17 @@
       "title": "Servicios documentales 2 Siglas",
       "description": "¿Necesita certificaciones, traducciones u otros servicios documentales? Visite nuestra plataforma especializada.",
       "button": "Explorar 2 Siglas →"
+    },
+    "training": {
+      "title": "Formación y Cualificación Profesional",
+      "description": "Apoyamos a empresas e individuos en el desarrollo de competencias técnicas y comportamentales, promoviendo la valorización del capital humano y el fortalecimiento del desempeño organizacional.",
+      "services": {
+        "item1": "Análisis de necesidades formativas",
+        "item2": "Desarrollo de itinerarios de formación certificados",
+        "item3": "Capacitación en competencias técnicas, soft skills y liderazgo",
+        "item4": "Apoyo a la gestión y cualificación de la fuerza laboral"
+      },
+      "button": "Saber más"
     },
     "cta": {
       "title": "¿Interesado en nuestros servicios?",
@@ -334,11 +381,12 @@
     },
     "categories": {
       "all": "Todos",
-      "funds": "Fondos europeos",
       "incentives": "Incentivos",
       "consulting": "Consultoría",
       "guides": "Guías"
     },
+    "noPosts": "No se encontraron artículos.",
+    "noPostsHint": "¡Vuelva pronto para ver nuevos contenidos!",
     "posts": {
       "post1": {
         "title": "Portugal 2030: oportunidades para pymes",
@@ -477,10 +525,11 @@
     "newsletterText": "Reciba las últimas noticias sobre fondos e incentivos",
     "emailPlaceholder": "Su email",
     "subscribe": "Suscribirse",
+    "termsAndConditions": "Términos y Condiciones",
     "privacyPolicy": "Política de Privacidad",
     "cookiePolicy": "Política de Cookies",
-    "termsOfService": "Términos de servicio",
-    "copyright": "© 2024 Neomarca. Todos los derechos reservados."
+    "complaintsBook": "Libro de Reclamaciones",
+    "copyright": "© 2026 Bizin Portugal. Todos los derechos reservados."
   }
 }
 

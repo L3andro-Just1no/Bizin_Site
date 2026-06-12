@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 import { I18nProvider } from "@/components/I18nProvider";
+import { BizinWidget } from "@/components/BizinWidget";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const roboto = Roboto({
@@ -20,29 +21,29 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Neomarca - Apoio a Fundos e Incentivos Europeus",
+  title: "Bizin Portugal - Apoio a Incentivos ao Investimento",
   description:
-    "A Neomarca apoia empresas e empreendedores no acesso a fundos, incentivos e programas europeus.",
-  keywords: "fundos europeus, incentivos, apoio empresarial, Portugal, Neomarca",
-  authors: [{ name: "Neomarca" }],
+    "A Bizin Portugal apoia empresas e empreendedores no acesso a incentivos ao investimento e programas europeus.",
+  keywords: "incentivos ao investimento, apoio empresarial, Portugal, Bizin Portugal",
+  authors: [{ name: "Bizin Portugal" }],
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
-    title: "Neomarca - Apoio a Fundos e Incentivos Europeus",
+    title: "Bizin Portugal - Apoio a Incentivos ao Investimento",
     description:
-      "A Neomarca apoia empresas e empreendedores no acesso a fundos, incentivos e programas europeus.",
+      "A Bizin Portugal apoia empresas e empreendedores no acesso a incentivos ao investimento e programas europeus.",
     type: "website",
     locale: "pt_PT",
-    siteName: "Neomarca",
+    siteName: "Bizin Portugal",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Neomarca - Apoio a Fundos e Incentivos Europeus",
+    title: "Bizin Portugal - Apoio a Incentivos ao Investimento",
     description:
-      "A Neomarca apoia empresas e empreendedores no acesso a fundos, incentivos e programas europeus.",
+      "A Bizin Portugal apoia empresas e empreendedores no acesso a incentivos ao investimento e programas europeus.",
   },
   metadataBase: new URL("https://neomarca.pt"),
 };
@@ -64,6 +65,7 @@ export default function RootLayout({
           <Footer />
           <CookieBanner />
           <AnalyticsProvider />
+          <BizinWidget />
         </I18nProvider>
       </body>
     </html>

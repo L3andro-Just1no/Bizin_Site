@@ -165,7 +165,6 @@ CREATE POLICY "Authenticated users can manage post tags"
 
 -- Insert default categories
 INSERT INTO blog_categories (name, slug, description) VALUES
-  ('Fundos Europeus', 'fundos-europeus', 'Artigos sobre fundos europeus e financiamento'),
   ('Incentivos', 'incentivos', 'Informação sobre incentivos fiscais e apoios'),
   ('Consultoria', 'consultoria', 'Serviços de consultoria e apoio empresarial'),
   ('Guias', 'guias', 'Guias práticos para empresas')

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -9,9 +9,11 @@ import { useI18n } from "@/components/I18nProvider";
 
 const NAV_ITEMS = [
   { href: "/", labelKey: "common.home" },
-  { href: "/servicos", labelKey: "nav.services" },
-  { href: "/sobre-neomarca", labelKey: "nav.aboutNeomarca" },
   { href: "/sobre-portugal", labelKey: "nav.aboutPortugal" },
+  { href: "/sobre-nos", labelKey: "nav.aboutUs" },
+  { href: "/#booking-section", labelKey: "nav.products" },
+  { href: "/parceiros", labelKey: "nav.partners", hidden: true },
+  { href: "/servicos", labelKey: "nav.services" },
   { href: "/blog", labelKey: "nav.blog" },
   { href: "/contactos", labelKey: "nav.contacts" },
 ];
@@ -95,6 +97,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -110,14 +114,31 @@ export function Header() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Close language dropdown when clicking outside
+  // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleClick = () => {
-      // This will be handled by the LanguageSelector component
+    if (!isMobileMenuOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuRef.current &&
+        hamburgerButtonRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        !hamburgerButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
     };
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
-  }, []);
+
+    // Use setTimeout to avoid race condition with the button click
+    const timeoutId = setTimeout(() => {
+      document.addEventListener("mousedown", handleClickOutside);
+    }, 0);
+
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <header
@@ -143,21 +164,25 @@ export function Header() {
           {/* Desktop Navigation & Language - Right Side */}
           <div className="hidden xl:flex items-center gap-4 2xl:gap-6">
             <nav className="flex items-center gap-4 2xl:gap-6">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "text-[14px] 2xl:text-[16px] font-normal uppercase transition-colors tracking-[-0.14px]",
-                    pathname === item.href
-                      ? "text-[#1c2544] font-medium"
-                      : "text-[#1c2544] hover:text-[#1c2544]/80"
-                  )}
-                  style={{ fontVariationSettings: "'wdth' 100" }}
-                >
-                  {t(item.labelKey)}
-                </Link>
-              ))}
+              {NAV_ITEMS.filter((item) => !item.hidden).map((item) => {
+                const isActive = pathname === item.href;
+                
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "text-[14px] 2xl:text-[16px] font-normal uppercase transition-colors tracking-[-0.14px]",
+                      isActive
+                        ? "text-[#1c2544] font-medium"
+                        : "text-[#1c2544] hover:text-[#1c2544]/80"
+                    )}
+                    style={{ fontVariationSettings: "'wdth' 100" }}
+                  >
+                    {t(item.labelKey)}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Vertical Separator */}
@@ -169,8 +194,12 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
+            ref={hamburgerButtonRef}
             className="xl:hidden p-2 text-[#1c2544]"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
             aria-label="Toggle menu"
           >
             <svg
@@ -200,22 +229,29 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="xl:hidden mt-6 pb-4 border-t border-gray-200 pt-4">
+          <div 
+            ref={mobileMenuRef}
+            className="xl:hidden mt-6 pb-4 border-t border-gray-200 pt-4"
+          >
             <nav className="flex flex-col space-y-4">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "text-base font-normal uppercase transition-colors",
-                    pathname === item.href
-                      ? "text-[#1c2544] font-medium"
-                      : "text-[#1c2544]/70"
-                  )}
-                >
-                  {t(item.labelKey)}
-                </Link>
-              ))}
+              {NAV_ITEMS.filter((item) => !item.hidden).map((item) => {
+                const isActive = pathname === item.href;
+                
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "text-base font-normal uppercase transition-colors",
+                      isActive
+                        ? "text-[#1c2544] font-medium"
+                        : "text-[#1c2544]/70"
+                    )}
+                  >
+                    {t(item.labelKey)}
+                  </Link>
+                );
+              })}
               <div className="pt-4 border-t border-gray-200">
                 <LanguageSelector />
               </div>
