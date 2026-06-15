@@ -33,6 +33,19 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      // CMS cover images
+      {
+        protocol: 'https',
+        hostname: 'lltufugrmmzdagqypscg.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 }
