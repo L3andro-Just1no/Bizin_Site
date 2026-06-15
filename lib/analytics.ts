@@ -2,7 +2,8 @@
 
 // Google Analytics configuration
 
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
+export const GA_TRACKING_ID =
+  process.env.NEXT_PUBLIC_GA_ID ?? "G-4171SGTLDX";
 
 // Check if analytics is enabled
 export const isAnalyticsEnabled = () => {
@@ -20,25 +21,10 @@ export const hasConsent = () => {
   }
 };
 
-// Initialize Google Analytics
+// Initialize Google Analytics (loads after cookie consent via GoogleAnalytics component)
 export const initGA = () => {
-  if (!isAnalyticsEnabled() || !hasConsent()) return;
-
-  // Load gtag.js script
-  const script = document.createElement("script");
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
-  script.async = true;
-  document.head.appendChild(script);
-
-  // Initialize dataLayer
-  window.dataLayer = window.dataLayer || [];
-  function gtag(...args: any[]) {
-    window.dataLayer.push(args);
-  }
-  gtag("js", new Date());
-  gtag("config", GA_TRACKING_ID, {
-    page_path: window.location.pathname,
-  });
+  if (typeof window === "undefined" || !hasConsent()) return;
+  window.dispatchEvent(new Event("cookie-consent-changed"));
 };
 
 // Track page views

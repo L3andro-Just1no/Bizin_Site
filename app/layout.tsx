@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { AnalyticsProvider } from "@/components/AnalyticsProvider";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { I18nProvider } from "@/components/I18nProvider";
 import { BizinWidget } from "@/components/BizinWidget";
 
@@ -64,6 +65,7 @@ export default function RootLayout({
           <main className="pt-[110px]">{children}</main>
           <Footer />
           <CookieBanner />
+          <GoogleAnalytics />
           <AnalyticsProvider />
           <BizinWidget />
         </I18nProvider>
