@@ -11,6 +11,16 @@ export type CmsPostListTranslation = {
   title: string;
   excerpt: string;
   seoTitle: string | null;
+  author?: CmsAuthor | null;
+};
+
+export type CmsPostTranslation = {
+  title: string;
+  excerpt: string;
+  content: string;
+  seoTitle: string | null;
+  seoDescription: string | null;
+  author?: CmsAuthor | null;
 };
 
 export type CmsPostListItem = {
@@ -35,16 +45,7 @@ export type CmsPost = CmsPostListItem & {
   canonicalUrl: string | null;
   ogImageUrl: string | null;
   structuredData: unknown;
-  translations: Record<
-    string,
-    {
-      title: string;
-      excerpt: string;
-      content: string;
-      seoTitle: string | null;
-      seoDescription: string | null;
-    }
-  >;
+  translations: Record<string, CmsPostTranslation>;
 };
 
 export type CmsPostsResponse = {

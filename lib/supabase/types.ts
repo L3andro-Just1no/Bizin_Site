@@ -186,6 +186,13 @@ export interface BlogPostWithRelations extends BlogPost {
   }>;
 }
 
+export interface SimpleBlogAuthor {
+  name: string;
+  jobTitle: string | null;
+  bio: string | null;
+  avatarUrl: string | null;
+}
+
 // Simplified types for frontend use
 export interface SimpleBlogPost {
   id: string;
@@ -195,6 +202,7 @@ export interface SimpleBlogPost {
   content: string;
   date: string;
   author: string;
+  authorProfile: SimpleBlogAuthor | null;
   featuredImage: {
     url: string;
     alt: string;

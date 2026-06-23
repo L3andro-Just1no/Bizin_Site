@@ -5,8 +5,26 @@ import {
   fetchCmsPostBySlug,
   fetchCmsSitemap,
 } from "@/lib/cms/client";
-import type { CmsPost, CmsPostListItem } from "@/lib/cms/types";
-import type { SimpleBlogCategory, SimpleBlogPost } from "@/lib/supabase/types";
+import type { CmsAuthor, CmsPost, CmsPostListItem } from "@/lib/cms/types";
+import type { SimpleBlogAuthor, SimpleBlogCategory, SimpleBlogPost } from "@/lib/supabase/types";
+
+function pickAuthor(post: CmsPostListItem | CmsPost, locale: string): CmsAuthor | null {
+  const translation = post.translations[locale];
+  return translation?.author ?? post.author ?? null;
+}
+
+function toAuthorProfile(author: CmsAuthor | null): SimpleBlogAuthor | null {
+  if (!author?.name) {
+    return null;
+  }
+
+  return {
+    name: author.name,
+    jobTitle: author.jobTitle,
+    bio: author.bio,
+    avatarUrl: author.avatarUrl,
+  };
+}
 
 function pickLocalizedFields(
   post: CmsPostListItem | CmsPost,
@@ -28,6 +46,7 @@ function pickLocalizedFields(
 
 async function mapListItem(post: CmsPostListItem, locale: string): Promise<SimpleBlogPost> {
   const localized = pickLocalizedFields(post, locale);
+  const author = pickAuthor(post, locale);
 
   return {
     id: post.id,
@@ -36,7 +55,8 @@ async function mapListItem(post: CmsPostListItem, locale: string): Promise<Simpl
     excerpt: localized.excerpt,
     content: "",
     date: post.publishedAt || post.updatedAt,
-    author: post.author?.name || "Bizin Portugal",
+    author: author?.name || "Bizin Portugal",
+    authorProfile: toAuthorProfile(author),
     featuredImage: post.coverImageUrl
       ? {
           url: post.coverImageUrl,
@@ -55,6 +75,7 @@ async function mapPost(post: CmsPost, locale: string): Promise<SimpleBlogPost> {
   const translation = post.translations[locale];
   const rawContent = translation?.content || post.content;
   const htmlContent = await renderBlogContent(rawContent, localized.title);
+  const author = pickAuthor(post, locale);
 
   return {
     id: post.id,
@@ -63,7 +84,8 @@ async function mapPost(post: CmsPost, locale: string): Promise<SimpleBlogPost> {
     excerpt: localized.excerpt,
     content: htmlContent,
     date: post.publishedAt || post.updatedAt,
-    author: post.author?.name || "Bizin Portugal",
+    author: author?.name || "Bizin Portugal",
+    authorProfile: toAuthorProfile(author),
     featuredImage: post.coverImageUrl
       ? {
           url: post.coverImageUrl,

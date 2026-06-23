@@ -7,6 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
 import { BlogPostContent } from "@/components/BlogPostContent";
+import { BlogAuthorBlock } from "@/components/BlogAuthorBlock";
 
 // Enable ISR - revalidate every 60 seconds
 export const revalidate = 60;
@@ -338,6 +339,8 @@ export default async function BlogPostPage({
 
               {/* Post Content */}
               <BlogPostContent content={post.content} />
+
+              {post.authorProfile && <BlogAuthorBlock author={post.authorProfile} />}
 
               {/* Categories/Tags */}
               {(post.categories.length > 0 || post.tags.length > 0) && (
