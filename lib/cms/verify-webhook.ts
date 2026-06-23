@@ -1,6 +1,8 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 
-import { getCmsConfig } from "@/lib/cms/config";
+function getWebhookSecret(): string | undefined {
+  return process.env.CMS_WEBHOOK_SECRET?.trim() || undefined;
+}
 
 const MAX_TIMESTAMP_SKEW_MS = 5 * 60 * 1000;
 
@@ -41,7 +43,7 @@ export function verifyCmsWebhookRequest(
   headers: Headers,
   rawBody: string,
 ): { ok: true } | { ok: false; reason: string } {
-  const secret = getCmsConfig()?.webhookSecret;
+  const secret = getWebhookSecret();
 
   if (!secret) {
     return { ok: false, reason: "CMS_WEBHOOK_SECRET is not configured" };

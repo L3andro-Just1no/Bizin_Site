@@ -27,6 +27,9 @@ export async function POST(request: Request) {
   const verification = verifyCmsWebhookRequest(request.headers, rawBody);
 
   if (!verification.ok) {
+    if (verification.reason === "CMS_WEBHOOK_SECRET is not configured") {
+      return Response.json({ error: verification.reason }, { status: 500 });
+    }
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
 
