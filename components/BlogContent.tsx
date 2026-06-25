@@ -109,6 +109,7 @@ export function BlogContent({ posts = [], categories = [] }: BlogContentProps) {
                 <button
                   key={category}
                   type="button"
+                  aria-pressed={isActive}
                   onClick={() => setActiveCategory(category)}
                   className={`px-6 py-3 rounded-full border-2 font-medium shadow-sm transition-all hover:shadow-md ${
                     isActive

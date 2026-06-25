@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Inter, Roboto, Manrope } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -7,18 +8,28 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { I18nProvider } from "@/components/I18nProvider";
-import { BizinWidget } from "@/components/BizinWidget";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const BizinWidget = dynamic(
+  () => import("@/components/BizinWidget").then((mod) => mod.BizinWidget),
+  { ssr: false },
+);
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+  weight: ["400", "700"],
   variable: "--font-roboto",
+  display: "swap",
 });
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-manrope",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -46,7 +57,7 @@ export const metadata: Metadata = {
     description:
       "A Bizin Portugal apoia empresas e empreendedores no acesso a incentivos ao investimento e programas europeus.",
   },
-  metadataBase: new URL("https://neomarca.pt"),
+  metadataBase: new URL("https://bizin.pt"),
 };
 
 export default function RootLayout({

@@ -41,7 +41,11 @@ function LanguageSelector() {
   return (
     <div className="relative">
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={`Selecionar idioma, atual: ${currentLang}`}
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
         className="flex items-center gap-1.5 text-[14px] 2xl:text-[16px] text-[rgba(28,37,68,0.7)] uppercase hover:text-[#1c2544] transition-colors"
       >
         {/* Globe Icon */}
@@ -71,10 +75,13 @@ function LanguageSelector() {
             className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute left-0 top-full mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+          <div className="absolute left-0 top-full mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50" role="listbox" aria-label="Idiomas disponíveis">
             {languages.map((lang) => (
               <button
+                type="button"
                 key={lang.code}
+                role="option"
+                aria-selected={locale === lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
                 className={cn(
                   "w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors",
@@ -163,7 +170,7 @@ export function Header() {
 
           {/* Desktop Navigation & Language - Right Side */}
           <div className="hidden xl:flex items-center gap-4 2xl:gap-6">
-            <nav className="flex items-center gap-4 2xl:gap-6">
+            <nav className="flex items-center gap-4 2xl:gap-6" aria-label="Navegação principal">
               {NAV_ITEMS.filter((item) => !item.hidden).map((item) => {
                 const isActive = pathname === item.href;
                 
@@ -195,12 +202,15 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             ref={hamburgerButtonRef}
+            type="button"
             className="xl:hidden p-2 text-[#1c2544]"
             onClick={(e) => {
               e.stopPropagation();
               setIsMobileMenuOpen(!isMobileMenuOpen);
             }}
-            aria-label="Toggle menu"
+            aria-label="Abrir menu de navegação"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             <svg
               className="w-6 h-6"
@@ -231,9 +241,10 @@ export function Header() {
         {isMobileMenuOpen && (
           <div 
             ref={mobileMenuRef}
+            id="mobile-navigation"
             className="xl:hidden mt-6 pb-4 border-t border-gray-200 pt-4"
           >
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-4" aria-label="Navegação principal">
               {NAV_ITEMS.filter((item) => !item.hidden).map((item) => {
                 const isActive = pathname === item.href;
                 

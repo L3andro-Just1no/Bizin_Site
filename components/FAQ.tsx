@@ -45,13 +45,19 @@ export function FAQ() {
     <div className="space-y-4">
       {faqData.map((faq, i) => {
         const isOpen = openIndex === i;
+        const panelId = `faq-panel-${i}`;
+        const buttonId = `faq-button-${i}`;
+
         return (
-          <div
-            key={i}
-            className="bg-[#f3f9f0] rounded-2xl p-6 cursor-pointer hover:bg-[#e8f0e0] transition-colors"
-            onClick={() => toggleFAQ(i)}
-          >
-            <div className="flex justify-between items-start gap-4">
+          <div key={i} className="bg-[#f3f9f0] rounded-2xl p-6 hover:bg-[#e8f0e0] transition-colors">
+            <button
+              type="button"
+              id={buttonId}
+              className="flex w-full justify-between items-start gap-4 text-left"
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              onClick={() => toggleFAQ(i)}
+            >
               <h3 className="text-lg font-medium text-gray-700 flex-1">{faq.q}</h3>
               <svg
                 className={`w-6 h-6 text-gray-400 flex-shrink-0 transition-transform duration-300 ${
@@ -60,6 +66,7 @@ export function FAQ() {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -68,8 +75,11 @@ export function FAQ() {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-            </div>
+            </button>
             <div
+              id={panelId}
+              role="region"
+              aria-labelledby={buttonId}
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
                 isOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
               }`}
@@ -82,10 +92,11 @@ export function FAQ() {
       
       {/* AI Assistant CTA Button */}
       <div className="pt-12 mt-8 text-center">
-        <Button 
-          variant="primary" 
-          size="lg" 
+        <Button
+          variant="primary"
+          size="lg"
           onClick={openAIChat}
+          aria-label={t("faq.aiCta")}
           className="px-8 py-6 rounded-2xl"
         >
           {t("faq.aiCta")}

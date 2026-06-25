@@ -46,7 +46,6 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   // Update HTML lang attribute when locale changes
   useEffect(() => {
     document.documentElement.lang = locale;
-    console.log('🌐 I18nProvider: Language changed to', locale);
   }, [locale]);
 
   const t = useCallback(
